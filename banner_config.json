@@ -2,9 +2,9 @@
   "vietnam": {
     "web": [],
     "mobile": [
-      "/tg_img/media_vn/4",
-      "/tg_img/media_vn/7",
-      "/tg_img/media_vn/8"
+      "/static/images/banners/media_vn_4.jpg",
+      "/static/images/banners/media_vn_7.jpg",
+      "/static/images/banners/media_vn_8.jpg"
     ]
   },
   "thailand": {
