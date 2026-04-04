@@ -1,14 +1,3 @@
-{
-  "restaurants": [],
-  "tours": [],
-  "entertainment": [],
-  "transport": [],
-  "real_estate": [],
-  "exchange": [],
-  "kids": [],
-  "visas": [],
-  "marketplace": [],
-  "photoshoots": [],
-  "medicine": [],
-  "chat": []
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:ab4e5d7861a701907da650f86022f124a446cd03d44ba5164c76d7691ba1d16b
+size 222
