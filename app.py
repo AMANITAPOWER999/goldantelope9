@@ -1805,44 +1805,6 @@ def handle_banner_channel_delete(msg_id):
         _update_banner_config_from_data(data)
         logger.info(f'[banner_sync] Баннер удалён: msg_id={msg_id}')
 
-_BANNER_STATIC_DIR = os.path.join('static', 'images', 'banners')
-
-def _download_banner_photo(mid):
-    """Скачивает фото баннера из @media_vn и сохраняет как статический файл."""
-    fname = f'media_vn_{mid}.jpg'
-    fpath = os.path.join(_BANNER_STATIC_DIR, fname)
-    if os.path.exists(fpath) and os.path.getsize(fpath) > 0:
-        return f'/static/images/banners/{fname}'
-    try:
-        og_headers = {'User-Agent': 'TelegramBot (like TwitterBot)'}
-        og_resp = requests.get(f'https://t.me/{_BANNER_TG_GROUP}/{mid}', headers=og_headers, timeout=10)
-        if og_resp.status_code == 200:
-            import re as _re
-            img_m = _re.search(r'<meta property="og:image" content="([^"]+)"', og_resp.text)
-            if img_m:
-                cdn_url = img_m.group(1)
-                cdn_resp = requests.get(cdn_url, timeout=15)
-                if cdn_resp.status_code == 200 and cdn_resp.content:
-                    os.makedirs(_BANNER_STATIC_DIR, exist_ok=True)
-                    tmp = fpath + '.tmp'
-                    with open(tmp, 'wb') as f:
-                        f.write(cdn_resp.content)
-                    os.replace(tmp, fpath)
-                    logger.info(f'[banner_sync] Фото скачано: {fname} ({len(cdn_resp.content)} bytes)')
-                    return f'/static/images/banners/{fname}'
-    except Exception as e:
-        logger.warning(f'[banner_sync] Ошибка скачивания фото {mid}: {e}')
-    disk_cache = os.path.join(_TG_DISK_CACHE_DIR, f'{_BANNER_TG_GROUP}_{mid}.jpg')
-    if os.path.exists(disk_cache) and os.path.getsize(disk_cache) > 0:
-        try:
-            import shutil
-            os.makedirs(_BANNER_STATIC_DIR, exist_ok=True)
-            shutil.copy2(disk_cache, fpath)
-            return f'/static/images/banners/{fname}'
-        except Exception:
-            pass
-    return None
-
 def _update_banner_config_from_data(data):
     if not data:
         config = load_banner_config()
@@ -1850,17 +1812,13 @@ def _update_banner_config_from_data(data):
         save_banner_config(config)
         return
     sorted_ids = sorted(data.keys(), key=lambda x: int(x))
-    new_banners = []
-    for mid in sorted_ids:
-        static_path = _download_banner_photo(mid)
-        if static_path:
-            new_banners.append(static_path)
+    new_banners = [f'/tg_img/{_BANNER_TG_GROUP}/{mid}' for mid in sorted_ids]
     config = load_banner_config()
     old_mobile = config.get('vietnam', {}).get('mobile', [])
     if new_banners != old_mobile:
         config['vietnam']['mobile'] = new_banners
         save_banner_config(config)
-        logger.info(f'[banner_sync] Обновлено: {len(new_banners)} баннеров (статические файлы)')
+        logger.info(f'[banner_sync] Обновлено: {len(new_banners)} баннеров')
 
 def _load_banner_file_ids_to_cache():
     import time as _t
