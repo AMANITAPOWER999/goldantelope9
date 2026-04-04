@@ -1812,7 +1812,14 @@ def _update_banner_config_from_data(data):
         save_banner_config(config)
         return
     sorted_ids = sorted(data.keys(), key=lambda x: int(x))
-    new_banners = [f'/tg_img/{_BANNER_TG_GROUP}/{mid}' for mid in sorted_ids]
+    new_banners = []
+    for mid in sorted_ids:
+        info = data[mid]
+        cdn_url = info.get('cdn_url', '')
+        if cdn_url:
+            new_banners.append(cdn_url)
+        else:
+            new_banners.append(f'/tg_img/{_BANNER_TG_GROUP}/{mid}')
     config = load_banner_config()
     old_mobile = config.get('vietnam', {}).get('mobile', [])
     if new_banners != old_mobile:
@@ -1841,40 +1848,36 @@ def _load_banner_file_ids_to_cache():
         _update_banner_config_from_data(data)
 
 def _prewarm_banner_cache(data):
-    """Прогрев кеша: скачивает фото баннеров в tg_photo_cache при старте."""
+    """Получает CDN URL для баннеров без прямой ссылки через og:image и обновляет данные."""
     import time as _t
     channel = _BANNER_TG_GROUP
-    os.makedirs(_TG_DISK_CACHE_DIR, exist_ok=True)
-    warmed = 0
-    for mid_str in data:
-        mid = int(mid_str)
-        safe_ch = re.sub(r'[^a-zA-Z0-9_]', '', channel)
-        disk_path = os.path.join(_TG_DISK_CACHE_DIR, f'{safe_ch}_{mid}.jpg')
-        if os.path.exists(disk_path) and os.path.getsize(disk_path) > 0:
+    resolved = 0
+    changed = False
+    for mid_str in list(data.keys()):
+        info = data[mid_str]
+        if info.get('cdn_url', ''):
             continue
+        mid = int(mid_str)
         try:
             og_headers = {'User-Agent': 'TelegramBot (like TwitterBot)'}
             og_resp = requests.get(f'https://t.me/{channel}/{mid}', headers=og_headers, timeout=10)
             if og_resp.status_code == 200:
                 img_m = re.search(r'<meta property="og:image" content="([^"]+)"', og_resp.text)
                 if img_m:
-                    cdn_url = img_m.group(1)
-                    cdn_resp = requests.get(cdn_url, timeout=15)
-                    if cdn_resp.status_code == 200 and cdn_resp.content:
-                        tmp = disk_path + '.tmp'
-                        with open(tmp, 'wb') as f:
-                            f.write(cdn_resp.content)
-                        os.replace(tmp, disk_path)
-                        warmed += 1
-                        logger.info(f'[banner_prewarm] Cached {channel}/{mid} ({len(cdn_resp.content)} bytes)')
+                    data[mid_str]['cdn_url'] = img_m.group(1)
+                    resolved += 1
+                    changed = True
+                    logger.info(f'[banner_prewarm] Resolved CDN URL for {channel}/{mid}')
             _t.sleep(0.5)
         except Exception as e:
-            logger.warning(f'[banner_prewarm] Error {channel}/{mid}: {e}')
-    if warmed:
-        logger.info(f'[banner_prewarm] Прогрето {warmed} баннеров в кеш')
+            logger.warning(f'[banner_prewarm] Error resolving {channel}/{mid}: {e}')
+    if changed:
+        _save_banner_data(data)
+        _update_banner_config_from_data(data)
+        logger.info(f'[banner_prewarm] Resolved {resolved} CDN URLs')
 
 def _sync_media_vn_banners():
-    """При старте скрейпит t.me/s/media_vn и добавляет все посты с фото в banner_data.json."""
+    """При старте скрейпит t.me/s/media_vn и добавляет все посты с фото (включая прямые URL) в banner_data.json."""
     import time as _t
     _t.sleep(5)
     try:
@@ -1884,6 +1887,7 @@ def _sync_media_vn_banners():
         headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
         data = _load_banner_data()
         added = 0
+        updated_urls = 0
         before = None
         max_pages = 20
         for _page in range(max_pages):
@@ -1904,15 +1908,26 @@ def _sync_media_vn_banners():
                         mid = int(data_post.split('/')[-1])
                     except ValueError:
                         continue
-                    has_photo = bool(
-                        msg_div.select('.tgme_widget_message_photo_wrap') or
-                        msg_div.select('.tgme_widget_message_photo') or
-                        msg_div.select('a.tgme_widget_message_photo_wrap')
-                    )
+                    cdn_url = ''
+                    photo_wraps = msg_div.select('.tgme_widget_message_photo_wrap')
+                    if not photo_wraps:
+                        photo_wraps = msg_div.select('a.tgme_widget_message_photo_wrap')
+                    for pw in photo_wraps:
+                        style = pw.get('style', '')
+                        m = re.search(r"background-image:\s*url\('([^']+)'\)", style)
+                        if m:
+                            cdn_url = m.group(1)
+                            break
+                    has_photo = bool(photo_wraps)
                     ids_on_page.append(mid)
-                    if has_photo and str(mid) not in data:
-                        data[str(mid)] = {'file_id': '', 'ts': mid}
-                        added += 1
+                    if has_photo:
+                        mid_str = str(mid)
+                        if mid_str not in data:
+                            data[mid_str] = {'file_id': '', 'ts': mid, 'cdn_url': cdn_url}
+                            added += 1
+                        elif cdn_url and data[mid_str].get('cdn_url', '') != cdn_url:
+                            data[mid_str]['cdn_url'] = cdn_url
+                            updated_urls += 1
                 if not ids_on_page:
                     break
                 before = min(ids_on_page)
@@ -1922,14 +1937,11 @@ def _sync_media_vn_banners():
             except Exception as e:
                 logger.warning(f'[banner_sync] Ошибка скрейпинга страницы: {e}')
                 break
-        if added > 0:
+        if added > 0 or updated_urls > 0:
             _save_banner_data(data)
         _update_banner_config_from_data(data)
         _prewarm_banner_cache(data)
-        if added > 0:
-            logger.info(f'[banner_sync] Синк @{channel}: добавлено {added} новых баннеров, всего {len(data)}')
-        else:
-            logger.info(f'[banner_sync] Синк @{channel}: новых постов нет, всего {len(data)} баннеров')
+        logger.info(f'[banner_sync] Синк @{channel}: +{added} новых, {updated_urls} URL обновлено, всего {len(data)}')
     except Exception as e:
         logger.error(f'[banner_sync] Ошибка синка: {e}')
 
