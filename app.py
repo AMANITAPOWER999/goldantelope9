@@ -1840,6 +1840,39 @@ def _load_banner_file_ids_to_cache():
     else:
         _update_banner_config_from_data(data)
 
+def _prewarm_banner_cache(data):
+    """Прогрев кеша: скачивает фото баннеров в tg_photo_cache при старте."""
+    import time as _t
+    channel = _BANNER_TG_GROUP
+    os.makedirs(_TG_DISK_CACHE_DIR, exist_ok=True)
+    warmed = 0
+    for mid_str in data:
+        mid = int(mid_str)
+        safe_ch = re.sub(r'[^a-zA-Z0-9_]', '', channel)
+        disk_path = os.path.join(_TG_DISK_CACHE_DIR, f'{safe_ch}_{mid}.jpg')
+        if os.path.exists(disk_path) and os.path.getsize(disk_path) > 0:
+            continue
+        try:
+            og_headers = {'User-Agent': 'TelegramBot (like TwitterBot)'}
+            og_resp = requests.get(f'https://t.me/{channel}/{mid}', headers=og_headers, timeout=10)
+            if og_resp.status_code == 200:
+                img_m = re.search(r'<meta property="og:image" content="([^"]+)"', og_resp.text)
+                if img_m:
+                    cdn_url = img_m.group(1)
+                    cdn_resp = requests.get(cdn_url, timeout=15)
+                    if cdn_resp.status_code == 200 and cdn_resp.content:
+                        tmp = disk_path + '.tmp'
+                        with open(tmp, 'wb') as f:
+                            f.write(cdn_resp.content)
+                        os.replace(tmp, disk_path)
+                        warmed += 1
+                        logger.info(f'[banner_prewarm] Cached {channel}/{mid} ({len(cdn_resp.content)} bytes)')
+            _t.sleep(0.5)
+        except Exception as e:
+            logger.warning(f'[banner_prewarm] Error {channel}/{mid}: {e}')
+    if warmed:
+        logger.info(f'[banner_prewarm] Прогрето {warmed} баннеров в кеш')
+
 def _sync_media_vn_banners():
     """При старте скрейпит t.me/s/media_vn и добавляет все посты с фото в banner_data.json."""
     import time as _t
@@ -1852,7 +1885,7 @@ def _sync_media_vn_banners():
         data = _load_banner_data()
         added = 0
         before = None
-        max_pages = 20  # не более 20 страниц (~400 постов)
+        max_pages = 20
         for _page in range(max_pages):
             params = {}
             if before:
@@ -1891,10 +1924,11 @@ def _sync_media_vn_banners():
                 break
         if added > 0:
             _save_banner_data(data)
-            _update_banner_config_from_data(data)
+        _update_banner_config_from_data(data)
+        _prewarm_banner_cache(data)
+        if added > 0:
             logger.info(f'[banner_sync] Синк @{channel}: добавлено {added} новых баннеров, всего {len(data)}')
         else:
-            _update_banner_config_from_data(data)
             logger.info(f'[banner_sync] Синк @{channel}: новых постов нет, всего {len(data)} баннеров')
     except Exception as e:
         logger.error(f'[banner_sync] Ошибка синка: {e}')
