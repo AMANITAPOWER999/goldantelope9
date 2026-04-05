@@ -2061,6 +2061,36 @@ def check_admin_password(password, country=None):
             return True, c
     return False, None
 
+@app.route('/api/delivery-order', methods=['POST'])
+def delivery_order():
+    data = request.json or {}
+    tg = data.get('telegram', '').strip()
+    amount = data.get('amount', '').strip()
+    city = data.get('city', '').strip()
+    address = data.get('address', '').strip()
+    if not tg or not amount or not city or not address:
+        return jsonify(ok=False, error='Заполните все поля')
+    bot_token = os.environ.get('TELEGRAM_BOT_TOKEN', '')
+    admin_chat = os.environ.get('DELIVERY_ADMIN_CHAT', '')
+    msg_text = (
+        f"💸 Заявка на доставку наличных\n\n"
+        f"👤 Telegram: {tg}\n"
+        f"💰 Сумма: {amount}\n"
+        f"🏙 Город: {city}\n"
+        f"📍 Адрес: {address}"
+    )
+    if bot_token and admin_chat:
+        try:
+            requests.post(
+                f'https://api.telegram.org/bot{bot_token}/sendMessage',
+                json={'chat_id': admin_chat, 'text': msg_text, 'parse_mode': 'HTML'},
+                timeout=10
+            )
+        except Exception as ex:
+            logger.warning(f'Delivery TG notify failed: {ex}')
+    logger.info(f'[delivery] {tg} | {amount} | {city} | {address}')
+    return jsonify(ok=True)
+
 @app.route('/api/admin/auth', methods=['POST'])
 def admin_auth():
     password = request.json.get('password', '')

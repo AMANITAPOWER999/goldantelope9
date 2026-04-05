@@ -529,6 +529,20 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
+        @keyframes slideUp {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        #delivery-btn-wrap button:hover {
+            background: rgba(212,175,55,0.12) !important;
+        }
+        html.dark #delivery-modal > div {
+            background: #1e1e2e !important;
+        }
+        html.dark #delivery-modal label { color: #bbb !important; }
+        html.dark #delivery-modal input,
+        html.dark #delivery-modal select { background: #2a2a3e !important; color: #eee !important; border-color: #444 !important; }
+        html.dark #delivery-modal h3 { color: #eee !important; }
         
         .tab img {
             width: 89px;
@@ -2322,7 +2336,7 @@
         <!-- Финансы -->
         <div id="exchange" class="content">
             <div id="vietnam-exchange-buttons" style="display: none; padding: 20px;">
-                <div class="tour-grid-container" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 25px; display:none !important;">
+                <div class="tour-grid-container" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 25px;">
                     <div class="tour-city-btn exchange-city-btn" data-city="Нячанг" onclick="filterExchangeByCity('Нячанг')" style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 3px solid #d4af37;">
                         <img src="/static/images/categories/exchange/nhatrang.jpg" style="width: 100%; height: 100%; object-fit: cover;">
                         <div class="city-info" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); color: #333; padding: 12px; text-align: center;">
@@ -10061,6 +10075,53 @@
                 status.textContent = '❌ Ошибка отправки';
                 status.style.color = '#ff6b6b';
             }
+        }
+
+        function openDeliveryModal() {
+            const m = document.getElementById('delivery-modal');
+            m.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeDeliveryModal() {
+            document.getElementById('delivery-modal').style.display = 'none';
+            document.body.style.overflow = '';
+        }
+        async function submitDelivery(e) {
+            e.preventDefault();
+            const btn = document.getElementById('delivery-submit-btn');
+            const st = document.getElementById('delivery-status');
+            btn.disabled = true; btn.textContent = 'Отправляю...';
+            st.style.display = 'none';
+            try {
+                const body = {
+                    telegram: document.getElementById('del-tg').value.trim(),
+                    amount: document.getElementById('del-amount').value.trim(),
+                    city: document.getElementById('del-city').value,
+                    address: document.getElementById('del-address').value.trim()
+                };
+                const r = await fetch('/api/delivery-order', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(body)
+                });
+                const d = await r.json();
+                if (d.ok) {
+                    st.style.background = '#e8f5e9'; st.style.color = '#2e7d32';
+                    st.textContent = '✅ Заявка отправлена! Мы свяжемся с вами в Telegram.';
+                    st.style.display = 'block';
+                    document.getElementById('delivery-form').reset();
+                    setTimeout(closeDeliveryModal, 2500);
+                } else {
+                    st.style.background = '#fce4ec'; st.style.color = '#c62828';
+                    st.textContent = '❌ ' + (d.error || 'Ошибка отправки');
+                    st.style.display = 'block';
+                }
+            } catch(ex) {
+                st.style.background = '#fce4ec'; st.style.color = '#c62828';
+                st.textContent = '❌ Ошибка сети';
+                st.style.display = 'block';
+            }
+            btn.disabled = false; btn.textContent = 'Отправить заявку';
         }
 
         async function submitExchange(e) {
