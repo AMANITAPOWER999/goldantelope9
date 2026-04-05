@@ -2068,6 +2068,7 @@ def delivery_order():
     amount = data.get('amount', '').strip()
     city = data.get('city', '').strip()
     address = data.get('address', '').strip()
+    info = data.get('info', '').strip()
     if not tg or not amount or not city or not address:
         return jsonify(ok=False, error='Заполните все поля')
     bot_token = os.environ.get('TELEGRAM_BOT_TOKEN', '')
@@ -2079,6 +2080,8 @@ def delivery_order():
         f"🏙 Город: {city}\n"
         f"📍 Адрес: {address}"
     )
+    if info:
+        msg_text += f"\n📝 Доп. информация: {info}"
     if bot_token and admin_chat:
         try:
             requests.post(

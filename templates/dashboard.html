@@ -624,6 +624,7 @@
         html.dark .delivery-btn:hover {
             background: rgba(212,175,55,0.12);
         }
+        html.dark #delivery-modal textarea { background: #2a2a3e !important; color: #eee !important; border-color: #444 !important; }
         html.dark #delivery-modal > div {
             background: #1e1e2e !important;
         }
@@ -901,6 +902,15 @@
             }
             #exchange-rates-board > div {
                 padding: 12px !important;
+            }
+            #exchange-rates-board {
+                padding: 0 8px 16px 8px !important;
+            }
+            .rates-card {
+                border-radius: 12px !important;
+            }
+            #rates-table {
+                grid-template-columns: 1fr !important;
             }
         }
 
@@ -2604,10 +2614,14 @@
                             <option>Нячанг</option><option>Дананг</option><option>Хошимин</option><option>Фукуок</option>
                         </select>
                     </div>
-                    <div style="margin-bottom:18px;">
+                    <div style="margin-bottom:13px;">
                         <label style="font-size:13px; color:#555; font-weight:600; display:block; margin-bottom:5px;">Адрес или Google-локация *</label>
                         <input id="del-address" type="text" required placeholder="Адрес или ссылка maps.google.com/..." style="width:100%; padding:11px 13px; border:1.5px solid #ddd; border-radius:10px; font-size:14px; box-sizing:border-box; outline:none;" onfocus="this.style.borderColor='#d4af37'" onblur="this.style.borderColor='#ddd'">
                         <div style="font-size:11px; color:#999; margin-top:4px;">Вставьте ссылку из Google Maps или напишите точный адрес</div>
+                    </div>
+                    <div style="margin-bottom:18px;">
+                        <label style="font-size:13px; color:#555; font-weight:600; display:block; margin-bottom:5px;">Дополнительная информация</label>
+                        <textarea id="del-info" rows="3" placeholder="Любые пожелания, комментарии..." style="width:100%; padding:11px 13px; border:1.5px solid #ddd; border-radius:10px; font-size:14px; box-sizing:border-box; outline:none; resize:vertical; font-family:inherit;" onfocus="this.style.borderColor='#d4af37'" onblur="this.style.borderColor='#ddd'"></textarea>
                     </div>
                     <div id="delivery-status" style="display:none; padding:10px 14px; border-radius:8px; font-size:14px; margin-bottom:14px;"></div>
                     <button type="submit" id="delivery-submit-btn" style="width:100%; background:linear-gradient(135deg,#d4af37,#f0c040); border:none; color:#1a1a1a; font-size:16px; font-weight:700; padding:14px; border-radius:12px; cursor:pointer;">
@@ -10177,7 +10191,8 @@
                     telegram: document.getElementById('del-tg').value.trim(),
                     amount: document.getElementById('del-amount').value.trim(),
                     city: document.getElementById('del-city').value,
-                    address: document.getElementById('del-address').value.trim()
+                    address: document.getElementById('del-address').value.trim(),
+                    info: (document.getElementById('del-info').value || '').trim()
                 };
                 const r = await fetch('/api/delivery-order', {
                     method: 'POST',
