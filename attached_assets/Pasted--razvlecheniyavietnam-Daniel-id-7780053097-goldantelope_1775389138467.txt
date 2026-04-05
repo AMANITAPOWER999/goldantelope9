@@ -1,0 +1,123 @@
+🎭 Парсер афиши → @razvlecheniyavietnam
+▶ Работает 👤 Daniel (id=7780053097) 🤖 @goldantelopeasia_bot ⏳ @T2TNhaTrangEvents
+
+44
+Отправлено 0
+Ошибок 2
+Каналов ОК 0
+Не подключено Запуск:
+2026-04-05 11:35:51 UTC
+⏳ Работает... 19 каналов × 30 сообщений — отправка через MTProto (бот-администратор)
+Результат по каналам:
+@nyachang_ru
+30 отпр.
+Логи (авто-обновление каждые 5с)
+[11:35:51] 🚀 Запуск | 19 каналов × 30 сообщений → @razvlecheniyavietnam
+
+[11:35:51] 🔌 MTProto: читаем через user-аккаунт, шлём через бот (без HTTP)
+
+[11:35:53] ✅ User: Daniel (id=7780053097)
+
+[11:35:59] ✅ Bot: @goldantelopeasia_bot — готов отправлять в @razvlecheniyavietnam
+
+[11:35:59] 📡 @nyachang_ru...
+
+[11:35:59] ✅ Нячанг афиша | квиз йога настолки мафия
+
+[11:36:00] 📥 30 сообщений
+
+[11:36:06] 📸 → @razvlecheniyavietnam | #17353
+
+[11:36:10] 📸 → @razvlecheniyavietnam | #17354
+
+[11:36:14] 📸 → @razvlecheniyavietnam | #17355
+
+[11:36:18] 📸 → @razvlecheniyavietnam | #17356
+
+[11:36:21] 📸 → @razvlecheniyavietnam | #17357
+
+[11:36:23] 📝 → @razvlecheniyavietnam | #17358
+
+[11:36:27] 📸 → @razvlecheniyavietnam | #17359
+
+[11:36:30] 📸 → @razvlecheniyavietnam | #17360
+
+[11:36:34] 📸 → @razvlecheniyavietnam | #17361
+
+[11:36:36] 📝 → @razvlecheniyavietnam | #17362
+
+[11:36:38] 📝 → @razvlecheniyavietnam | #17363
+
+[11:36:42] 📸 → @razvlecheniyavietnam | #17364
+
+[11:36:46] 📸 → @razvlecheniyavietnam | #17365
+
+[11:36:51] 📸 → @razvlecheniyavietnam | #17366
+
+[11:36:55] 📸 → @razvlecheniyavietnam | #17367
+
+[11:36:59] 📸 → @razvlecheniyavietnam | #17368
+
+[11:37:03] 📸 → @razvlecheniyavietnam | #17369
+
+[11:37:07] 📸 → @razvlecheniyavietnam | #17370
+
+[11:37:11] 📸 → @razvlecheniyavietnam | #17371
+
+[11:37:14] 📝 → @razvlecheniyavietnam | #17372
+
+[11:37:17] 📸 → @razvlecheniyavietnam | #17373
+
+[11:37:22] 📸 → @razvlecheniyavietnam | #17374
+
+[11:37:26] 📸 → @razvlecheniyavietnam | #17375
+
+[11:37:29] 📸 → @razvlecheniyavietnam | #17376
+
+[11:37:34] 📸 → @razvlecheniyavietnam | #17377
+
+[11:37:38] 📸 → @razvlecheniyavietnam | #17378
+
+[11:37:42] 📸 → @razvlecheniyavietnam | #17379
+
+[11:37:46] 📸 → @razvlecheniyavietnam | #17380
+
+[11:37:48] 📝 → @razvlecheniyavietnam | #17381
+
+[11:37:52] 📸 → @razvlecheniyavietnam | #17382
+
+[11:37:54] ✅ @nyachang_ru: 30 отправлено. Пауза 5s...
+
+[11:37:59] 📡 @T2TNhaTrangEvents...
+
+[11:37:59] ✅ T2T | Афиша Нячанга | Куда пойти? | Cобытия • Mероприятия
+
+[11:37:59] 📥 30 сообщений
+
+[11:38:01] 📸 → @razvlecheniyavietnam | #16931
+
+[11:38:05] 📸 → @razvlecheniyavietnam | #16932
+
+[11:38:11] 📸 → @razvlecheniyavietnam | #16944
+
+[11:38:16] 📸 → @razvlecheniyavietnam | #16945
+
+[11:38:19] 📝 → @razvlecheniyavietnam | #16946
+
+[11:38:21] 📝 → @razvlecheniyavietnam | #16961
+
+[11:38:25] 📸 → @razvlecheniyavietnam | #16962
+
+[11:38:30] 📸 → @razvlecheniyavietnam | #16963
+
+[11:38:34] 📸 → @razvlecheniyavietnam | #16964
+
+[11:38:38] 📸 → @razvlecheniyavietnam | #16965
+
+[11:38:42] 📸 → @razvlecheniyavietnam | #16966
+
+[11:38:44] 📝 → @razvlecheniyavietnam | #16967
+
+[11:38:48] 📸 → @razvlecheniyavietnam | #16968
+
+[11:38:50] 📝 → @razvlecheniyavietnam | #16969
