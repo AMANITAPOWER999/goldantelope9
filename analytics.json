@@ -1,167 +1,49 @@
 {
   "daily": {
-    "2026-04-04": {
-      "unique_visitors": [
-        "user_5z5vh1tlz_1775298342521",
-        "user_za5e2b4kg_1775294080664",
-        "user_anfb3wqwv_1775300926014",
-        "user_wpwk5zlru_1775300955554",
-        "user_srsn3ovbf_1775302902903",
-        "user_mfpl162i9_1775305041874",
-        "user_26kt6cog1_1775306902134",
-        "user_nk9a6t0q7_1775307859260",
-        "user_3xpnz6ifj_1775309038745",
-        "user_vvjyfapk9_1775309956036",
-        "user_iy6hfux7q_1775310505823",
-        "user_owi0cykg7_1775312322816"
-      ],
-      "page_views": 719,
-      "countries": {
-        "vietnam": 718,
-        "thailand": 1
-      },
-      "categories": {
-        "real_estate": 398,
-        "entertainment": 121,
-        "restaurants": 2,
-        "exchange": 196,
-        "transport": 1,
-        "visas": 1
-      },
-      "hours": {
-        "10": 1,
-        "11": 214,
-        "12": 213,
-        "13": 219,
-        "14": 72
-      },
-      "referrers": {},
-      "devices": {
-        "mobile": 104,
-        "desktop": 615
-      }
-    },
     "2026-04-05": {
       "unique_visitors": [
-        "user_ouxyvvmx5_1775374760037",
-        "user_yz60euvc1_1775374770197",
         "user_17jpqr9if_1775399824767",
-        "user_kvrw9en3n_1775399835767",
-        "user_o2n6mfiln_1775400443112"
+        "user_ouxyvvmx5_1775374760037",
+        "user_lkt23q9xt_1775401590860",
+        "user_8catue9u2_1775401724140"
       ],
-      "page_views": 654,
+      "page_views": 40,
       "countries": {
-        "vietnam": 654
+        "vietnam": 40
       },
       "categories": {
-        "real_estate": 281,
-        "entertainment": 324,
-        "realestate": 13,
-        "exchange": 35,
-        "restaurants": 1
+        "real_estate": 18,
+        "exchange": 22
       },
       "hours": {
-        "07": 44,
-        "08": 82,
-        "09": 60,
-        "10": 46,
-        "11": 87,
-        "12": 117,
-        "13": 67,
-        "14": 136,
-        "15": 15
+        "15": 40
       },
       "referrers": {},
       "devices": {
-        "mobile": 0,
-        "desktop": 654
+        "mobile": 10,
+        "desktop": 30
       }
     }
   },
   "visitors": {
-    "user_5z5vh1tlz_1775298342521": {
-      "first_seen": "2026-04-04",
-      "visits": 216,
-      "last_seen": "2026-04-04"
-    },
-    "user_za5e2b4kg_1775294080664": {
-      "first_seen": "2026-04-04",
-      "visits": 381,
-      "last_seen": "2026-04-04"
-    },
-    "user_anfb3wqwv_1775300926014": {
-      "first_seen": "2026-04-04",
-      "visits": 1,
-      "last_seen": "2026-04-04"
-    },
-    "user_wpwk5zlru_1775300955554": {
-      "first_seen": "2026-04-04",
-      "visits": 104,
-      "last_seen": "2026-04-04"
-    },
-    "user_srsn3ovbf_1775302902903": {
-      "first_seen": "2026-04-04",
-      "visits": 1,
-      "last_seen": "2026-04-04"
-    },
-    "user_mfpl162i9_1775305041874": {
-      "first_seen": "2026-04-04",
-      "visits": 6,
-      "last_seen": "2026-04-04"
-    },
-    "user_26kt6cog1_1775306902134": {
-      "first_seen": "2026-04-04",
-      "visits": 3,
-      "last_seen": "2026-04-04"
-    },
-    "user_nk9a6t0q7_1775307859260": {
-      "first_seen": "2026-04-04",
-      "visits": 2,
-      "last_seen": "2026-04-04"
-    },
-    "user_3xpnz6ifj_1775309038745": {
-      "first_seen": "2026-04-04",
-      "visits": 1,
-      "last_seen": "2026-04-04"
-    },
-    "user_vvjyfapk9_1775309956036": {
-      "first_seen": "2026-04-04",
-      "visits": 1,
-      "last_seen": "2026-04-04"
-    },
-    "user_iy6hfux7q_1775310505823": {
-      "first_seen": "2026-04-04",
-      "visits": 2,
-      "last_seen": "2026-04-04"
-    },
-    "user_owi0cykg7_1775312322816": {
-      "first_seen": "2026-04-04",
-      "visits": 1,
-      "last_seen": "2026-04-04"
+    "user_17jpqr9if_1775399824767": {
+      "first_seen": "2026-04-05",
+      "visits": 15,
+      "last_seen": "2026-04-05"
     },
     "user_ouxyvvmx5_1775374760037": {
       "first_seen": "2026-04-05",
-      "visits": 603,
+      "visits": 15,
       "last_seen": "2026-04-05"
     },
-    "user_yz60euvc1_1775374770197": {
+    "user_lkt23q9xt_1775401590860": {
       "first_seen": "2026-04-05",
-      "visits": 1,
+      "visits": 5,
       "last_seen": "2026-04-05"
     },
-    "user_17jpqr9if_1775399824767": {
+    "user_8catue9u2_1775401724140": {
       "first_seen": "2026-04-05",
-      "visits": 47,
-      "last_seen": "2026-04-05"
-    },
-    "user_kvrw9en3n_1775399835767": {
-      "first_seen": "2026-04-05",
-      "visits": 1,
-      "last_seen": "2026-04-05"
-    },
-    "user_o2n6mfiln_1775400443112": {
-      "first_seen": "2026-04-05",
-      "visits": 2,
+      "visits": 5,
       "last_seen": "2026-04-05"
     }
   }
