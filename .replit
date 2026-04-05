@@ -43,3 +43,4 @@ run = ["gunicorn", "--bind", "0.0.0.0:5000", "main:app"]
 [userenv.shared]
 TG_API_ID = "36461704"
 TG_API_HASH = "57fd0ec8dc0e2786420c4e78a8d1c5d4"
+WEBAPP_URL = "https://goldantelope-9.replit.app"
