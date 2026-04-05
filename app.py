@@ -4163,11 +4163,15 @@ def tg_photo_proxy(channel, post_id):
     # 1. Диск-кэш: если файл уже скачан — отдаём мгновенно, без сети
     if os.path.exists(disk_path) and os.path.getsize(disk_path) > 0:
         try:
+            etag = f'"{safe_ch}_{post_id}"'
+            if request.headers.get('If-None-Match') == etag:
+                return Response(status=304)
             with open(disk_path, 'rb') as f:
                 data = f.read()
             return Response(data, status=200, headers={
                 'Content-Type': 'image/jpeg',
-                'Cache-Control': 'public, max-age=2592000',
+                'Cache-Control': 'public, max-age=2592000, immutable',
+                'ETag': etag,
             })
         except Exception:
             pass
