@@ -533,8 +533,76 @@
             from { transform: translateY(100%); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
-        #delivery-btn-wrap button:hover {
-            background: rgba(212,175,55,0.12) !important;
+        .rates-card {
+            border-radius: 16px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f8f9fc 0%, #eef1f8 50%, #e8ecf4 100%);
+            color: #1a1a2e;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.06);
+            border: 1px solid rgba(212,175,55,0.2);
+        }
+        .rates-card-glow {
+            position: absolute; top: 0; right: 0; width: 200px; height: 200px;
+            background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .rates-card-title {
+            font-size: 16px; font-weight: 700; letter-spacing: 0.5px; white-space: nowrap;
+            color: #1a1a2e;
+        }
+        .rates-card-date {
+            font-size: 12px; color: #b8941e; margin-top: 2px;
+        }
+        .rates-card-loading {
+            text-align: center; padding: 20px; color: #8892b0;
+        }
+        .rates-card .rate-row {
+            background: rgba(255,255,255,0.7);
+            border: 1px solid rgba(212,175,55,0.12);
+        }
+        .delivery-btn {
+            background: none;
+            border: 1.5px solid #b8941e;
+            color: #b8941e;
+            padding: 11px 32px;
+            border-radius: 25px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            letter-spacing: 0.3px;
+            transition: all .2s;
+        }
+        .delivery-btn:hover {
+            background: rgba(184,148,30,0.1);
+        }
+
+        html.dark .rates-card {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #fff;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            border: none;
+        }
+        html.dark .rates-card-glow {
+            background: radial-gradient(circle, rgba(212,175,55,0.15) 0%, transparent 70%);
+        }
+        html.dark .rates-card-title {
+            color: #fff;
+        }
+        html.dark .rates-card-date {
+            color: #d4af37;
+        }
+        html.dark .rates-card .rate-row {
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(212,175,55,0.1);
+        }
+        html.dark .delivery-btn {
+            border-color: #d4af37;
+            color: #d4af37;
+        }
+        html.dark .delivery-btn:hover {
+            background: rgba(212,175,55,0.12);
         }
         html.dark #delivery-modal > div {
             background: #1e1e2e !important;
@@ -2368,23 +2436,21 @@
                 </div>
             </div>
             <div id="exchange-rates-board" style="display: block; padding: 0 20px 20px 20px;">
-                <div style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); border-radius: 16px; padding: 20px; color: #fff; box-shadow: 0 8px 32px rgba(0,0,0,0.3); position: relative; overflow: hidden;">
-                    <div style="position: absolute; top: 0; right: 0; width: 200px; height: 200px; background: radial-gradient(circle, rgba(212,175,55,0.15) 0%, transparent 70%); pointer-events: none;"></div>
-                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; flex-wrap: nowrap; gap: 8px;">
-                        <div style="display: flex; align-items: center; gap: 8px; white-space: nowrap;">
-                            <span style="font-size: 22px;">💱</span>
-                            <div>
-                                <div style="font-size: 16px; font-weight: 700; letter-spacing: 0.5px; white-space: nowrap;">Курсы валют Вьетнам</div>
-                                <div id="rates-date" style="font-size: 12px; color: #d4af37; margin-top: 2px;"></div>
-                            </div>
+                <div class="rates-card">
+                    <div class="rates-card-glow"></div>
+                    <div style="display: flex; align-items: center; margin-bottom: 14px; gap: 8px;">
+                        <span style="font-size: 22px;">💱</span>
+                        <div>
+                            <div class="rates-card-title">Курсы валют Вьетнам</div>
+                            <div id="rates-date" class="rates-card-date"></div>
                         </div>
                     </div>
                     <div id="rates-table" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 6px;"></div>
-                    <div id="rates-loading" style="text-align: center; padding: 20px; color: #8892b0;">Загрузка курсов...</div>
+                    <div id="rates-loading" class="rates-card-loading">Загрузка курсов...</div>
                 </div>
             </div>
             <div id="delivery-btn-wrap" style="text-align: center; padding: 8px 20px 20px 20px;">
-                <button onclick="openDeliveryModal()" style="background: none; border: 1.5px solid #d4af37; color: #d4af37; padding: 11px 32px; border-radius: 25px; font-size: 15px; font-weight: 600; cursor: pointer; letter-spacing: 0.3px; transition: all .2s;">
+                <button class="delivery-btn" onclick="openDeliveryModal()">
                     💸 Заказать доставку наличных
                 </button>
             </div>
