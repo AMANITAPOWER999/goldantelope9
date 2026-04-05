@@ -1,0 +1,271 @@
+🎭 Парсер афиши → @razvlecheniyavietnam
+▶ Работает 👤 Daniel (id=7780053097) 🤖 @goldantelopeasia_bot ⏳ @nyachangafisha
+
+292
+Отправлено 0
+Ошибок 11
+Каналов ОК 0
+Не подключено Запуск:
+2026-04-05 11:40:14 UTC
+⏳ Работает... 19 каналов × 30 сообщений — отправка через MTProto (бот-администратор)
+Результат по каналам:
+@nyachang_ru
+30 отпр.
+@T2TNhaTrangEvents
+30 отпр.
+@nhatrang_tusa_afisha
+30 отпр.
+@afisha_nhatrang
+29 отпр.
+@danang_afisha
+27 отпр.
+@danangpals
+27 отпр.
+@nhatrang_affiche
+28 отпр.
+@introconcertvn
+25 отпр.
+@familyday_nt_events
+29 отпр.
+@hoshimin_afisha
+30 отпр.
+Логи (авто-обновление каждые 5с)
+[11:52:27] 📝 → @razvlecheniyavietnam | #122
+
+[11:52:32] 📸 → @razvlecheniyavietnam | #123
+
+[11:52:34] 📝 → @razvlecheniyavietnam | #132
+
+[11:52:37] 📸 → @razvlecheniyavietnam | #134
+
+[11:52:41] 📸 → @razvlecheniyavietnam | #135
+
+[11:52:45] 📸 → @razvlecheniyavietnam | #136
+
+[11:52:48] 📸 → @razvlecheniyavietnam | #137
+
+[11:52:52] 📸 → @razvlecheniyavietnam | #138
+
+[11:52:55] 📸 → @razvlecheniyavietnam | #139
+
+[11:52:59] 📸 → @razvlecheniyavietnam | #149
+
+[11:53:02] 📸 → @razvlecheniyavietnam | #159
+
+[11:53:06] 📸 → @razvlecheniyavietnam | #160
+
+[11:53:10] 📸 → @razvlecheniyavietnam | #161
+
+[11:53:12] ✅ @nhatrang_affiche: 28 отправлено. Пауза 5s...
+
+[11:53:17] 📡 @introconcertvn...
+
+[11:53:17] ✅ introconcert | афиша нячанг
+
+[11:53:18] 📥 25 сообщений
+
+[11:53:20] 📸 → @razvlecheniyavietnam | #307
+
+[11:53:24] 📸 → @razvlecheniyavietnam | #309
+
+[11:53:28] 📸 → @razvlecheniyavietnam | #310
+
+[11:53:32] 📸 → @razvlecheniyavietnam | #311
+
+[11:53:36] 📸 → @razvlecheniyavietnam | #313
+
+[11:53:39] 📸 → @razvlecheniyavietnam | #314
+
+[11:53:43] 📸 → @razvlecheniyavietnam | #315
+
+[11:53:47] 📸 → @razvlecheniyavietnam | #319
+
+[11:53:49] 📝 → @razvlecheniyavietnam | #320
+
+[11:53:53] 📸 → @razvlecheniyavietnam | #321
+
+[11:53:57] 📸 → @razvlecheniyavietnam | #322
+
+[11:54:01] 📸 → @razvlecheniyavietnam | #323
+
+[11:54:06] 📸 → @razvlecheniyavietnam | #324
+
+[11:54:10] 📸 → @razvlecheniyavietnam | #326
+
+[11:54:14] 📸 → @razvlecheniyavietnam | #327
+
+[11:54:17] 📸 → @razvlecheniyavietnam | #328
+
+[11:54:21] 📸 → @razvlecheniyavietnam | #329
+
+[11:54:25] 📸 → @razvlecheniyavietnam | #330
+
+[11:54:29] 📸 → @razvlecheniyavietnam | #331
+
+[11:54:34] 📸 → @razvlecheniyavietnam | #332
+
+[11:54:38] 📸 → @razvlecheniyavietnam | #333
+
+[11:54:43] 📸 → @razvlecheniyavietnam | #334
+
+[11:54:48] 📸 → @razvlecheniyavietnam | #337
+
+[11:54:53] 📸 → @razvlecheniyavietnam | #339
+
+[11:54:57] 📸 → @razvlecheniyavietnam | #340
+
+[11:54:59] ✅ @introconcertvn: 25 отправлено. Пауза 5s...
+
+[11:55:04] 📡 @familyday_nt_events...
+
+[11:55:04] ✅ Афиша FamilyDay | Нячанг
+
+[11:55:05] 📥 29 сообщений
+
+[11:55:06] 📸 → @razvlecheniyavietnam | #180
+
+[11:55:09] 📸 → @razvlecheniyavietnam | #181
+
+[11:55:14] 📸 → @razvlecheniyavietnam | #182
+
+[11:55:17] 📸 → @razvlecheniyavietnam | #183
+
+[11:55:21] 📸 → @razvlecheniyavietnam | #184
+
+[11:55:23] 📝 → @razvlecheniyavietnam | #185
+
+[11:55:27] 📸 → @razvlecheniyavietnam | #186
+
+[11:55:32] 📸 → @razvlecheniyavietnam | #187
+
+[11:55:36] 📸 → @razvlecheniyavietnam | #188
+
+[11:55:40] 📸 → @razvlecheniyavietnam | #190
+
+[11:55:44] 📸 → @razvlecheniyavietnam | #191
+
+[11:55:48] 📸 → @razvlecheniyavietnam | #192
+
+[11:55:50] 📝 → @razvlecheniyavietnam | #193
+
+[11:55:54] 📸 → @razvlecheniyavietnam | #194
+
+[11:55:56] 📝 → @razvlecheniyavietnam | #195
+
+[11:56:00] 📸 → @razvlecheniyavietnam | #196
+
+[11:56:04] 📸 → @razvlecheniyavietnam | #197
+
+[11:56:07] 📝 → @razvlecheniyavietnam | #198
+
+[11:56:11] 📸 → @razvlecheniyavietnam | #199
+
+[11:56:14] 📸 → @razvlecheniyavietnam | #200
+
+[11:56:18] 📸 → @razvlecheniyavietnam | #201
+
+[11:56:22] 📸 → @razvlecheniyavietnam | #202
+
+[11:56:26] 📸 → @razvlecheniyavietnam | #203
+
+[11:56:30] 📸 → @razvlecheniyavietnam | #204
+
+[11:56:32] 📝 → @razvlecheniyavietnam | #205
+
+[11:56:36] 📸 → @razvlecheniyavietnam | #206
+
+[11:56:41] 📸 → @razvlecheniyavietnam | #207
+
+[11:56:43] 📝 → @razvlecheniyavietnam | #208
+
+[11:56:47] 📸 → @razvlecheniyavietnam | #209
+
+[11:56:49] ✅ @familyday_nt_events: 29 отправлено. Пауза 5s...
+
+[11:56:54] 📡 @hoshimin_afisha...
+
+[11:56:54] ✅ Хошимин афиша | квиз йога настолки мафия
+
+[11:56:55] 📥 30 сообщений
+
+[11:56:55] 📝 → @razvlecheniyavietnam | #220
+
+[11:56:59] 📸 → @razvlecheniyavietnam | #221
+
+[11:57:03] 📸 → @razvlecheniyavietnam | #222
+
+[11:57:07] 📸 → @razvlecheniyavietnam | #223
+
+[11:57:11] 📸 → @razvlecheniyavietnam | #224
+
+[11:57:15] 📸 → @razvlecheniyavietnam | #226
+
+[11:57:19] 📸 → @razvlecheniyavietnam | #227
+
+[11:57:22] 📸 → @razvlecheniyavietnam | #228
+
+[11:57:26] 📸 → @razvlecheniyavietnam | #229
+
+[11:57:29] 📸 → @razvlecheniyavietnam | #230
+
+[11:57:32] 📝 → @razvlecheniyavietnam | #231
+
+[11:57:36] 📸 → @razvlecheniyavietnam | #232
+
+[11:57:40] 📸 → @razvlecheniyavietnam | #233
+
+[11:57:42] 📝 → @razvlecheniyavietnam | #234
+
+[11:57:46] 📸 → @razvlecheniyavietnam | #235
+
+[11:57:50] 📸 → @razvlecheniyavietnam | #236
+
+[11:57:53] 📝 → @razvlecheniyavietnam | #237
+
+[11:57:57] 📸 → @razvlecheniyavietnam | #238
+
+[11:58:00] 📸 → @razvlecheniyavietnam | #239
+
+[11:58:04] 📸 → @razvlecheniyavietnam | #240
+
+[11:58:08] 📸 → @razvlecheniyavietnam | #241
+
+[11:58:10] 📝 → @razvlecheniyavietnam | #242
+
+[11:58:14] 📸 → @razvlecheniyavietnam | #243
+
+[11:58:17] 📸 → @razvlecheniyavietnam | #244
+
+[11:58:21] 📸 → @razvlecheniyavietnam | #245
+
+[11:58:25] 📸 → @razvlecheniyavietnam | #246
+
+[11:58:28] 📸 → @razvlecheniyavietnam | #247
+
+[11:58:32] 📸 → @razvlecheniyavietnam | #248
+
+[11:58:35] 📸 → @razvlecheniyavietnam | #249
+
+[11:58:39] 📸 → @razvlecheniyavietnam | #250
+
+[11:58:41] ✅ @hoshimin_afisha: 30 отправлено. Пауза 5s...
+
+[11:58:46] 📡 @nyachangafisha...
+
+[11:58:47] ✅ Нячанг афиша 🇻🇳 Мероприятия
+
+[11:58:47] 📥 26 сообщений
+
+[11:58:47] 📝 → @razvlecheniyavietnam | #320263
+
+[11:58:50] 📝 → @razvlecheniyavietnam | #320264
+
+[11:58:54] 📸 → @razvlecheniyavietnam | #320265
+
+[11:58:56] 📝 → @razvlecheniyavietnam | #320266
+
+[11:59:00] 📸 → @razvlecheniyavietnam | #320268
+
+[11:59:05] 📸 → @razvlecheniyavietnam | #320269
+
+[11:59:09] 📸 → @razvlecheniyavietnam | #320270
