@@ -1,0 +1,156 @@
+🎭 Парсер афиши → @razvlecheniyavietnam
+▶ Работает 👤 Daniel (id=7780053097) ⏳ Сейчас: @T2TNhaTrangEvents
+
+0
+Отправлено 42
+Ошибок 2
+Каналов ОК 0
+Не подключено Запуск: 2026-04-05 11:31:30 UTC
+⏳ Парсер работает... 19 каналов × 30 сообщений
+Результат по каналам:
+@nyachang_ru
+0 отправлено
+Логи (обновление каждые 5с)
+[11:31:30] 🚀 Запуск парсера | 19 каналов × 30 сообщений → @razvlecheniyavietnam
+
+[11:31:32] ✅ Авторизован: Daniel (id=7780053097)
+
+[11:31:32] 📤 Отправка через Bot API → @razvlecheniyavietnam
+
+[11:31:32] 📡 @nyachang_ru...
+
+[11:31:32] ✅ Нячанг афиша | квиз йога настолки мафия
+
+[11:31:32] 📥 30 сообщений
+
+[11:31:36] sendPhoto error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendPhoto (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:31:36] sendMessage error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendMessage (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:31:38] sendPhoto error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendPhoto (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:31:38] sendMessage error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendMessage (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:31:41] sendPhoto error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendPhoto (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:31:41] sendMessage error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendMessage (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:31:43] sendPhoto error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendPhoto (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:31:43] sendMessage error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendMessage (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:31:46] sendPhoto error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendPhoto (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:31:46] sendMessage error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendMessage (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:31:48] sendMessage error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendMessage (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:31:50] sendPhoto error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendPhoto (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:31:50] sendMessage error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendMessage (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:31:52] sendPhoto error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendPhoto (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:31:55] sendPhoto error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendPhoto (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:31:55] sendMessage error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendMessage (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:31:57] sendMessage error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendMessage (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:31:59] sendMessage error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendMessage (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:32:01] sendPhoto error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendPhoto (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:32:01] sendMessage error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendMessage (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:32:04] sendPhoto error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendPhoto (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:32:04] sendMessage error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendMessage (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:32:07] sendPhoto error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendPhoto (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:32:09] sendPhoto error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendPhoto (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:32:12] sendPhoto error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendPhoto (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:32:14] sendPhoto error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendPhoto (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:32:17] sendPhoto error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendPhoto (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:32:19] sendPhoto error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendPhoto (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:32:21] sendMessage error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendMessage (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:32:24] sendPhoto error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendPhoto (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:32:24] sendMessage error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendMessage (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:32:26] sendPhoto error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendPhoto (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:32:26] sendMessage error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendMessage (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:32:29] sendPhoto error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendPhoto (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:32:29] sendMessage error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendMessage (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:32:31] sendPhoto error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendPhoto (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:32:31] sendMessage error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendMessage (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:32:33] sendPhoto error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendPhoto (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:32:36] sendPhoto error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendPhoto (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:32:38] sendPhoto error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendPhoto (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:32:38] sendMessage error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendMessage (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:32:41] sendPhoto error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendPhoto (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:32:43] sendMessage error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendMessage (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:32:45] sendPhoto error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendPhoto (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:32:45] sendMessage error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendMessage (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:32:47] ✅ @nyachang_ru: 0 отправлено. Пауза 5s...
+
+[11:32:52] 📡 @T2TNhaTrangEvents...
+
+[11:32:53] ✅ T2T | Афиша Нячанга | Куда пойти? | Cобытия • Mероприятия
+
+[11:32:53] 📥 30 сообщений
+
+[11:32:53] sendPhoto error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendPhoto (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:32:53] sendMessage error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendMessage (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:32:56] sendPhoto error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendPhoto (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:33:00] sendPhoto error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendPhoto (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:33:00] sendMessage error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendMessage (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:33:04] sendPhoto error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendPhoto (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:33:04] sendMessage error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendMessage (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:33:06] sendMessage error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendMessage (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:33:08] sendMessage error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendMessage (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:33:11] sendPhoto error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendPhoto (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:33:11] sendMessage error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendMessage (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:33:13] sendPhoto error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendPhoto (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:33:16] sendPhoto error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendPhoto (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:33:18] sendPhoto error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendPhoto (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:33:21] sendPhoto error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendPhoto (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:33:21] sendMessage error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendMessage (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
+
+[11:33:23] sendMessage error: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot8767069054:AAGNAhw-ZBXZf8ppytp0MKK25B9VsdOKG14/sendMessage (Caused by NameResolutionError("HTTPSConnection(host='api.telegram.org', port=443): Failed to resolve 'api.telegram.org' ([Errno -5] No address associated with hostname)"))
