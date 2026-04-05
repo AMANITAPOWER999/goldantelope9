@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify, request, Response
+from flask import Flask, render_template, jsonify, request, Response, redirect
 from flask_compress import Compress
 from datetime import datetime, timedelta
 import json
@@ -1809,23 +1809,20 @@ def _update_banner_config_from_data(data):
     if not data:
         config = load_banner_config()
         config['vietnam']['mobile'] = []
+        config['vietnam']['web'] = []
         save_banner_config(config)
         return
     sorted_ids = sorted(data.keys(), key=lambda x: int(x))
     new_banners = []
     for mid in sorted_ids:
-        info = data[mid]
-        cdn_url = info.get('cdn_url', '')
-        if cdn_url:
-            new_banners.append(cdn_url)
-        else:
-            new_banners.append(f'/tg_img/{_BANNER_TG_GROUP}/{mid}')
+        new_banners.append(f'https://t.me/{_BANNER_TG_GROUP}/{mid}')
     config = load_banner_config()
     old_mobile = config.get('vietnam', {}).get('mobile', [])
     if new_banners != old_mobile:
         config['vietnam']['mobile'] = new_banners
+        config['vietnam']['web'] = new_banners
         save_banner_config(config)
-        logger.info(f'[banner_sync] Обновлено: {len(new_banners)} баннеров')
+        logger.info(f'[banner_sync] Обновлено: {len(new_banners)} баннеров (прямые ссылки t.me)')
 
 def _load_banner_file_ids_to_cache():
     import time as _t
@@ -1848,33 +1845,7 @@ def _load_banner_file_ids_to_cache():
         _update_banner_config_from_data(data)
 
 def _prewarm_banner_cache(data):
-    """Получает CDN URL для баннеров без прямой ссылки через og:image и обновляет данные."""
-    import time as _t
-    channel = _BANNER_TG_GROUP
-    resolved = 0
-    changed = False
-    for mid_str in list(data.keys()):
-        info = data[mid_str]
-        if info.get('cdn_url', ''):
-            continue
-        mid = int(mid_str)
-        try:
-            og_headers = {'User-Agent': 'TelegramBot (like TwitterBot)'}
-            og_resp = requests.get(f'https://t.me/{channel}/{mid}', headers=og_headers, timeout=10)
-            if og_resp.status_code == 200:
-                img_m = re.search(r'<meta property="og:image" content="([^"]+)"', og_resp.text)
-                if img_m:
-                    data[mid_str]['cdn_url'] = img_m.group(1)
-                    resolved += 1
-                    changed = True
-                    logger.info(f'[banner_prewarm] Resolved CDN URL for {channel}/{mid}')
-            _t.sleep(0.5)
-        except Exception as e:
-            logger.warning(f'[banner_prewarm] Error resolving {channel}/{mid}: {e}')
-    if changed:
-        _save_banner_data(data)
-        _update_banner_config_from_data(data)
-        logger.info(f'[banner_prewarm] Resolved {resolved} CDN URLs')
+    pass
 
 def _sync_media_vn_banners():
     """При старте скрейпит t.me/s/media_vn и добавляет все посты с фото (включая прямые URL) в banner_data.json."""
@@ -1923,11 +1894,8 @@ def _sync_media_vn_banners():
                     if has_photo:
                         mid_str = str(mid)
                         if mid_str not in data:
-                            data[mid_str] = {'file_id': '', 'ts': mid, 'cdn_url': cdn_url}
+                            data[mid_str] = {'file_id': '', 'ts': mid}
                             added += 1
-                        elif cdn_url and data[mid_str].get('cdn_url', '') != cdn_url:
-                            data[mid_str]['cdn_url'] = cdn_url
-                            updated_urls += 1
                 if not ids_on_page:
                     break
                 before = min(ids_on_page)
@@ -1949,9 +1917,49 @@ threading.Thread(target=_load_banner_file_ids_to_cache, daemon=True, name='Banne
 threading.Thread(target=_sync_media_vn_banners, daemon=True, name='BannerMediaVnSync').start()
 logger.info('[banner_sync] Синхронизация баннеров из @media_vn (канал) запущена')
 
+_banner_og_cache = {}
+
+@app.route('/api/banner-img/<int:msg_id>')
+def banner_image_proxy(msg_id):
+    cache_key = msg_id
+    if cache_key in _banner_og_cache:
+        return redirect(_banner_og_cache[cache_key])
+    try:
+        og_headers = {'User-Agent': 'TelegramBot (like TwitterBot)'}
+        og_resp = requests.get(f'https://t.me/{_BANNER_TG_GROUP}/{msg_id}', headers=og_headers, timeout=10)
+        if og_resp.status_code == 200:
+            img_m = re.search(r'<meta property="og:image" content="([^"]+)"', og_resp.text)
+            if img_m:
+                img_url = img_m.group(1)
+                _banner_og_cache[cache_key] = img_url
+                return redirect(img_url)
+    except Exception as e:
+        logger.warning(f'[banner-img] Error resolving {msg_id}: {e}')
+    return '', 404
+
 @app.route('/api/banners')
 def get_banners():
-    return jsonify(load_banner_config())
+    config = load_banner_config()
+    resolved = {}
+    for country, country_data in config.items():
+        resolved[country] = {}
+        for btype in ['web', 'mobile']:
+            urls = country_data.get(btype, []) if isinstance(country_data, dict) else []
+            resolved_urls = []
+            for url in urls:
+                if 'cdn' in url or 'telesco.pe' in url:
+                    continue
+                if url.startswith('https://t.me/'):
+                    parts = url.rstrip('/').split('/')
+                    try:
+                        mid = int(parts[-1])
+                        resolved_urls.append(f'/api/banner-img/{mid}')
+                    except ValueError:
+                        resolved_urls.append(url)
+                else:
+                    resolved_urls.append(url)
+            resolved[country][btype] = resolved_urls
+    return jsonify(resolved)
 
 @app.route('/api/admin/sync-banners', methods=['POST'])
 def admin_sync_banners():
