@@ -562,6 +562,16 @@
             background: rgba(255,255,255,0.7);
             border: 1px solid rgba(212,175,55,0.12);
         }
+        .rate-input {
+            background: rgba(0,0,0,0.05) !important;
+            color: #1a1a2e !important;
+        }
+        .rate-currency {
+            color: #333 !important;
+        }
+        .rate-result {
+            color: #1a1a2e !important;
+        }
         .delivery-btn {
             background: none;
             border: 1.5px solid #b8941e;
@@ -596,6 +606,16 @@
         html.dark .rates-card .rate-row {
             background: rgba(255,255,255,0.05);
             border-color: rgba(212,175,55,0.1);
+        }
+        html.dark .rate-input {
+            background: rgba(0,0,0,0.3) !important;
+            color: #fff !important;
+        }
+        html.dark .rate-currency {
+            color: #e6e6e6 !important;
+        }
+        html.dark .rate-result {
+            color: #fff !important;
         }
         html.dark .delivery-btn {
             border-color: #d4af37;
@@ -7422,15 +7442,15 @@
                     table.innerHTML = data.rates.map(function(r) {
                         var clr = currColors[r.currency] || '#d4af37';
                         var initVnd = formatVND(r.vnd_num);
-                        return '<div class="rate-row" style="display:flex;align-items:center;justify-content:space-between;padding:8px 10px;background:rgba(255,255,255,0.06);border-radius:10px;border-left:3px solid '+clr+';gap:6px;flex-wrap:nowrap;overflow:hidden;">' +
+                        return '<div class="rate-row" style="display:flex;align-items:center;justify-content:space-between;padding:8px 10px;border-radius:10px;border-left:3px solid '+clr+';gap:6px;flex-wrap:nowrap;overflow:hidden;">' +
                             '<div style="display:flex;align-items:center;gap:6px;flex-shrink:0;">' +
                                 '<span class="rate-flag" style="font-size:20px;line-height:1;">'+r.flag+'</span>' +
-                                '<input type="number" id="calc-inp-'+r.currency+'" value="'+r.amount_num+'" min="0" class="rate-input" style="width:70px;padding:4px 6px;border-radius:6px;border:1px solid rgba(212,175,55,0.3);background:rgba(0,0,0,0.3);color:#fff;font-size:14px;font-weight:600;text-align:right;outline:none;" oninput="calcRow(\''+r.currency+'\')">' +
-                                '<span class="rate-currency" style="font-size:13px;font-weight:600;color:#e6e6e6;white-space:nowrap;">'+r.currency+'</span>' +
+                                '<input type="number" id="calc-inp-'+r.currency+'" value="'+r.amount_num+'" min="0" class="rate-input" style="width:70px;padding:4px 6px;border-radius:6px;border:1px solid rgba(212,175,55,0.3);font-size:14px;font-weight:600;text-align:right;outline:none;" oninput="calcRow(\''+r.currency+'\')">' +
+                                '<span class="rate-currency" style="font-size:13px;font-weight:600;white-space:nowrap;">'+r.currency+'</span>' +
                             '</div>' +
                             '<div style="display:flex;align-items:center;gap:4px;flex-shrink:0;">' +
-                                '<span style="color:#d4af37;font-size:12px;">➤</span>' +
-                                '<span id="calc-out-'+r.currency+'" class="rate-result" style="font-size:14px;font-weight:700;color:#fff;font-variant-numeric:tabular-nums;white-space:nowrap;">'+initVnd+' VNĐ</span>' +
+                                '<span style="color:#b8941e;font-size:12px;">➤</span>' +
+                                '<span id="calc-out-'+r.currency+'" class="rate-result" style="font-size:14px;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap;">'+initVnd+' VNĐ</span>' +
                             '</div>' +
                         '</div>';
                     }).join('');
