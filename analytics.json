@@ -46,22 +46,23 @@
         "user_ouxyvvmx5_1775374760037",
         "user_yz60euvc1_1775374770197"
       ],
-      "page_views": 36,
+      "page_views": 52,
       "countries": {
-        "vietnam": 36
+        "vietnam": 52
       },
       "categories": {
-        "real_estate": 15,
+        "real_estate": 31,
         "entertainment": 11,
         "realestate": 10
       },
       "hours": {
-        "07": 36
+        "07": 44,
+        "08": 8
       },
       "referrers": {},
       "devices": {
         "mobile": 0,
-        "desktop": 36
+        "desktop": 52
       }
     }
   },
@@ -128,7 +129,7 @@
     },
     "user_ouxyvvmx5_1775374760037": {
       "first_seen": "2026-04-05",
-      "visits": 35,
+      "visits": 51,
       "last_seen": "2026-04-05"
     },
     "user_yz60euvc1_1775374770197": {
