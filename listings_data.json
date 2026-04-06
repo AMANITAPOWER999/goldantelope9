@@ -1,3 +1,698 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:08f4e3d7f0fa4e76012af5e3f2c46a18d052a5359b88f475c65e81590839a038
-size 78408
+{
+  "vietnam": {
+    "restaurants": [],
+    "tours": [],
+    "transport": [],
+    "real_estate": [],
+    "money_exchange": [],
+    "entertainment": [],
+    "marketplace": [],
+    "visas": [],
+    "news": [],
+    "chat": []
+  },
+  "entertainment": [
+    {
+      "id": "gavibeshub_64",
+      "title": "🔥𝗗𝗔𝗡𝗖𝗘 𝗖𝗟𝗔𝗦𝗦🔥",
+      "description": "🪩𝗚𝗜𝗥𝗟𝗬 𝗛𝗶𝗽-𝗛𝗼𝗽🪩\n📍 Где: 𝐆𝐥𝐨𝐰 𝐅𝐥𝐨𝐰 𝐂𝐄𝐍𝐓𝐑𝐄\n📅 Когда: 3 апреля 17:00\n⏰ Длительность: 1 час\n💰 Стоимость: 200 000VND\n⬆️ Level: для любого уровня\n𝗚𝗶𝗿𝗹𝘆 𝗛𝗶𝗽-𝗛𝗼𝗽 - это новые формы, свобода в теле и движении, скорость, контроль и нежность, которая живет внутри уличного танца.\nМы будем учиться:\n🤍двигаться свободно, без зажатости в теле\n🤍быстрее схватывать хореографию и не теряться в скорости\n🤍чувствовать музыку, а не просто считать\n🤍работать с телом: мягкость + резкость,\nконтроль + расслабление\n🤍добавлять в движения нежность и сексуальность\n🤍кайфовать от процесса и настроения хореографии\n❗️Запись обязательна\n@anana_nasya\n#дата: 03.04.2026",
+      "text": "🔥𝗗𝗔𝗡𝗖𝗘 𝗖𝗟𝗔𝗦𝗦🔥 \n🪩𝗚𝗜𝗥𝗟𝗬 𝗛𝗶𝗽-𝗛𝗼𝗽🪩\n\n📍 Где: 𝐆𝐥𝐨𝐰 𝐅𝐥𝐨𝐰 𝐂𝐄𝐍𝐓𝐑𝐄\n📅 Когда: 3 апреля 17:00 \n⏰ Длительность: 1 час\n💰 Стоимость: 200 000VND\n⬆️ Level: для любого уровня \n\n𝗚𝗶𝗿𝗹𝘆 𝗛𝗶𝗽-𝗛𝗼𝗽 - это новые формы, свобода в теле и движении, скорость, контроль и нежность, которая живет внутри уличного танца. \n\nМы будем учиться: \n🤍двигаться свободно, без зажатости в теле\n🤍быстрее схватывать хореографию и не теряться в скорости\n🤍чувствовать музыку, а не просто считать\n🤍работать с телом: мягкость + резкость, \nконтроль + расслабление\n🤍добавлять в движения нежность и сексуальность \n🤍кайфовать от процесса и настроения хореографии\n\n❗️Запись обязательна \n@anana_nasya\n\n#дата: 03.04.2026",
+      "price": 0,
+      "price_display": "",
+      "city": "Вьетнам",
+      "city_ru": "Вьетнам",
+      "date": "2026-04-02T07:53:55.772264+00:00",
+      "contact": "@media_vn",
+      "contact_name": "media_vn",
+      "source_group": "media_vn",
+      "source_channel": "media_vn",
+      "telegram": "https://t.me/media_vn",
+      "telegram_link": "https://t.me/media_vn/64",
+      "image_url": "https://cdn4.telesco.pe/file/XxMoFPq0aVVgcR10BTktFEPd5n31nkyeLmzvgTt_Y8pKENKRHPkig7m4L0lIVL_MIy8lpgy5BdUoffkJA-SE_uq_1EmQ3EIpxqXOVDu79Wp0TkPK4D2WcXNFDL9LctMpAyWR5IDkcFH7-rKlIoWNnrIk_Kd9Dj4Y_CL-IIpIQObB0zj8mhi9FIcWxHWeong_IEJf43jtaxDi9-LIN8KC2kukAZ_-5F00YLBalBn8OjCP8WmokS3IjxwRJb4QDlwLRcU0lc_Rxmde_-91neZioHCmWwe-YROF_TX58eEa3KQZq-YAZ6195a0cuSPXL1G3g1qYpJmRzCtagL2Y1w2Xow.jpg",
+      "all_images": [
+        "https://cdn4.telesco.pe/file/XxMoFPq0aVVgcR10BTktFEPd5n31nkyeLmzvgTt_Y8pKENKRHPkig7m4L0lIVL_MIy8lpgy5BdUoffkJA-SE_uq_1EmQ3EIpxqXOVDu79Wp0TkPK4D2WcXNFDL9LctMpAyWR5IDkcFH7-rKlIoWNnrIk_Kd9Dj4Y_CL-IIpIQObB0zj8mhi9FIcWxHWeong_IEJf43jtaxDi9-LIN8KC2kukAZ_-5F00YLBalBn8OjCP8WmokS3IjxwRJb4QDlwLRcU0lc_Rxmde_-91neZioHCmWwe-YROF_TX58eEa3KQZq-YAZ6195a0cuSPXL1G3g1qYpJmRzCtagL2Y1w2Xow.jpg"
+      ],
+      "photos": [
+        "https://cdn4.telesco.pe/file/XxMoFPq0aVVgcR10BTktFEPd5n31nkyeLmzvgTt_Y8pKENKRHPkig7m4L0lIVL_MIy8lpgy5BdUoffkJA-SE_uq_1EmQ3EIpxqXOVDu79Wp0TkPK4D2WcXNFDL9LctMpAyWR5IDkcFH7-rKlIoWNnrIk_Kd9Dj4Y_CL-IIpIQObB0zj8mhi9FIcWxHWeong_IEJf43jtaxDi9-LIN8KC2kukAZ_-5F00YLBalBn8OjCP8WmokS3IjxwRJb4QDlwLRcU0lc_Rxmde_-91neZioHCmWwe-YROF_TX58eEa3KQZq-YAZ6195a0cuSPXL1G3g1qYpJmRzCtagL2Y1w2Xow.jpg"
+      ],
+      "status": "active",
+      "country": "vietnam",
+      "message_id": 64,
+      "has_media": true,
+      "category": "entertainment",
+      "listing_type": "entertainment",
+      "listing_id": "gavibeshub_64"
+    },
+    {
+      "id": "gavibeshub_63",
+      "title": "Открытая читка пьесы Марка Визионера 👟 «Кроссовки»",
+      "description": "🏛В Гоголевском Петербурге, как известно, всё — морок, обман и не то, чем кажется.\n🚫Особенно когда фирменные магазины Nike закрыты, а желанная пара — лимитированная модель, которую днём с огнём не сыщешь.\nНаш герой — петербуржец, почти Башмачкин, но в XXI веке. Он не переписывает бумаги, а скроллит маркетплейсы\nОн не мечтает о шинели, а без ума влюблён в конкретные кроссовки\nИрония судьбы: в городе, где реальность рассыпается на пиксели, а вещи становятся фетишем, он остаётся таким же маленьким, трогательным и… готовым на всё ради своей мечты.\nВопрос только: кто украдёт у него покой? 🤔\n📆 Суббота, 04.04, 16:00\n📍 Bong villa\n💰 150 донгов\n📩 Бронь @timonzvonchaty",
+      "text": "Открытая читка пьесы Марка Визионера 👟 «Кроссовки»  \n\n\n🏛В Гоголевском Петербурге, как известно, всё — морок, обман и не то, чем кажется.  \n🚫Особенно когда фирменные магазины Nike закрыты, а желанная пара — лимитированная модель, которую днём с огнём не сыщешь.\n\nНаш герой — петербуржец, почти Башмачкин, но в XXI веке. Он не переписывает бумаги, а скроллит маркетплейсы \nОн не мечтает о шинели, а без ума влюблён в конкретные кроссовки\n\nИрония судьбы: в городе, где реальность рассыпается на пиксели, а вещи становятся фетишем, он остаётся таким же маленьким, трогательным и… готовым на всё ради своей мечты.\n\nВопрос только: кто украдёт у него покой? 🤔\n\n📆 Суббота, 04.04, 16:00\n📍 Bong villa\n💰 150 донгов\n📩 Бронь @timonzvonchaty",
+      "price": 0,
+      "price_display": "",
+      "city": "Вьетнам",
+      "city_ru": "Вьетнам",
+      "date": "2026-04-02T07:53:53.520231+00:00",
+      "contact": "@media_vn",
+      "contact_name": "media_vn",
+      "source_group": "media_vn",
+      "source_channel": "media_vn",
+      "telegram": "https://t.me/media_vn",
+      "telegram_link": "https://t.me/media_vn/63",
+      "image_url": "https://cdn5.telesco.pe/file/S1bmefJpffMLnYrWo95-sY2tHusYQ1HvshgoiOHsZ2KvzHIW9Njzdw6nIktui-ZT6_6jXgEG7wdWIpTWMtcy-MF9s1tLpdpfbLHI_u7Eo6s29JjcWURyAV9cMJn1PhyIjRJQu1mRLoaODpMqkUwSCgcWjIxCf5R6_dVMxwkzD-fYC3-wCmcNcPBLS1y8s8KMu5oANf32c8VbaqHzI33jqX2p1fLLZ7-FfHhfMQBrruICK3wru40mhQXHyjCgwxNAOnYLOCpw1veN2UqRtbgLeErw1zl55FER1lIR3KOhl2UxXBCjexzVmfg8KVvjgvWmm9H6SIEkqPkC6pfexNlfvA.jpg",
+      "all_images": [
+        "https://cdn5.telesco.pe/file/S1bmefJpffMLnYrWo95-sY2tHusYQ1HvshgoiOHsZ2KvzHIW9Njzdw6nIktui-ZT6_6jXgEG7wdWIpTWMtcy-MF9s1tLpdpfbLHI_u7Eo6s29JjcWURyAV9cMJn1PhyIjRJQu1mRLoaODpMqkUwSCgcWjIxCf5R6_dVMxwkzD-fYC3-wCmcNcPBLS1y8s8KMu5oANf32c8VbaqHzI33jqX2p1fLLZ7-FfHhfMQBrruICK3wru40mhQXHyjCgwxNAOnYLOCpw1veN2UqRtbgLeErw1zl55FER1lIR3KOhl2UxXBCjexzVmfg8KVvjgvWmm9H6SIEkqPkC6pfexNlfvA.jpg"
+      ],
+      "photos": [
+        "https://cdn5.telesco.pe/file/S1bmefJpffMLnYrWo95-sY2tHusYQ1HvshgoiOHsZ2KvzHIW9Njzdw6nIktui-ZT6_6jXgEG7wdWIpTWMtcy-MF9s1tLpdpfbLHI_u7Eo6s29JjcWURyAV9cMJn1PhyIjRJQu1mRLoaODpMqkUwSCgcWjIxCf5R6_dVMxwkzD-fYC3-wCmcNcPBLS1y8s8KMu5oANf32c8VbaqHzI33jqX2p1fLLZ7-FfHhfMQBrruICK3wru40mhQXHyjCgwxNAOnYLOCpw1veN2UqRtbgLeErw1zl55FER1lIR3KOhl2UxXBCjexzVmfg8KVvjgvWmm9H6SIEkqPkC6pfexNlfvA.jpg"
+      ],
+      "status": "active",
+      "country": "vietnam",
+      "message_id": 63,
+      "has_media": true,
+      "category": "entertainment",
+      "listing_type": "entertainment",
+      "listing_id": "gavibeshub_63"
+    },
+    {
+      "id": "gavibeshub_62",
+      "title": "🎶 The Music Strangers снова здесь!",
+      "description": "🗓 Четверг, 2 апреля | 🕖 20:00\n👁Музыка, которую лучше слышать вживую.\n👁Лёгкий хаос. Всё как надо.\n👁Каверы, психоделия и чуть больше, чем обычно.\n🎨Специальный гость\nNIGHT OWL OCEANUS",
+      "text": "🎶 The Music Strangers снова здесь!\n\n🗓 Четверг, 2 апреля | 🕖 20:00\n\n👁Музыка, которую лучше слышать вживую.\n\n👁Лёгкий хаос. Всё как надо.\n\n👁Каверы, психоделия и чуть больше, чем обычно.\n\n🎨Специальный гость\n\nNIGHT OWL OCEANUS",
+      "price": 0,
+      "price_display": "",
+      "city": "Вьетнам",
+      "city_ru": "Вьетнам",
+      "date": "2026-04-02T07:53:51.320529+00:00",
+      "contact": "@media_vn",
+      "contact_name": "media_vn",
+      "source_group": "media_vn",
+      "source_channel": "media_vn",
+      "telegram": "https://t.me/media_vn",
+      "telegram_link": "https://t.me/media_vn/62",
+      "image_url": "https://cdn4.telesco.pe/file/A6QRuMfcmnT4Pz6MW0WmjV5ULi59wBrC2C1g7PXrm1go2K18AtA2tqGY9ZMgSnU37Xm0haLe5_oDOvx_LMY88SD2brmDlxemDPHI2WHcMoXtmcJKX1cZORKIEd_hGWeiWGtl4fSQSb14fIN8DqK1AcUx_-JkTE1Q7-MkSTpIuXx_0K2P0wyq8-hvEK-QCaVO-vTbeDMMZFtnAmen1k5F5m5wbcUO8EVdqHr9v3rifTOdw-CWpOC0mZ8jpobXFRO-YsxeHolF-r1bVN-n5gia2p1DE860oGSYKBVUvT3wTxUTV9Rcn2Gf5Xarey_Y58EY-TPd14O5mXQIycQTDXEyHw.jpg",
+      "all_images": [
+        "https://cdn4.telesco.pe/file/A6QRuMfcmnT4Pz6MW0WmjV5ULi59wBrC2C1g7PXrm1go2K18AtA2tqGY9ZMgSnU37Xm0haLe5_oDOvx_LMY88SD2brmDlxemDPHI2WHcMoXtmcJKX1cZORKIEd_hGWeiWGtl4fSQSb14fIN8DqK1AcUx_-JkTE1Q7-MkSTpIuXx_0K2P0wyq8-hvEK-QCaVO-vTbeDMMZFtnAmen1k5F5m5wbcUO8EVdqHr9v3rifTOdw-CWpOC0mZ8jpobXFRO-YsxeHolF-r1bVN-n5gia2p1DE860oGSYKBVUvT3wTxUTV9Rcn2Gf5Xarey_Y58EY-TPd14O5mXQIycQTDXEyHw.jpg"
+      ],
+      "photos": [
+        "https://cdn4.telesco.pe/file/A6QRuMfcmnT4Pz6MW0WmjV5ULi59wBrC2C1g7PXrm1go2K18AtA2tqGY9ZMgSnU37Xm0haLe5_oDOvx_LMY88SD2brmDlxemDPHI2WHcMoXtmcJKX1cZORKIEd_hGWeiWGtl4fSQSb14fIN8DqK1AcUx_-JkTE1Q7-MkSTpIuXx_0K2P0wyq8-hvEK-QCaVO-vTbeDMMZFtnAmen1k5F5m5wbcUO8EVdqHr9v3rifTOdw-CWpOC0mZ8jpobXFRO-YsxeHolF-r1bVN-n5gia2p1DE860oGSYKBVUvT3wTxUTV9Rcn2Gf5Xarey_Y58EY-TPd14O5mXQIycQTDXEyHw.jpg"
+      ],
+      "status": "active",
+      "country": "vietnam",
+      "message_id": 62,
+      "has_media": true,
+      "category": "entertainment",
+      "listing_type": "entertainment",
+      "listing_id": "gavibeshub_62"
+    },
+    {
+      "id": "gavibeshub_61",
+      "title": "Стендап от комика с ТНТ 🎙",
+      "description": "Дмитрий Сверлов (sverlovsk) участник комедийных проектов на ТНТ, СТС, ТНТ-4 и автор юмористических шоу.\nЧто будет: 1,5 часа проверенных шуток про жизнь в Азии, местный менталитет, перелеты и приключения экспатов и туристов.\nКогда: 03.04 (пятница), сбор гостей в 20:00.\nГде: 📍 Danang StandUp Comedy\nБилеты от 600к VND\n🎫 Подробности и билеты у @s_gruzdova\n🔥 Акция: При покупке билетов сразу на 2 шоу (концерт + импровизация) действует скидка 20%!\nПриобретайте билеты заранее, в день шоу цена на 30% дороже, если вообще останутся...\n#дата: 03.04",
+      "text": "Стендап от комика с ТНТ 🎙\n\nДмитрий Сверлов (sverlovsk) участник комедийных проектов на ТНТ, СТС, ТНТ-4 и автор юмористических шоу.\n\nЧто будет: 1,5 часа проверенных шуток про жизнь в Азии, местный менталитет, перелеты и приключения экспатов и туристов.\n\nКогда: 03.04 (пятница), сбор гостей в 20:00.\nГде: 📍 Danang StandUp Comedy\nБилеты от 600к VND\n\n🎫 Подробности и билеты у @s_gruzdova\n\n🔥 Акция: При покупке билетов сразу на 2 шоу (концерт + импровизация) действует скидка 20%!\n\nПриобретайте билеты заранее, в день шоу цена на 30% дороже, если вообще останутся...\n\n#дата: 03.04",
+      "price": 0,
+      "price_display": "",
+      "city": "Дананг",
+      "city_ru": "Дананг",
+      "date": "2026-04-02T07:53:49.110950+00:00",
+      "contact": "@media_vn",
+      "contact_name": "media_vn",
+      "source_group": "media_vn",
+      "source_channel": "media_vn",
+      "telegram": "https://t.me/media_vn",
+      "telegram_link": "https://t.me/media_vn/61",
+      "image_url": "https://cdn4.telesco.pe/file/FzZvu2PtqhisVzhDb0Wgvz9C7myNfTXNsQnQizfm76dnfHAM1ReHO3rpV0SbWqbsXhOBWw_Lu69BV37NN7WC_M9Ruox5Si2jRucnFcDvHtfa-6jRy7aWD44kFAYIkWNapA3PA0Kn3C62W6P9QISq7jTpu4HueZGUlkEvWQTeKWtNuhZnKvCx8y6empUsTFOESyttvLKUMnWuoJWHIxKdXGWsiFIJf5GdwClFMKVzkxhqIukrK0_kzppfNAxMh0m-AAX5pRCF3e-fyFHiTYUcOb8Yhr__RDkB_1JHCMKdtrBc1grZSGXLExwpPlHh7Qu963rYOgWH8s2UsjGNXtSmDw.jpg",
+      "all_images": [
+        "https://cdn4.telesco.pe/file/FzZvu2PtqhisVzhDb0Wgvz9C7myNfTXNsQnQizfm76dnfHAM1ReHO3rpV0SbWqbsXhOBWw_Lu69BV37NN7WC_M9Ruox5Si2jRucnFcDvHtfa-6jRy7aWD44kFAYIkWNapA3PA0Kn3C62W6P9QISq7jTpu4HueZGUlkEvWQTeKWtNuhZnKvCx8y6empUsTFOESyttvLKUMnWuoJWHIxKdXGWsiFIJf5GdwClFMKVzkxhqIukrK0_kzppfNAxMh0m-AAX5pRCF3e-fyFHiTYUcOb8Yhr__RDkB_1JHCMKdtrBc1grZSGXLExwpPlHh7Qu963rYOgWH8s2UsjGNXtSmDw.jpg"
+      ],
+      "photos": [
+        "https://cdn4.telesco.pe/file/FzZvu2PtqhisVzhDb0Wgvz9C7myNfTXNsQnQizfm76dnfHAM1ReHO3rpV0SbWqbsXhOBWw_Lu69BV37NN7WC_M9Ruox5Si2jRucnFcDvHtfa-6jRy7aWD44kFAYIkWNapA3PA0Kn3C62W6P9QISq7jTpu4HueZGUlkEvWQTeKWtNuhZnKvCx8y6empUsTFOESyttvLKUMnWuoJWHIxKdXGWsiFIJf5GdwClFMKVzkxhqIukrK0_kzppfNAxMh0m-AAX5pRCF3e-fyFHiTYUcOb8Yhr__RDkB_1JHCMKdtrBc1grZSGXLExwpPlHh7Qu963rYOgWH8s2UsjGNXtSmDw.jpg"
+      ],
+      "status": "active",
+      "country": "vietnam",
+      "message_id": 61,
+      "has_media": true,
+      "category": "entertainment",
+      "listing_type": "entertainment",
+      "listing_id": "gavibeshub_61"
+    },
+    {
+      "id": "gavibeshub_60",
+      "title": "AMP Social Jam — вечеринка без каверов",
+      "description": "Воскресенье, 5 апреля | Kong 72\nРедкая возможность послушать что-то помимо затёртых до дыр поп-хитов.\nПриходи слушать и играть музыку — живую, незнакомую и прекрасную.\nОставь кавера на другой день — импровизируй! Авторские песни и композиции приветствуются.\nНа сцене есть барабаны, клавиши, гитара, бас и микрофоны. Хочешь — тащи свой инструмент.\nНе хочется играть? Не беда.\nВ баре — отличные напитки и пицца, а на сцене — импровизации лучших музыкантов региона и отличный звук от команды лейбла AMP.\nКак найти Kong 72: едешь по адресу, заходишь в Slice Club, открываешь большую красную дверь холодильника и шагаешь внутрь. Всё — ты на месте.\n🗓 Воскресенье, 5 апреля\n📍 Kong 72 (https://maps.app.goo.gl/HqS5M4MW3KSg9U2s7)\n🕗 Старт в 22:00\n🎟 Вход свободный\n#дата: 05.04",
+      "text": "AMP Social Jam — вечеринка без каверов\n\nВоскресенье, 5 апреля | Kong 72\n\nРедкая возможность послушать что-то помимо затёртых до дыр поп-хитов.\n\nПриходи слушать и играть музыку — живую, незнакомую и прекрасную.\n\nОставь кавера на другой день — импровизируй! Авторские песни и композиции приветствуются.\n\nНа сцене есть барабаны, клавиши, гитара, бас и микрофоны. Хочешь — тащи свой инструмент.\n\nНе хочется играть? Не беда.\nВ баре — отличные напитки и пицца, а на сцене — импровизации лучших музыкантов региона и отличный звук от команды лейбла AMP.\n\nКак найти Kong 72: едешь по адресу, заходишь в Slice Club, открываешь большую красную дверь холодильника и шагаешь внутрь. Всё — ты на месте.\n\n🗓 Воскресенье, 5 апреля \n📍 Kong 72 (https://maps.app.goo.gl/HqS5M4MW3KSg9U2s7)\n🕗 Старт в 22:00\n🎟 Вход свободный\n\n#дата: 05.04",
+      "price": 0,
+      "price_display": "",
+      "city": "Вьетнам",
+      "city_ru": "Вьетнам",
+      "date": "2026-04-02T07:53:46.759822+00:00",
+      "contact": "@media_vn",
+      "contact_name": "media_vn",
+      "source_group": "media_vn",
+      "source_channel": "media_vn",
+      "telegram": "https://t.me/media_vn",
+      "telegram_link": "https://t.me/media_vn/60",
+      "image_url": "https://cdn4.telesco.pe/file/ZQnxPxRc-EXP0Ttt2OYZOa-LjoXL6jtOCT8EI-cw_2oKjXUr_BQCGH7itFsVYq5efq2lpF7FdLCxLF4CLPy81WmrXzf6l9UWmrSERKxvbF56PV0K9KG44hLoQwFSTw_oY0v2eQVRFR1KrL9M2TvRqSXNzx8ktFz6BXgp-s1xLvpiNWaxHZFuoQjy9ZjK-f1pxxBDWF5kntO0ahi7EpNJXJeTC3yeleiEPqM2I-sgUuZj8Zmf7Yng9YZY-QkNzf3tkDnYONedq4Nij5UZ1exnFIVVVTCCE00REXt88Cm0qPbDJqSjIBdYdsbx4pYPbVqnUJH_Tl0SVlLlfgx93F9Nqg.jpg",
+      "all_images": [
+        "https://cdn4.telesco.pe/file/ZQnxPxRc-EXP0Ttt2OYZOa-LjoXL6jtOCT8EI-cw_2oKjXUr_BQCGH7itFsVYq5efq2lpF7FdLCxLF4CLPy81WmrXzf6l9UWmrSERKxvbF56PV0K9KG44hLoQwFSTw_oY0v2eQVRFR1KrL9M2TvRqSXNzx8ktFz6BXgp-s1xLvpiNWaxHZFuoQjy9ZjK-f1pxxBDWF5kntO0ahi7EpNJXJeTC3yeleiEPqM2I-sgUuZj8Zmf7Yng9YZY-QkNzf3tkDnYONedq4Nij5UZ1exnFIVVVTCCE00REXt88Cm0qPbDJqSjIBdYdsbx4pYPbVqnUJH_Tl0SVlLlfgx93F9Nqg.jpg"
+      ],
+      "photos": [
+        "https://cdn4.telesco.pe/file/ZQnxPxRc-EXP0Ttt2OYZOa-LjoXL6jtOCT8EI-cw_2oKjXUr_BQCGH7itFsVYq5efq2lpF7FdLCxLF4CLPy81WmrXzf6l9UWmrSERKxvbF56PV0K9KG44hLoQwFSTw_oY0v2eQVRFR1KrL9M2TvRqSXNzx8ktFz6BXgp-s1xLvpiNWaxHZFuoQjy9ZjK-f1pxxBDWF5kntO0ahi7EpNJXJeTC3yeleiEPqM2I-sgUuZj8Zmf7Yng9YZY-QkNzf3tkDnYONedq4Nij5UZ1exnFIVVVTCCE00REXt88Cm0qPbDJqSjIBdYdsbx4pYPbVqnUJH_Tl0SVlLlfgx93F9Nqg.jpg"
+      ],
+      "status": "active",
+      "country": "vietnam",
+      "message_id": 60,
+      "has_media": true,
+      "category": "entertainment",
+      "listing_type": "entertainment",
+      "listing_id": "gavibeshub_60"
+    },
+    {
+      "id": "gavibeshub_59",
+      "title": "4 APRIL | FULL MOON BEACH PARTY | SARANAI Хойан. Пляж. Полная луна. Никаких правил — только мощный бас под открытым небо",
+      "description": "4 APRIL | FULL MOON BEACH PARTY | SARANAI Хойан. Пляж. Полная луна. Никаких правил — только мощный бас под открытым небом. Специальные гости: KUTLO & MUNGK DJs LINEUP: KUTLO (Eatbrain | Delta9) MUNGK (DUPLOC | Infernal Sounds) EZOR (Dispatch) EQUATION IVAX SIBBIZZ KBING Saranai Beach Club 8pm - 5am Entry Tickets: 150K pre-sale 250K at door Drum & Bass • UKG • Dubstep • Jungle",
+      "text": "4 APRIL | FULL MOON BEACH PARTY | SARANAI Хойан. Пляж. Полная луна. Никаких правил — только мощный бас под открытым небом. Специальные гости: KUTLO & MUNGK DJs LINEUP: KUTLO (Eatbrain | Delta9) MUNGK (DUPLOC | Infernal Sounds) EZOR (Dispatch) EQUATION IVAX SIBBIZZ KBING Saranai Beach Club 8pm - 5am Entry Tickets: 150K pre-sale 250K at door Drum & Bass • UKG • Dubstep • Jungle",
+      "price": 0,
+      "price_display": "",
+      "city": "Хойан",
+      "city_ru": "Хойан",
+      "date": "2026-04-02T07:53:44.475148+00:00",
+      "contact": "@media_vn",
+      "contact_name": "media_vn",
+      "source_group": "media_vn",
+      "source_channel": "media_vn",
+      "telegram": "https://t.me/media_vn",
+      "telegram_link": "https://t.me/media_vn/59",
+      "image_url": "https://cdn4.telesco.pe/file/OnvysE6UtPW6CIB0WWfBe3amdQgTD7DzcbWqnSInqXNwFtQaIn8cl7iCIEykIuJ1yjEsigxYPAFkJrw_5ssjebh08wc4fSJYoIvTle71WbHrhJXu0SIZjY_b2jp_K_5mX7Y-eGh2tEAF-TSCl2Bb4QVUQRjij3ATk_axHKXrgRJ-M6DTBZaQ73vVRZQ63ja4oaT5ClrezU-Z0qZkUaPEzojG75eanwSu9nTh6AxOLRSplptgkKQ3OH33ZCq1vZJx8emj65QFrM3wK0MBf8djzR8u0zL3FCqxzPQY84OD5l6aq9YwDo7oMSdBg7XJP1UCuxiDjtiHdjOAGbQxl6ygmg.jpg",
+      "all_images": [
+        "https://cdn4.telesco.pe/file/OnvysE6UtPW6CIB0WWfBe3amdQgTD7DzcbWqnSInqXNwFtQaIn8cl7iCIEykIuJ1yjEsigxYPAFkJrw_5ssjebh08wc4fSJYoIvTle71WbHrhJXu0SIZjY_b2jp_K_5mX7Y-eGh2tEAF-TSCl2Bb4QVUQRjij3ATk_axHKXrgRJ-M6DTBZaQ73vVRZQ63ja4oaT5ClrezU-Z0qZkUaPEzojG75eanwSu9nTh6AxOLRSplptgkKQ3OH33ZCq1vZJx8emj65QFrM3wK0MBf8djzR8u0zL3FCqxzPQY84OD5l6aq9YwDo7oMSdBg7XJP1UCuxiDjtiHdjOAGbQxl6ygmg.jpg"
+      ],
+      "photos": [
+        "https://cdn4.telesco.pe/file/OnvysE6UtPW6CIB0WWfBe3amdQgTD7DzcbWqnSInqXNwFtQaIn8cl7iCIEykIuJ1yjEsigxYPAFkJrw_5ssjebh08wc4fSJYoIvTle71WbHrhJXu0SIZjY_b2jp_K_5mX7Y-eGh2tEAF-TSCl2Bb4QVUQRjij3ATk_axHKXrgRJ-M6DTBZaQ73vVRZQ63ja4oaT5ClrezU-Z0qZkUaPEzojG75eanwSu9nTh6AxOLRSplptgkKQ3OH33ZCq1vZJx8emj65QFrM3wK0MBf8djzR8u0zL3FCqxzPQY84OD5l6aq9YwDo7oMSdBg7XJP1UCuxiDjtiHdjOAGbQxl6ygmg.jpg"
+      ],
+      "status": "active",
+      "country": "vietnam",
+      "message_id": 59,
+      "has_media": true,
+      "category": "entertainment",
+      "listing_type": "entertainment",
+      "listing_id": "gavibeshub_59"
+    },
+    {
+      "id": "gavibeshub_58",
+      "title": "О событии",
+      "description": "💦 𝐃𝐚𝐍𝐚𝐧𝐠 𝐒𝐨𝐧𝐠𝐤𝐫𝐚𝐧 𝐅𝐞𝐬𝐭𝐢𝐯𝐚𝐥 𝟐𝟎𝟐𝟔 — главное водное событие лета возвращается! 🔥\n🌊 После яркой паузы жара снова набирает обороты. В 2026 году Danang Songkran Festival возвращается, чтобы зажечь побережье ДаНангa масштабным праздником, вдохновлённым всемирно известным тайским Сонгкран.\nФестиваль 2026 года обещает ещё больше водных зон, жаркие DJ-сеты и безумные водные баталии, которые зарядят лето неостановимой энергией.\n📅 Дата: 11 апреля 2026\n⏰ Время: 10:00 – 18:00\n📍 Локация: East Sea Parkside & Beach — Vo Nguyen Giap Street, Phuoc My Ward, Son Tra District, Da Nang",
+      "text": "О событии\n💦 𝐃𝐚𝐍𝐚𝐧𝐠 𝐒𝐨𝐧𝐠𝐤𝐫𝐚𝐧 𝐅𝐞𝐬𝐭𝐢𝐯𝐚𝐥 𝟐𝟎𝟐𝟔 — главное водное событие лета возвращается! 🔥\n\n🌊 После яркой паузы жара снова набирает обороты. В 2026 году Danang Songkran Festival возвращается, чтобы зажечь побережье ДаНангa масштабным праздником, вдохновлённым всемирно известным тайским Сонгкран.\n\nФестиваль 2026 года обещает ещё больше водных зон, жаркие DJ-сеты и безумные водные баталии, которые зарядят лето неостановимой энергией.\n\n📅 Дата: 11 апреля 2026\n⏰ Время: 10:00 – 18:00\n📍 Локация: East Sea Parkside & Beach — Vo Nguyen Giap Street, Phuoc My Ward, Son Tra District, Da Nang",
+      "price": 0,
+      "price_display": "",
+      "city": "Дананг",
+      "city_ru": "Дананг",
+      "date": "2026-04-02T07:53:42.264791+00:00",
+      "contact": "@media_vn",
+      "contact_name": "media_vn",
+      "source_group": "media_vn",
+      "source_channel": "media_vn",
+      "telegram": "https://t.me/media_vn",
+      "telegram_link": "https://t.me/media_vn/58",
+      "image_url": "https://cdn5.telesco.pe/file/Bp_l4Y6ZIKLZrDhyyqiZAb7fUp_FKeEujICX3uMSnTrRBmayrfFDI_Zwj3KlPUQ7VS9Iqzhg15IovqqDXZlZoi5eMiJUFbfyMNbhUNzwep18LUxJe_1ZIeMzcT2IFkVWgy3RmVfOVZi4doY2_s8PqcovPw6kCiFUV2DjQjesqWPGDb_zKNHI-9J50oO40PcU0cbAhp4txXHfG8M9U7gBcylT1qHykUCvGNCB09PLZKuChwSAM2AClBej1YXNJ1R83ZcHXZGJOic5rGC9UvfUltUC4ca9zxngoxQ9FSOxIiLO83TuYqvbIXXcz68BL-4lB3hQepa38m-bMbC0QZt_Dg.jpg",
+      "all_images": [
+        "https://cdn5.telesco.pe/file/Bp_l4Y6ZIKLZrDhyyqiZAb7fUp_FKeEujICX3uMSnTrRBmayrfFDI_Zwj3KlPUQ7VS9Iqzhg15IovqqDXZlZoi5eMiJUFbfyMNbhUNzwep18LUxJe_1ZIeMzcT2IFkVWgy3RmVfOVZi4doY2_s8PqcovPw6kCiFUV2DjQjesqWPGDb_zKNHI-9J50oO40PcU0cbAhp4txXHfG8M9U7gBcylT1qHykUCvGNCB09PLZKuChwSAM2AClBej1YXNJ1R83ZcHXZGJOic5rGC9UvfUltUC4ca9zxngoxQ9FSOxIiLO83TuYqvbIXXcz68BL-4lB3hQepa38m-bMbC0QZt_Dg.jpg"
+      ],
+      "photos": [
+        "https://cdn5.telesco.pe/file/Bp_l4Y6ZIKLZrDhyyqiZAb7fUp_FKeEujICX3uMSnTrRBmayrfFDI_Zwj3KlPUQ7VS9Iqzhg15IovqqDXZlZoi5eMiJUFbfyMNbhUNzwep18LUxJe_1ZIeMzcT2IFkVWgy3RmVfOVZi4doY2_s8PqcovPw6kCiFUV2DjQjesqWPGDb_zKNHI-9J50oO40PcU0cbAhp4txXHfG8M9U7gBcylT1qHykUCvGNCB09PLZKuChwSAM2AClBej1YXNJ1R83ZcHXZGJOic5rGC9UvfUltUC4ca9zxngoxQ9FSOxIiLO83TuYqvbIXXcz68BL-4lB3hQepa38m-bMbC0QZt_Dg.jpg"
+      ],
+      "status": "active",
+      "country": "vietnam",
+      "message_id": 58,
+      "has_media": true,
+      "category": "entertainment",
+      "listing_type": "entertainment",
+      "listing_id": "gavibeshub_58"
+    },
+    {
+      "id": "gavibeshub_57",
+      "title": "Ночной Nha Trang в огнях — шум города стихает, остаётся только музыка, свет и движение.",
+      "description": "04.04 — вечер, где встречаются ритмы и люди, где разговоры текут так же легко, как напитки, а атмосфера собирает своих.\nМузыкальное настроение задают: @leonidgorchakov @dory_trang0205 @anatoliy_space\nПриходи за настроением — остальное случится само.",
+      "text": "Ночной Nha Trang в огнях — шум города стихает, остаётся только музыка, свет и движение.\n\n04.04 — вечер, где встречаются ритмы и люди, где разговоры текут так же легко, как напитки, а атмосфера собирает своих.\n\nМузыкальное настроение задают: @leonidgorchakov @dory_trang0205 @anatoliy_space\n\nПриходи за настроением — остальное случится само.",
+      "price": 0,
+      "price_display": "",
+      "city": "Нячанг",
+      "city_ru": "Нячанг",
+      "date": "2026-04-02T07:53:40.075049+00:00",
+      "contact": "@media_vn",
+      "contact_name": "media_vn",
+      "source_group": "media_vn",
+      "source_channel": "media_vn",
+      "telegram": "https://t.me/media_vn",
+      "telegram_link": "https://t.me/media_vn/57",
+      "image_url": "https://cdn5.telesco.pe/file/Yj8Xy3F-ChlpZar7ijvCFCDuxdSCUbTNgu6USLSTPc-GHUVIMoDPacXL8ir3qt9gOZHtAjU52KVoUl0yMUj5ztyVqcEgLDC5B9jLTvt5__0AfhTOeyPXtxdTfpZ1rFhwMLpJ2KJRTK5KkQqjdHzgMmFSibYmXRn5EHgLKIbiePa0bpGvh-iOU7zVJ0n8FpPQ7ej0xtCXVE_Hw_JICDfY6PH1M8W-AUf1XY0EfW7H7RRLk5tTWPXgKb2mw5UHRdHVgNtDYIVCMpatULIGtmR9e8u_C7rQiKoCUNJyFB3Yg5WjuKqmfHX6pfCkki-NfNCJ_sCjfFywRU7jxplCFCl8WA.jpg",
+      "all_images": [
+        "https://cdn5.telesco.pe/file/Yj8Xy3F-ChlpZar7ijvCFCDuxdSCUbTNgu6USLSTPc-GHUVIMoDPacXL8ir3qt9gOZHtAjU52KVoUl0yMUj5ztyVqcEgLDC5B9jLTvt5__0AfhTOeyPXtxdTfpZ1rFhwMLpJ2KJRTK5KkQqjdHzgMmFSibYmXRn5EHgLKIbiePa0bpGvh-iOU7zVJ0n8FpPQ7ej0xtCXVE_Hw_JICDfY6PH1M8W-AUf1XY0EfW7H7RRLk5tTWPXgKb2mw5UHRdHVgNtDYIVCMpatULIGtmR9e8u_C7rQiKoCUNJyFB3Yg5WjuKqmfHX6pfCkki-NfNCJ_sCjfFywRU7jxplCFCl8WA.jpg"
+      ],
+      "photos": [
+        "https://cdn5.telesco.pe/file/Yj8Xy3F-ChlpZar7ijvCFCDuxdSCUbTNgu6USLSTPc-GHUVIMoDPacXL8ir3qt9gOZHtAjU52KVoUl0yMUj5ztyVqcEgLDC5B9jLTvt5__0AfhTOeyPXtxdTfpZ1rFhwMLpJ2KJRTK5KkQqjdHzgMmFSibYmXRn5EHgLKIbiePa0bpGvh-iOU7zVJ0n8FpPQ7ej0xtCXVE_Hw_JICDfY6PH1M8W-AUf1XY0EfW7H7RRLk5tTWPXgKb2mw5UHRdHVgNtDYIVCMpatULIGtmR9e8u_C7rQiKoCUNJyFB3Yg5WjuKqmfHX6pfCkki-NfNCJ_sCjfFywRU7jxplCFCl8WA.jpg"
+      ],
+      "status": "active",
+      "country": "vietnam",
+      "message_id": 57,
+      "has_media": true,
+      "category": "entertainment",
+      "listing_type": "entertainment",
+      "listing_id": "gavibeshub_57"
+    },
+    {
+      "id": "gavibeshub_56",
+      "title": "ВОСКРЕСЕНЬЕ, 05 АПРЕЛЯ ПОЕЗДКА НА ОСТРОВ ОРХИДЕЙ (HOA LAN ISLAND) Едем на один из самых красивых островов рядом с Нячанг",
+      "description": "ВОСКРЕСЕНЬЕ, 05 АПРЕЛЯ ПОЕЗДКА НА ОСТРОВ ОРХИДЕЙ (HOA LAN ISLAND) Едем на один из самых красивых островов рядом с Нячангом — природа, животные, пляж и спокойный отдых ⏰ Сбор: 07:50 Отправление: 08:00 (не опаздываем — катер уходит вовремя) Пристань Стоимость (самостоятельно): • взрослые: 176 000 – 240 000 VND • дети (100–140 см): 100 000 – 150 000 VND • до 100 см: бесплатно • комбо (Орхидеи + Обезьяны): ~550 000 VND В билет уже входит катер на остров На острове: • шоу животных (страусы, птицы) ⏰ 09:30 / 11:00 / 14:00 • дополнительные активности: — страусы ~60k — слоны ~300k — фото с животными ~20k Что нас ждёт: • парк орхидей и зелёная территория • животные и шоу • пляж и возможность искупаться • прогулки и красивые локации Как добраться: • автобус №3 (жёлтая полоса) • такси / байк Пристань находится ~18 км от Нячанга Участие бесплатное. Для записи пиши: @gamolkot #дата: 05.04.2026 Пост от: Tatiana",
+      "text": "ВОСКРЕСЕНЬЕ, 05 АПРЕЛЯ ПОЕЗДКА НА ОСТРОВ ОРХИДЕЙ (HOA LAN ISLAND) Едем на один из самых красивых островов рядом с Нячангом — природа, животные, пляж и спокойный отдых ⏰ Сбор: 07:50 Отправление: 08:00 (не опаздываем — катер уходит вовремя) Пристань Стоимость (самостоятельно): • взрослые: 176 000 – 240 000 VND • дети (100–140 см): 100 000 – 150 000 VND • до 100 см: бесплатно • комбо (Орхидеи + Обезьяны): ~550 000 VND В билет уже входит катер на остров На острове: • шоу животных (страусы, птицы) ⏰ 09:30 / 11:00 / 14:00 • дополнительные активности: — страусы ~60k — слоны ~300k — фото с животными ~20k Что нас ждёт: • парк орхидей и зелёная территория • животные и шоу • пляж и возможность искупаться • прогулки и красивые локации Как добраться: • автобус №3 (жёлтая полоса) • такси / байк Пристань находится ~18 км от Нячанга Участие бесплатное. Для записи пиши: @gamolkot #дата: 05.04.2026 Пост от: Tatiana",
+      "price": 0,
+      "price_display": "",
+      "city": "Нячанг",
+      "city_ru": "Нячанг",
+      "date": "2026-04-02T07:53:37.944697+00:00",
+      "contact": "@media_vn",
+      "contact_name": "media_vn",
+      "source_group": "media_vn",
+      "source_channel": "media_vn",
+      "telegram": "https://t.me/media_vn",
+      "telegram_link": "https://t.me/media_vn/56",
+      "image_url": "https://cdn4.telesco.pe/file/OY-X9oijStUgwos5cHTWiGgA9iOmE4F-QUcXbxQjc722HopIi_jfW_3FmHskHJ__cGuWpb2_BUYguOhTxIyOaXjXgA-VCxmN1FZcgLPP5YjwcRcyr1yk0A3NEY_mtPBkcbT-ZNEMaYQEvv2hKQH_M6ZLvfiHSYAV2ZEGvNh-D7Sv-7ssK8YHt2QAHx_d_TXKgx9IVtXQXdZD183tNYE-hiq-Fr__C2E7uYoV4lQkf36u8gWJXr-jiw-J3cw6gpBseog4BCX1ribD5VR6Cf1yJ0YODvYhZZELX3ZbQQgOWPFqSfFYzoKp3VorLerk1Th1iwMzRKlkdGJrYWG5cgFUPg.jpg",
+      "all_images": [
+        "https://cdn4.telesco.pe/file/OY-X9oijStUgwos5cHTWiGgA9iOmE4F-QUcXbxQjc722HopIi_jfW_3FmHskHJ__cGuWpb2_BUYguOhTxIyOaXjXgA-VCxmN1FZcgLPP5YjwcRcyr1yk0A3NEY_mtPBkcbT-ZNEMaYQEvv2hKQH_M6ZLvfiHSYAV2ZEGvNh-D7Sv-7ssK8YHt2QAHx_d_TXKgx9IVtXQXdZD183tNYE-hiq-Fr__C2E7uYoV4lQkf36u8gWJXr-jiw-J3cw6gpBseog4BCX1ribD5VR6Cf1yJ0YODvYhZZELX3ZbQQgOWPFqSfFYzoKp3VorLerk1Th1iwMzRKlkdGJrYWG5cgFUPg.jpg"
+      ],
+      "photos": [
+        "https://cdn4.telesco.pe/file/OY-X9oijStUgwos5cHTWiGgA9iOmE4F-QUcXbxQjc722HopIi_jfW_3FmHskHJ__cGuWpb2_BUYguOhTxIyOaXjXgA-VCxmN1FZcgLPP5YjwcRcyr1yk0A3NEY_mtPBkcbT-ZNEMaYQEvv2hKQH_M6ZLvfiHSYAV2ZEGvNh-D7Sv-7ssK8YHt2QAHx_d_TXKgx9IVtXQXdZD183tNYE-hiq-Fr__C2E7uYoV4lQkf36u8gWJXr-jiw-J3cw6gpBseog4BCX1ribD5VR6Cf1yJ0YODvYhZZELX3ZbQQgOWPFqSfFYzoKp3VorLerk1Th1iwMzRKlkdGJrYWG5cgFUPg.jpg"
+      ],
+      "status": "active",
+      "country": "vietnam",
+      "message_id": 56,
+      "has_media": true,
+      "category": "entertainment",
+      "listing_type": "entertainment",
+      "listing_id": "gavibeshub_56"
+    },
+    {
+      "id": "gavibeshub_49",
+      "title": "ТРАЕКТОРИЯ: РЕТРИТ ИЗ ДАНАНГА",
+      "description": "🗓 4–5 апреля\n📍 1 час от Дананга\nЗачем ехать?\nВ эти выходные сменим вектор. Новая Траектория. Туда, где звук горной реки заглушает уведомления в телефоне, а дым костра и песни под гитару возвращают к настоящему:\n💨 ВОЗДУХ - прохлада гор\n💧 ВОДА - хайкинг на водопад и купание\n🔥 ОГОНЬ - шашлык, костер и песни под гитару\n🌱 ЗЕМЛЯ - ночевка в палатках под звездами\nВКЛЮЧЕНО:\n• Каньонинг / подъем на водопад\n• Ужин / шашлык\n• Костер / песни под гитару\n• Палатка / матрас / подушка\n• Душ / туалет\n• Банда искателей приключений\nУЧАСТИЕ:\n- 900 000 VND / без ночевки 👻\n- 1 400 000 VND / с ночевкой ⛺️\nТАЙМЛАЙН:\n➡️ Старт 04.04 в 12:00\n👈 Финиш 05.04 в 11:00\nКонтакт: @alex_danangciaga",
+      "text": "ТРАЕКТОРИЯ: РЕТРИТ ИЗ ДАНАНГА \n\n🗓 4–5 апреля \n📍 1 час от Дананга \n\nЗачем ехать? \n\nВ эти выходные сменим вектор. Новая Траектория. Туда, где звук горной реки заглушает уведомления в телефоне, а дым костра и песни под гитару возвращают к настоящему:\n\n💨 ВОЗДУХ - прохлада гор\n💧 ВОДА - хайкинг на водопад и купание\n🔥 ОГОНЬ - шашлык, костер и песни под гитару\n🌱 ЗЕМЛЯ - ночевка в палатках под звездами\n\nВКЛЮЧЕНО:\n\n• Каньонинг / подъем на водопад\n• Ужин / шашлык\n• Костер / песни под гитару\n• Палатка / матрас / подушка\n• Душ / туалет\n• Банда искателей приключений\n\nУЧАСТИЕ: \n- 900 000 VND / без ночевки 👻\n- 1 400 000 VND / с ночевкой ⛺️\n\nТАЙМЛАЙН:\n\n➡️ Старт 04.04 в 12:00\n👈 Финиш 05.04 в 11:00\n\nКонтакт: @alex_danangciaga",
+      "price": 0,
+      "price_display": "",
+      "city": "Дананг",
+      "city_ru": "Дананг",
+      "date": "2026-04-02T07:53:32.258048+00:00",
+      "contact": "@media_vn",
+      "contact_name": "media_vn",
+      "source_group": "media_vn",
+      "source_channel": "media_vn",
+      "telegram": "https://t.me/media_vn",
+      "telegram_link": "https://t.me/media_vn/49",
+      "image_url": "https://cdn4.telesco.pe/file/BKCDrNt8ju7cL7jSNBL29LwTPZEUFiih9EaMn0ZexGH_pp9r9P7E2-wo5J8z2I3CpsyekONU-gXMwHWonSyUC62X9Po8aasTJf9Rdr5azn6VjloR8g-2-Lw-ANyi2f1EtvzYZHBuFWiYZf_xDqNpeM89MTKcnCZt7ou7qdJP_ZD4ngR-5zTHP7ezUAsLXJHKUw1spwpssTSI9oWDYsEeURBQypSypJXZF11NGaIgyzPko1S16bihfUEU2Z6KTYN4n0DenkZcQnJcPP6qF54S6u6retbWhxB9H8CYLW1oS53dIk5Vmby17pqiKnem-WpbMcJ1TfoWRpjyYhl9bgi70g.jpg",
+      "all_images": [
+        "https://cdn4.telesco.pe/file/BKCDrNt8ju7cL7jSNBL29LwTPZEUFiih9EaMn0ZexGH_pp9r9P7E2-wo5J8z2I3CpsyekONU-gXMwHWonSyUC62X9Po8aasTJf9Rdr5azn6VjloR8g-2-Lw-ANyi2f1EtvzYZHBuFWiYZf_xDqNpeM89MTKcnCZt7ou7qdJP_ZD4ngR-5zTHP7ezUAsLXJHKUw1spwpssTSI9oWDYsEeURBQypSypJXZF11NGaIgyzPko1S16bihfUEU2Z6KTYN4n0DenkZcQnJcPP6qF54S6u6retbWhxB9H8CYLW1oS53dIk5Vmby17pqiKnem-WpbMcJ1TfoWRpjyYhl9bgi70g.jpg"
+      ],
+      "photos": [
+        "https://cdn4.telesco.pe/file/BKCDrNt8ju7cL7jSNBL29LwTPZEUFiih9EaMn0ZexGH_pp9r9P7E2-wo5J8z2I3CpsyekONU-gXMwHWonSyUC62X9Po8aasTJf9Rdr5azn6VjloR8g-2-Lw-ANyi2f1EtvzYZHBuFWiYZf_xDqNpeM89MTKcnCZt7ou7qdJP_ZD4ngR-5zTHP7ezUAsLXJHKUw1spwpssTSI9oWDYsEeURBQypSypJXZF11NGaIgyzPko1S16bihfUEU2Z6KTYN4n0DenkZcQnJcPP6qF54S6u6retbWhxB9H8CYLW1oS53dIk5Vmby17pqiKnem-WpbMcJ1TfoWRpjyYhl9bgi70g.jpg"
+      ],
+      "status": "active",
+      "country": "vietnam",
+      "message_id": 49,
+      "has_media": true,
+      "category": "entertainment",
+      "listing_type": "entertainment",
+      "listing_id": "gavibeshub_49"
+    },
+    {
+      "id": "gavibeshub_48",
+      "title": "Игра Лила: Твой честный разговор с собой в Дананге Если ты чувствуешь что стоишь на месте или просто пришло время честно",
+      "description": "Игра Лила: Твой честный разговор с собой в Дананге Если ты чувствуешь что стоишь на месте или просто пришло время честно разобрать какой-то вопрос, то приглашаю тебя на игру Лила Лила — это древний психологический и духовный инструмент, который работает как отражение тебя и твоей жизни. За 3-4 часа игры ты сможешь: Найти настоящую причину «застоя» в делах или жизни. Увидеть повторяющиеся сценарии, которые тебе мешают. Сбросить груз ожиданий и услышать свой внутренний голос. Получить конкретный план действий для реализации своего запроса. Когда играем? среда — 14:00 пятница — 10:00 воскресенье — 11:00 (Также можно согласовать индивидуальное время) Формат: индивидуально или в мини-группе до 3-х человек (для максимального погружения). Ценность: • Индивидуально — 900k • Вдвоем — 450k с человека • Втроем — 300k с человека Я веду глубоко, помогая тебе найти ответы глубоко в подсознании. Записаться и задать вопросы: @Golubeva_Anastasiia",
+      "text": "Игра Лила: Твой честный разговор с собой в Дананге Если ты чувствуешь что стоишь на месте или просто пришло время честно разобрать какой-то вопрос, то приглашаю тебя на игру Лила Лила — это древний психологический и духовный инструмент, который работает как отражение тебя и твоей жизни. За 3-4 часа игры ты сможешь: Найти настоящую причину «застоя» в делах или жизни. Увидеть повторяющиеся сценарии, которые тебе мешают. Сбросить груз ожиданий и услышать свой внутренний голос. Получить конкретный план действий для реализации своего запроса. Когда играем? среда — 14:00 пятница — 10:00 воскресенье — 11:00 (Также можно согласовать индивидуальное время) Формат: индивидуально или в мини-группе до 3-х человек (для максимального погружения). Ценность: • Индивидуально — 900k • Вдвоем — 450k с человека • Втроем — 300k с человека Я веду глубоко, помогая тебе найти ответы глубоко в подсознании. Записаться и задать вопросы: @Golubeva_Anastasiia",
+      "price": 0,
+      "price_display": "",
+      "city": "Дананг",
+      "city_ru": "Дананг",
+      "date": "2026-04-02T07:53:29.892803+00:00",
+      "contact": "@media_vn",
+      "contact_name": "media_vn",
+      "source_group": "media_vn",
+      "source_channel": "media_vn",
+      "telegram": "https://t.me/media_vn",
+      "telegram_link": "https://t.me/media_vn/48",
+      "image_url": "/tg_img/gavibeshub/48",
+      "all_images": [
+        "/tg_img/gavibeshub/48"
+      ],
+      "photos": [
+        "/tg_img/gavibeshub/48"
+      ],
+      "status": "active",
+      "country": "vietnam",
+      "message_id": 48,
+      "has_media": true,
+      "category": "entertainment",
+      "listing_type": "entertainment",
+      "listing_id": "gavibeshub_48"
+    },
+    {
+      "id": "gavibeshub_47",
+      "title": "American Breakfast — говорим по-английски с удовольствием!",
+      "description": "Запускаем уютный Speaking Club с носителем языка из США — Максом 🇺🇸\nОн пройдет в эту среду в 11.00 (1.04)\nПочему это не просто разговорный клуб?\n☕️ Живой английский за “завтраком”\nМакс поделится актуальной лексикой и грамматикой по теме встречи — так, как реально говорят в Америке.\n💬 Практика + персональный фидбек\nВы разговариваете  — он слушает, помогает исправить ошибки и звучать естественно.\n😄 Лёгкая и весёлая атмосфера\nБез стресса и скучных правил — только живое общение, юмор и поддержка.\n🍳 Формат American Breakfast:\nнемного полезной лексики и грамматики + много разговорной практики + классная компания\n👥 Для кого?\nЕсли ты хочешь разговориться, прокачать уверенность и наконец начать использовать английский в речи — тебе к нам.\n❗️Участие: 150.000 VND\n📅 Мест всего 8 — успей записаться!\nЗапись и по любым вопросам @infraredfade\n#дата: 1.04",
+      "text": "American Breakfast — говорим по-английски с удовольствием!\n\nЗапускаем уютный Speaking Club с носителем языка из США — Максом 🇺🇸 \n\nОн пройдет в эту среду в 11.00 (1.04)\n\nПочему это не просто разговорный клуб?\n\n☕️ Живой английский за “завтраком”\nМакс поделится актуальной лексикой и грамматикой по теме встречи — так, как реально говорят в Америке.\n💬 Практика + персональный фидбек\nВы разговариваете  — он слушает, помогает исправить ошибки и звучать естественно.\n😄 Лёгкая и весёлая атмосфера\nБез стресса и скучных правил — только живое общение, юмор и поддержка.\n\n🍳 Формат American Breakfast:\nнемного полезной лексики и грамматики + много разговорной практики + классная компания\n\n👥 Для кого?\n\nЕсли ты хочешь разговориться, прокачать уверенность и наконец начать использовать английский в речи — тебе к нам. \n\n❗️Участие: 150.000 VND\n📅 Мест всего 8 — успей записаться!\n\nЗапись и по любым вопросам @infraredfade\n#дата: 1.04",
+      "price": 0,
+      "price_display": "",
+      "city": "Вьетнам",
+      "city_ru": "Вьетнам",
+      "date": "2026-04-02T07:53:27.531528+00:00",
+      "contact": "@media_vn",
+      "contact_name": "media_vn",
+      "source_group": "media_vn",
+      "source_channel": "media_vn",
+      "telegram": "https://t.me/media_vn",
+      "telegram_link": "https://t.me/media_vn/47",
+      "image_url": "/tg_img/gavibeshub/47",
+      "all_images": [
+        "/tg_img/gavibeshub/47"
+      ],
+      "photos": [
+        "/tg_img/gavibeshub/47"
+      ],
+      "status": "active",
+      "country": "vietnam",
+      "message_id": 47,
+      "has_media": true,
+      "category": "entertainment",
+      "listing_type": "entertainment",
+      "listing_id": "gavibeshub_47"
+    },
+    {
+      "id": "gavibeshub_46",
+      "title": "МЕСТО СХОДКИ 03.04.2026 Нячанг В пятницу забываем про заезженные места города и отправляемся изучать культуру Условия вх",
+      "description": "МЕСТО СХОДКИ 03.04.2026 Нячанг В пятницу забываем про заезженные места города и отправляемся изучать культуру Условия входа в описании рилс: ‼Line Up: 22:00 - 04:00 DJ GARPY ALLAN MILLIAN KIRUS Для того, чтобы попасть в списки, пиши в DM (Для блогеров): @liliyagorohova Адрес: 54 Nguyễn Thiện Thuật, Tân Lập, Nha Trang, Khánh Hòa 650000 FC | DC #нячанг #вечеринканячанг #nhatrang",
+      "text": "МЕСТО СХОДКИ 03.04.2026 Нячанг В пятницу забываем про заезженные места города и отправляемся изучать культуру Условия входа в описании рилс: ‼Line Up: 22:00 - 04:00 DJ GARPY ALLAN MILLIAN KIRUS Для того, чтобы попасть в списки, пиши в DM (Для блогеров): @liliyagorohova Адрес: 54 Nguyễn Thiện Thuật, Tân Lập, Nha Trang, Khánh Hòa 650000 FC | DC #нячанг #вечеринканячанг #nhatrang",
+      "price": 0,
+      "price_display": "",
+      "city": "Нячанг",
+      "city_ru": "Нячанг",
+      "date": "2026-04-02T07:53:25.314309+00:00",
+      "contact": "@media_vn",
+      "contact_name": "media_vn",
+      "source_group": "media_vn",
+      "source_channel": "media_vn",
+      "telegram": "https://t.me/media_vn",
+      "telegram_link": "https://t.me/media_vn/46",
+      "image_url": "/tg_img/gavibeshub/46",
+      "all_images": [
+        "/tg_img/gavibeshub/46"
+      ],
+      "photos": [
+        "/tg_img/gavibeshub/46"
+      ],
+      "status": "active",
+      "country": "vietnam",
+      "message_id": 46,
+      "has_media": true,
+      "category": "entertainment",
+      "listing_type": "entertainment",
+      "listing_id": "gavibeshub_46"
+    },
+    {
+      "id": "gavibeshub_45",
+      "title": "Анонс интеллектуальной игры “Квиз, плиз!” Изи-классика в четверг 2 апреля в 19:30 в ресторане La Villa Эта игра подойдет",
+      "description": "Анонс интеллектуальной игры “Квиз, плиз!” Изи-классика в четверг 2 апреля в 19:30 в ресторане La Villa Эта игра подойдет и новичкам и опытным игрокам! Вопросы на разные темы, логику, эрудицию и удачу. Много классных призов, от нас и наших спонсоров Стоимость: 150 000 VND. В команде может быть от 2 до 9 участников. Встречаемся в ресторане La villa По всем вопросам @happysoul_kz Скорее регистрируйте свою команду, а если команды нет, не беда, запишем в сборную #дата: 02.04.2026 Пост от: Баха",
+      "text": "Анонс интеллектуальной игры “Квиз, плиз!” Изи-классика в четверг 2 апреля в 19:30 в ресторане La Villa Эта игра подойдет и новичкам и опытным игрокам! Вопросы на разные темы, логику, эрудицию и удачу. Много классных призов, от нас и наших спонсоров Стоимость: 150 000 VND. В команде может быть от 2 до 9 участников. Встречаемся в ресторане La villa По всем вопросам @happysoul_kz Скорее регистрируйте свою команду, а если команды нет, не беда, запишем в сборную #дата: 02.04.2026 Пост от: Баха",
+      "price": 0,
+      "price_display": "",
+      "city": "Вьетнам",
+      "city_ru": "Вьетнам",
+      "date": "2026-04-02T07:53:23.105782+00:00",
+      "contact": "@media_vn",
+      "contact_name": "media_vn",
+      "source_group": "media_vn",
+      "source_channel": "media_vn",
+      "telegram": "https://t.me/media_vn",
+      "telegram_link": "https://t.me/media_vn/45",
+      "image_url": "/tg_img/gavibeshub/45",
+      "all_images": [
+        "/tg_img/gavibeshub/45"
+      ],
+      "photos": [
+        "/tg_img/gavibeshub/45"
+      ],
+      "status": "active",
+      "country": "vietnam",
+      "message_id": 45,
+      "has_media": true,
+      "category": "entertainment",
+      "listing_type": "entertainment",
+      "listing_id": "gavibeshub_45"
+    },
+    {
+      "id": "gavibeshub_43",
+      "title": "В эту пятницу 3 апреля!!! МЕСТО СХОДКИ Нячанг бар Why not В пятницу забываем про заезженные места города и отправляемся ",
+      "description": "В эту пятницу 3 апреля!!! МЕСТО СХОДКИ Нячанг бар Why not В пятницу забываем про заезженные места города и отправляемся изучать культуру Условия входа в описании рилс: ‼Line Up: 22:00 - 04:00 DJ GARPY ALLAN MILLIAN KIRUS Для того, чтобы попасть в списки, пиши в DM (Для блогеров): @liliyagorohova Адрес: 54 Nguyễn Thiện Thuật, Tân Lập, Nha Trang, Khánh Hòa 650000 FC | DC #нячанг #вечеринканячанг #nhatrang",
+      "text": "В эту пятницу 3 апреля!!! МЕСТО СХОДКИ Нячанг бар Why not В пятницу забываем про заезженные места города и отправляемся изучать культуру Условия входа в описании рилс: ‼Line Up: 22:00 - 04:00 DJ GARPY ALLAN MILLIAN KIRUS Для того, чтобы попасть в списки, пиши в DM (Для блогеров): @liliyagorohova Адрес: 54 Nguyễn Thiện Thuật, Tân Lập, Nha Trang, Khánh Hòa 650000 FC | DC #нячанг #вечеринканячанг #nhatrang",
+      "price": 0,
+      "price_display": "",
+      "city": "Нячанг",
+      "city_ru": "Нячанг",
+      "date": "2026-04-02T07:53:20.337906+00:00",
+      "contact": "@media_vn",
+      "contact_name": "media_vn",
+      "source_group": "media_vn",
+      "source_channel": "media_vn",
+      "telegram": "https://t.me/media_vn",
+      "telegram_link": "https://t.me/media_vn/43",
+      "image_url": "/tg_img/gavibeshub/43",
+      "all_images": [
+        "/tg_img/gavibeshub/43"
+      ],
+      "photos": [
+        "/tg_img/gavibeshub/43"
+      ],
+      "status": "active",
+      "country": "vietnam",
+      "message_id": 43,
+      "has_media": true,
+      "category": "entertainment",
+      "listing_type": "entertainment",
+      "listing_id": "gavibeshub_43"
+    },
+    {
+      "id": "gavibeshub_41",
+      "title": "Смысловая КИНОВЕЧЕРИНКА \"Мелочи жизни\" - 2024 г. Фильм о почти незаметных вещах, которые на самом деле решают всё - о вы",
+      "description": "Смысловая КИНОВЕЧЕРИНКА \"Мелочи жизни\" - 2024 г. Фильм о почти незаметных вещах, которые на самом деле решают всё - о выборе, совести и тех моментах, когда «просто пройти мимо» уже не получается. История разворачивается в обычной жизни и без громких событий. И именно в этой простоте проявляется самое важное: кем мы становимся, когда никто не смотрит. Будем смотреть его как разговор с собой - про внутреннюю честность, маленькие поступки и цену, которую мы готовы (или нет) за них платить. ____________________ Мы смотрим фильм не просто ради просмотра. Перед началом задаём несколько вопросов, чтобы смотреть внимательнее, апосле - обсуждаем, делимся мыслями и замечаем то, что в одиночку легко пропустить. Часто один и тот же фильм открывается совершенно по-разному через взгляды других людей - и именно в этом основная ценность таких встреч Когда: 3 апреля (пятница) Начало: 18:30 Место: Tổ càphê Участие: 150к Билетик в кино - @hi_aliyaaa #Дата: 3.04",
+      "text": "Смысловая КИНОВЕЧЕРИНКА \"Мелочи жизни\" - 2024 г. Фильм о почти незаметных вещах, которые на самом деле решают всё - о выборе, совести и тех моментах, когда «просто пройти мимо» уже не получается. История разворачивается в обычной жизни и без громких событий. И именно в этой простоте проявляется самое важное: кем мы становимся, когда никто не смотрит. Будем смотреть его как разговор с собой - про внутреннюю честность, маленькие поступки и цену, которую мы готовы (или нет) за них платить. ____________________ Мы смотрим фильм не просто ради просмотра. Перед началом задаём несколько вопросов, чтобы смотреть внимательнее, апосле - обсуждаем, делимся мыслями и замечаем то, что в одиночку легко пропустить. Часто один и тот же фильм открывается совершенно по-разному через взгляды других людей - и именно в этом основная ценность таких встреч Когда: 3 апреля (пятница) Начало: 18:30 Место: Tổ càphê Участие: 150к Билетик в кино - @hi_aliyaaa #Дата: 3.04",
+      "price": 0,
+      "price_display": "",
+      "city": "Вьетнам",
+      "city_ru": "Вьетнам",
+      "date": "2026-04-02T07:53:17.583434+00:00",
+      "contact": "@media_vn",
+      "contact_name": "media_vn",
+      "source_group": "media_vn",
+      "source_channel": "media_vn",
+      "telegram": "https://t.me/media_vn",
+      "telegram_link": "https://t.me/media_vn/41",
+      "image_url": "/tg_img/gavibeshub/41",
+      "all_images": [
+        "/tg_img/gavibeshub/41"
+      ],
+      "photos": [
+        "/tg_img/gavibeshub/41"
+      ],
+      "status": "active",
+      "country": "vietnam",
+      "message_id": 41,
+      "has_media": true,
+      "category": "entertainment",
+      "listing_type": "entertainment",
+      "listing_id": "gavibeshub_41"
+    },
+    {
+      "id": "gavibeshub_13",
+      "title": "СТЕНДАП ВО ВТОРНИК Импровизационное стендап шоу, в котором есть: - два опытных комика - два микрофона - полтора часа шут",
+      "description": "СТЕНДАП ВО ВТОРНИК Импровизационное стендап шоу, в котором есть: - два опытных комика - два микрофона - полтора часа шуток, историй, общения, разгонов и чего угодно во имя смеха ⏰ 31 марта 20:00 сбор гостей 19:30 JUMANJI Restaurant Lounge Bar (2 этаж) Вход: 150к VND КОЛИЧЕСТВО МЕСТ ОГРАНИЧЕНО ВОЗРАСТНОЕ ОГРАНИЧЕНИЕ 18+ Бронь: @lavrooov #дата: 31.03.2026 Пост от: Серёга Лавров",
+      "text": "СТЕНДАП ВО ВТОРНИК Импровизационное стендап шоу, в котором есть: - два опытных комика - два микрофона - полтора часа шуток, историй, общения, разгонов и чего угодно во имя смеха ⏰ 31 марта 20:00 сбор гостей 19:30 JUMANJI Restaurant Lounge Bar (2 этаж) Вход: 150к VND КОЛИЧЕСТВО МЕСТ ОГРАНИЧЕНО ВОЗРАСТНОЕ ОГРАНИЧЕНИЕ 18+ Бронь: @lavrooov #дата: 31.03.2026 Пост от: Серёга Лавров",
+      "price": 0,
+      "price_display": "",
+      "city": "Вьетнам",
+      "city_ru": "Вьетнам",
+      "date": "2026-04-02T07:53:00.562379+00:00",
+      "contact": "@media_vn",
+      "contact_name": "media_vn",
+      "source_group": "media_vn",
+      "source_channel": "media_vn",
+      "telegram": "https://t.me/media_vn",
+      "telegram_link": "https://t.me/media_vn/13",
+      "image_url": "/tg_img/gavibeshub/13",
+      "all_images": [
+        "/tg_img/gavibeshub/13"
+      ],
+      "photos": [
+        "/tg_img/gavibeshub/13"
+      ],
+      "status": "active",
+      "country": "vietnam",
+      "message_id": 13,
+      "has_media": true,
+      "category": "entertainment",
+      "listing_type": "entertainment",
+      "listing_id": "gavibeshub_13"
+    },
+    {
+      "id": "gavibeshub_12",
+      "title": "Приглашаю на ролевые) Как всегда будет интересный сюжет, много атрибутики, лёгкий костюмированный образ, атмосферное мес",
+      "description": "Приглашаю на ролевые) Как всегда будет интересный сюжет, много атрибутики, лёгкий костюмированный образ, атмосферное место и саунд-дизайн под стать жанру игры! Ближайшие даты проведения: Суббота 18:00 Не говори маме и папе - ужастик в стиле произведений Стивена Кинга, с сохранением эстетики Очень странных дел и отголосками VHS просмотра у кинескопа в вашем детстве) Воскресенье 12:00 Подземелья и драконы - средневековое фэнтэзи в лучших традициях Толкина, Мартина и Сапковского, где вы станете одним из искателей приключений, отправившись в забытые королевства, подземелья и неизведанные земли) Стоимость 200к Локация разнится в зависимости от выбора вами игры и количества участников - поэтому уточняйте у организатора. Если даты и время, не подходят, но хочется попробовать хобби на вкус - пожелания тоже можно написать организатору. С удовольствием отвечу на вопросы и расскажу подробнее обо всём что, вас интересует: @CactusLT #дата: 04.04/05.04",
+      "text": "Приглашаю на ролевые) Как всегда будет интересный сюжет, много атрибутики, лёгкий костюмированный образ, атмосферное место и саунд-дизайн под стать жанру игры! Ближайшие даты проведения: Суббота 18:00 Не говори маме и папе - ужастик в стиле произведений Стивена Кинга, с сохранением эстетики Очень странных дел и отголосками VHS просмотра у кинескопа в вашем детстве) Воскресенье 12:00 Подземелья и драконы - средневековое фэнтэзи в лучших традициях Толкина, Мартина и Сапковского, где вы станете одним из искателей приключений, отправившись в забытые королевства, подземелья и неизведанные земли) Стоимость 200к Локация разнится в зависимости от выбора вами игры и количества участников - поэтому уточняйте у организатора. Если даты и время, не подходят, но хочется попробовать хобби на вкус - пожелания тоже можно написать организатору. С удовольствием отвечу на вопросы и расскажу подробнее обо всём что, вас интересует: @CactusLT #дата: 04.04/05.04",
+      "price": 0,
+      "price_display": "",
+      "city": "Вьетнам",
+      "city_ru": "Вьетнам",
+      "date": "2026-04-02T07:52:58.123195+00:00",
+      "contact": "@media_vn",
+      "contact_name": "media_vn",
+      "source_group": "media_vn",
+      "source_channel": "media_vn",
+      "telegram": "https://t.me/media_vn",
+      "telegram_link": "https://t.me/media_vn/12",
+      "image_url": "/tg_img/gavibeshub/12",
+      "all_images": [
+        "/tg_img/gavibeshub/12"
+      ],
+      "photos": [
+        "/tg_img/gavibeshub/12"
+      ],
+      "status": "active",
+      "country": "vietnam",
+      "message_id": 12,
+      "has_media": true,
+      "category": "entertainment",
+      "listing_type": "entertainment",
+      "listing_id": "gavibeshub_12"
+    },
+    {
+      "id": "gavibeshub_11",
+      "title": "Игровая встреча АНТИМАФИЯ! ‍ Приглашаем любителей Мафии. Здесь мы будем играть в игру похожую на Мафию, но с более прора",
+      "description": "Игровая встреча АНТИМАФИЯ! ‍ Приглашаем любителей Мафии. Здесь мы будем играть в игру похожую на Мафию, но с более проработанными правилами. ‍ Также нелюбителей Мафии, кто когда-то давно в неё играл, но потом из неё вырос. Основная игра встречи - \"Secret Hitler\" Тайный Гитлер (7-10 чел) Это наверное лучшая игра с механикой скрытых ролей, блефа и переговоров, что мы так все любим Игра просто идеально выстроена. В ней есть основные действия, на основании которых можно строить догадки, есть и простор для блефа (не только словами, а действиями), есть и несколько вариантов победы. Новичкам всё расскажем, покажем и научим Дата и время: 31 марта (вторник) в 19:00 Место: Клуб игр NEVERLAND (центр) количество мест: 10 человек +10 на 2й стол. Встреча бесплатная. \"Оргвзносов\" нет. Каждый просто платит за себя сам в клубе. количество мест ограничено. обязательно записываемся в ЛС @mortemanes #дата: 31.03 Пост от: Mortemanes Martines",
+      "text": "Игровая встреча АНТИМАФИЯ! ‍ Приглашаем любителей Мафии. Здесь мы будем играть в игру похожую на Мафию, но с более проработанными правилами. ‍ Также нелюбителей Мафии, кто когда-то давно в неё играл, но потом из неё вырос. Основная игра встречи - \"Secret Hitler\" Тайный Гитлер (7-10 чел) Это наверное лучшая игра с механикой скрытых ролей, блефа и переговоров, что мы так все любим Игра просто идеально выстроена. В ней есть основные действия, на основании которых можно строить догадки, есть и простор для блефа (не только словами, а действиями), есть и несколько вариантов победы. Новичкам всё расскажем, покажем и научим Дата и время: 31 марта (вторник) в 19:00 Место: Клуб игр NEVERLAND (центр) количество мест: 10 человек +10 на 2й стол. Встреча бесплатная. \"Оргвзносов\" нет. Каждый просто платит за себя сам в клубе. количество мест ограничено. обязательно записываемся в ЛС @mortemanes #дата: 31.03 Пост от: Mortemanes Martines",
+      "price": 0,
+      "price_display": "",
+      "city": "Вьетнам",
+      "city_ru": "Вьетнам",
+      "date": "2026-04-02T07:52:55.709694+00:00",
+      "contact": "@media_vn",
+      "contact_name": "media_vn",
+      "source_group": "media_vn",
+      "source_channel": "media_vn",
+      "telegram": "https://t.me/media_vn",
+      "telegram_link": "https://t.me/media_vn/11",
+      "image_url": "/tg_img/gavibeshub/11",
+      "all_images": [
+        "/tg_img/gavibeshub/11"
+      ],
+      "photos": [
+        "/tg_img/gavibeshub/11"
+      ],
+      "status": "active",
+      "country": "vietnam",
+      "message_id": 11,
+      "has_media": true,
+      "category": "entertainment",
+      "listing_type": "entertainment",
+      "listing_id": "gavibeshub_11"
+    },
+    {
+      "id": "gavibeshub_10",
+      "title": "СТЕНДАП ВО ВТОРНИК Импровизационное стендап шоу, в котором есть: - два опытных комика - два микрофона - полтора часа шут",
+      "description": "СТЕНДАП ВО ВТОРНИК Импровизационное стендап шоу, в котором есть: - два опытных комика - два микрофона - полтора часа шуток, историй, общения, разгонов и чего угодно во имя смеха ⏰ 31 марта 20:00 сбор гостей 19:30 JUMANJI Restaurant Lounge Bar (2 этаж) Вход: 150к VND КОЛИЧЕСТВО МЕСТ ОГРАНИЧЕНО ВОЗРАСТНОЕ ОГРАНИЧЕНИЕ 18+ Бронь: @lavrooov #дата: 31.03.2026 Пост от: Серёга Лавров",
+      "text": "СТЕНДАП ВО ВТОРНИК Импровизационное стендап шоу, в котором есть: - два опытных комика - два микрофона - полтора часа шуток, историй, общения, разгонов и чего угодно во имя смеха ⏰ 31 марта 20:00 сбор гостей 19:30 JUMANJI Restaurant Lounge Bar (2 этаж) Вход: 150к VND КОЛИЧЕСТВО МЕСТ ОГРАНИЧЕНО ВОЗРАСТНОЕ ОГРАНИЧЕНИЕ 18+ Бронь: @lavrooov #дата: 31.03.2026 Пост от: Серёга Лавров",
+      "price": 0,
+      "price_display": "",
+      "city": "Вьетнам",
+      "city_ru": "Вьетнам",
+      "date": "2026-04-02T07:52:53.320320+00:00",
+      "contact": "@media_vn",
+      "contact_name": "media_vn",
+      "source_group": "media_vn",
+      "source_channel": "media_vn",
+      "telegram": "https://t.me/media_vn",
+      "telegram_link": "https://t.me/media_vn/10",
+      "image_url": "/tg_img/gavibeshub/10",
+      "all_images": [
+        "/tg_img/gavibeshub/10"
+      ],
+      "photos": [
+        "/tg_img/gavibeshub/10"
+      ],
+      "status": "active",
+      "country": "vietnam",
+      "message_id": 10,
+      "has_media": true,
+      "category": "entertainment",
+      "listing_type": "entertainment",
+      "listing_id": "gavibeshub_10"
+    },
+    {
+      "id": "gavibeshub_9",
+      "title": "МОРСКАЯ РЫБАЛКА | 31 марта ПРОГРАММА: Утро: выход из порта, донная рыбалка (фугу, губан, ящероголов, морской окунь) День",
+      "description": "МОРСКАЯ РЫБАЛКА | 31 марта ПРОГРАММА: Утро: выход из порта, донная рыбалка (фугу, губан, ящероголов, морской окунь) День: высадка на дикий пляж заповедника, палаточный лагерь, костёр и шашлык Вечер: ловля кальмара Ночь: гитара, песни у костра, сон под звёздами Утро следующего дня: рассвет, завтрак, по желанию рыбалка и снорклинг, возвращение в бухту Включено: SUP, маски, удочки, снасти, палатки, еда Хотите забронировать? Напишите @Diagilev_Anton",
+      "text": "МОРСКАЯ РЫБАЛКА | 31 марта ПРОГРАММА: Утро: выход из порта, донная рыбалка (фугу, губан, ящероголов, морской окунь) День: высадка на дикий пляж заповедника, палаточный лагерь, костёр и шашлык Вечер: ловля кальмара Ночь: гитара, песни у костра, сон под звёздами Утро следующего дня: рассвет, завтрак, по желанию рыбалка и снорклинг, возвращение в бухту Включено: SUP, маски, удочки, снасти, палатки, еда Хотите забронировать? Напишите @Diagilev_Anton",
+      "price": 0,
+      "price_display": "",
+      "city": "Вьетнам",
+      "city_ru": "Вьетнам",
+      "date": "2026-04-02T07:52:51.109040+00:00",
+      "contact": "@media_vn",
+      "contact_name": "media_vn",
+      "source_group": "media_vn",
+      "source_channel": "media_vn",
+      "telegram": "https://t.me/media_vn",
+      "telegram_link": "https://t.me/media_vn/9",
+      "image_url": "/tg_img/gavibeshub/9",
+      "all_images": [
+        "/tg_img/gavibeshub/9"
+      ],
+      "photos": [
+        "/tg_img/gavibeshub/9"
+      ],
+      "status": "active",
+      "country": "vietnam",
+      "message_id": 9,
+      "has_media": true,
+      "category": "entertainment",
+      "listing_type": "entertainment",
+      "listing_id": "gavibeshub_9"
+    },
+    {
+      "id": "gavibeshub_8",
+      "title": "04.04 Open Air FULL MOON от ELECTRO SYNDICATE на пляже, в самом центре Нячанга START 16:00 FINISH 2:00 Line up: UTOPIA K",
+      "description": "04.04 Open Air FULL MOON от ELECTRO SYNDICATE на пляже, в самом центре Нячанга START 16:00 FINISH 2:00 Line up: UTOPIA KATRIN KITTYX SNOWADELIC KHABA WANLUV VLAD MORSOV SATXRI DRUMSEA HŸPERID electro|dnb|breaks| uk bass|neurofunk ZBEACH BAR NHA TRANG (second stage) Sup board/volleyball/bbq/music performance/market Вход свободный",
+      "text": "04.04 Open Air FULL MOON от ELECTRO SYNDICATE на пляже, в самом центре Нячанга START 16:00 FINISH 2:00 Line up: UTOPIA KATRIN KITTYX SNOWADELIC KHABA WANLUV VLAD MORSOV SATXRI DRUMSEA HŸPERID electro|dnb|breaks| uk bass|neurofunk ZBEACH BAR NHA TRANG (second stage) Sup board/volleyball/bbq/music performance/market Вход свободный",
+      "price": 0,
+      "price_display": "",
+      "city": "Нячанг",
+      "city_ru": "Нячанг",
+      "date": "2026-04-02T07:52:48.859230+00:00",
+      "contact": "@media_vn",
+      "contact_name": "media_vn",
+      "source_group": "media_vn",
+      "source_channel": "media_vn",
+      "telegram": "https://t.me/media_vn",
+      "telegram_link": "https://t.me/media_vn/8",
+      "image_url": "/tg_img/gavibeshub/8",
+      "all_images": [
+        "/tg_img/gavibeshub/8"
+      ],
+      "photos": [
+        "/tg_img/gavibeshub/8"
+      ],
+      "status": "active",
+      "country": "vietnam",
+      "message_id": 8,
+      "has_media": true,
+      "category": "entertainment",
+      "listing_type": "entertainment",
+      "listing_id": "gavibeshub_8"
+    }
+  ]
+}
