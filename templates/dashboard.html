@@ -1285,6 +1285,117 @@
             margin-bottom: 12px;
             border: 1px solid #f0ede0;
         }
+        .tours-city-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-weight: 700;
+            font-size: 16px;
+            color: #1a1a1a;
+        }
+        .tours-from-badge {
+            font-size: 11px;
+            font-weight: 600;
+            color: #d4af37;
+            background: #fff8e1;
+            border: 1px solid #f0dc80;
+            border-radius: 20px;
+            padding: 3px 10px;
+        }
+        .tour-btns-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .tour-btn {
+            width: 100%;
+            text-align: left;
+            padding: 13px 16px;
+            background: #fff;
+            border: 1.5px solid #e8e4d8;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a1a;
+            cursor: pointer;
+            transition: background 0.15s, border-color 0.15s, transform 0.1s;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+        }
+        .tour-btn:hover { background: #fffbef; border-color: #d4af37; }
+        .tour-btn:active { transform: scale(0.98); background: #fff8e1; }
+        /* Сетка 3 кнопки в ряд */
+        .tour-btns-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 7px;
+            overflow-y: hidden;
+            scroll-behavior: smooth;
+            padding-right: 2px;
+        }
+        .tour-btns-grid-3::-webkit-scrollbar {
+            width: 4px;
+        }
+        .tour-btns-grid-3::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .tour-btns-grid-3::-webkit-scrollbar-thumb {
+            background: #d4af37;
+            border-radius: 4px;
+        }
+        .tour-btns-grid-3::-webkit-scrollbar-thumb:hover {
+            background: #b8960c;
+        }
+        .tour-btn-3 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: center;
+            padding: 9px 5px 7px;
+            background: #fff;
+            border: 1px solid #e2e2e2;
+            border-radius: 10px;
+            font-size: 10px;
+            font-weight: 600;
+            color: #222;
+            cursor: pointer;
+            min-height: 0;
+            transition: border-color 0.13s, box-shadow 0.13s, transform 0.1s, background 0.13s;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+            line-height: 1.35;
+            word-break: break-word;
+            gap: 3px;
+            letter-spacing: -0.1px;
+        }
+        .tour-btn-3 .tb-emoji {
+            font-size: 17px;
+            line-height: 1;
+            display: block;
+            margin-bottom: 2px;
+        }
+        .tour-btn-3:hover {
+            border-color: #d4af37;
+            box-shadow: 0 2px 8px rgba(212,175,55,0.22);
+            background: #fffcf2;
+            transform: translateY(-1px);
+        }
+        .tour-btn-3:active {
+            transform: scale(0.95);
+            background: #f5f5f5;
+            box-shadow: none;
+        }
+        html.dark .tour-btn-3 {
+            background: #1c1c28 !important;
+            border-color: #2e2e3e !important;
+            color: #ddd !important;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3) !important;
+        }
+        html.dark .tour-btn-3:hover {
+            background: #252535 !important;
+            border-color: #d4af37 !important;
+            box-shadow: 0 2px 8px rgba(212,175,55,0.2) !important;
+        }
         html.dark .tour-item-card {
             background: #1e1e30 !important;
             border-color: #333 !important;
@@ -1296,7 +1407,14 @@
             background: #15151f !important;
             border-color: #2a2a42 !important;
         }
-        html.dark .tours-city-dashboard span[style*="color:#1a1a1a"] { color: #eee !important; }
+        html.dark .tours-city-header { color: #eee !important; }
+        html.dark .tour-btn {
+            background: #1e1e30 !important;
+            border-color: #333 !important;
+            color: #eee !important;
+        }
+        html.dark .tour-btn:hover { background: #2a2a42 !important; border-color: #d4af37 !important; }
+        html.dark .tours-from-badge { background: #2a2510 !important; border-color: #5a4a00 !important; }
         /* Общий контент-блок под каждой вкладкой */
         html.dark .content {
             background: #0f0f1a !important;
@@ -1714,149 +1832,28 @@
                         </div>
                     </div>
                 </div>
-                <!-- Дашборд экскурсий по городам -->
+                <!-- Дашборд экскурсий — все туры из Нячанга -->
                 <div id="tours-dashboard" style="margin-bottom: 16px;">
-
-                    <!-- НЯЧАНГ -->
                     <div class="tours-city-dashboard" data-dashboard="Нячанг" style="display:block;">
-                        <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px; padding:0 4px;">
-                            <span style="font-size:20px;">🌊</span>
-                            <span style="font-weight:700; font-size:17px; color:#1a1a1a;">Нячанг</span>
-                            <span style="font-size:12px; color:#888; margin-left:4px;">5 экскурсий</span>
+                        <div class="tours-city-header">
+                            <span>🌊 Нячанг</span>
+                            <span class="tours-from-badge">📍 Выезд из Нячанга</span>
                         </div>
-                        <div style="display:flex; flex-direction:column; gap:10px;">
-                            <div class="tour-item-card" onclick="openTourModal('Водопад Бахо + Пляж Парадайс', 'Нячанг')">
-                                <div class="tour-item-icon">🏞️</div>
-                                <div class="tour-item-body">
-                                    <div class="tour-item-title">Водопад Бахо + Пляж Парадайс</div>
-                                    <div class="tour-item-sub">Нячанг · день</div>
-                                </div>
-                                <div class="tour-item-arrow">›</div>
-                            </div>
-                            <div class="tour-item-card" onclick="openTourModal('Квадроциклы', 'Нячанг')">
-                                <div class="tour-item-icon">🏍️</div>
-                                <div class="tour-item-body">
-                                    <div class="tour-item-title">Квадроциклы</div>
-                                    <div class="tour-item-sub">Нячанг · активный отдых</div>
-                                </div>
-                                <div class="tour-item-arrow">›</div>
-                            </div>
-                            <div class="tour-item-card" onclick="openTourModal('Северные острова', 'Нячанг')">
-                                <div class="tour-item-icon">🏝️</div>
-                                <div class="tour-item-body">
-                                    <div class="tour-item-title">Северные острова</div>
-                                    <div class="tour-item-sub">Нячанг · морская прогулка</div>
-                                </div>
-                                <div class="tour-item-arrow">›</div>
-                            </div>
-                            <div class="tour-item-card" onclick="openTourModal('Супер прогулка по Южным островам', 'Нячанг')">
-                                <div class="tour-item-icon">⛵</div>
-                                <div class="tour-item-body">
-                                    <div class="tour-item-title">Супер прогулка по Южным островам</div>
-                                    <div class="tour-item-sub">Нячанг · яхта + острова</div>
-                                </div>
-                                <div class="tour-item-arrow">›</div>
-                            </div>
-                            <div class="tour-item-card" onclick="openTourModal('ЭКО парк «Янг Бей»', 'Нячанг')">
-                                <div class="tour-item-icon">🌿</div>
-                                <div class="tour-item-body">
-                                    <div class="tour-item-title">ЭКО парк «Янг Бей»</div>
-                                    <div class="tour-item-sub">Нячанг · природа</div>
-                                </div>
-                                <div class="tour-item-arrow">›</div>
-                            </div>
+                        <div class="tour-btns-grid-3">
+                            <button class="tour-btn-3" onclick="scrollToTourListing('Водопад Бахо + Пляж Парадайс', 'Нячанг')"><span class="tb-emoji">🏞️</span>Водопад Бахо + Пляж Парадайс</button>
+                            <button class="tour-btn-3" onclick="scrollToTourListing('Квадроциклы', 'Нячанг')"><span class="tb-emoji">🏍️</span>Квадроциклы</button>
+                            <button class="tour-btn-3" onclick="scrollToTourListing('Северные острова', 'Нячанг')"><span class="tb-emoji">🏝️</span>Северные острова</button>
+                            <button class="tour-btn-3" onclick="scrollToTourListing('Супер прогулка по Южным островам', 'Нячанг')"><span class="tb-emoji">⛵</span>Прогулка Южные острова</button>
+                            <button class="tour-btn-3" onclick="scrollToTourListing('ЭКО парк Янг Бей', 'Нячанг')"><span class="tb-emoji">🌿</span>ЭКО парк «Янг Бей»</button>
+                            <button class="tour-btn-3" onclick="scrollToTourListing('Фанранг для посещения с детьми', 'Фанранг')"><span class="tb-emoji">👨‍👩‍👧</span>Фанранг с детьми</button>
+                            <button class="tour-btn-3" onclick="scrollToTourListing('Далат 2 дня', 'Далат')"><span class="tb-emoji">🗓️</span>Далат 2 дня</button>
+                            <button class="tour-btn-3" onclick="scrollToTourListing('Далат Фантазия', 'Далат')"><span class="tb-emoji">🎡</span>Далат «Фантазия»</button>
+                            <button class="tour-btn-3" onclick="scrollToTourListing('Далат Эксклюзив', 'Далат')"><span class="tb-emoji">⭐</span>Далат «Эксклюзив»</button>
+                            <button class="tour-btn-3" onclick="scrollToTourListing('Дананг 1 день', 'Дананг')"><span class="tb-emoji">🌅</span>Дананг 1 день</button>
+                            <button class="tour-btn-3" onclick="scrollToTourListing('Дананг 2 дня Хой Ан', 'Дананг')"><span class="tb-emoji">🏛️</span>Дананг + Хой Ан</button>
+                            <button class="tour-btn-3" onclick="scrollToTourListing('Жемчужина Вьетнама Фуен', 'Дананг')"><span class="tb-emoji">💎</span>Жемчужина «Фуен»</button>
                         </div>
                     </div>
-
-                    <!-- ФАНРАНГ -->
-                    <div class="tours-city-dashboard" data-dashboard="Фанранг" style="display:none;">
-                        <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px; padding:0 4px;">
-                            <span style="font-size:20px;">🦅</span>
-                            <span style="font-weight:700; font-size:17px; color:#1a1a1a;">Фанранг</span>
-                            <span style="font-size:12px; color:#888; margin-left:4px;">1 экскурсия</span>
-                        </div>
-                        <div style="display:flex; flex-direction:column; gap:10px;">
-                            <div class="tour-item-card" onclick="openTourModal('Фанранг (для посещения с детьми)', 'Фанранг')">
-                                <div class="tour-item-icon">👨‍👩‍👧</div>
-                                <div class="tour-item-body">
-                                    <div class="tour-item-title">Фанранг</div>
-                                    <div class="tour-item-sub">Для посещения с детьми</div>
-                                </div>
-                                <div class="tour-item-arrow">›</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- ДАЛАТ -->
-                    <div class="tours-city-dashboard" data-dashboard="Далат" style="display:none;">
-                        <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px; padding:0 4px;">
-                            <span style="font-size:20px;">🌸</span>
-                            <span style="font-weight:700; font-size:17px; color:#1a1a1a;">Далат</span>
-                            <span style="font-size:12px; color:#888; margin-left:4px;">3 экскурсии</span>
-                        </div>
-                        <div style="display:flex; flex-direction:column; gap:10px;">
-                            <div class="tour-item-card" onclick="openTourModal('Далат 2 дня', 'Далат')">
-                                <div class="tour-item-icon">🗓️</div>
-                                <div class="tour-item-body">
-                                    <div class="tour-item-title">Далат 2 дня</div>
-                                    <div class="tour-item-sub">Далат · 2 дня / 1 ночь</div>
-                                </div>
-                                <div class="tour-item-arrow">›</div>
-                            </div>
-                            <div class="tour-item-card" onclick="openTourModal('Далат «Фантазия»', 'Далат')">
-                                <div class="tour-item-icon">🎡</div>
-                                <div class="tour-item-body">
-                                    <div class="tour-item-title">Далат «Фантазия»</div>
-                                    <div class="tour-item-sub">Далат · развлечения</div>
-                                </div>
-                                <div class="tour-item-arrow">›</div>
-                            </div>
-                            <div class="tour-item-card" onclick="openTourModal('Далат «Эксклюзив»', 'Далат')">
-                                <div class="tour-item-icon">⭐</div>
-                                <div class="tour-item-body">
-                                    <div class="tour-item-title">Далат «Эксклюзив»</div>
-                                    <div class="tour-item-sub">Далат · VIP программа</div>
-                                </div>
-                                <div class="tour-item-arrow">›</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- ДАНАНГ -->
-                    <div class="tours-city-dashboard" data-dashboard="Дананг" style="display:none;">
-                        <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px; padding:0 4px;">
-                            <span style="font-size:20px;">🌉</span>
-                            <span style="font-weight:700; font-size:17px; color:#1a1a1a;">Дананг</span>
-                            <span style="font-size:12px; color:#888; margin-left:4px;">3 экскурсии</span>
-                        </div>
-                        <div style="display:flex; flex-direction:column; gap:10px;">
-                            <div class="tour-item-card" onclick="openTourModal('Дананг 1 день', 'Дананг')">
-                                <div class="tour-item-icon">🌅</div>
-                                <div class="tour-item-body">
-                                    <div class="tour-item-title">Дананг 1 день</div>
-                                    <div class="tour-item-sub">Дананг · обзорный тур</div>
-                                </div>
-                                <div class="tour-item-arrow">›</div>
-                            </div>
-                            <div class="tour-item-card" onclick="openTourModal('Дананг 2 дня + Хой Ан', 'Дананг')">
-                                <div class="tour-item-icon">🏛️</div>
-                                <div class="tour-item-body">
-                                    <div class="tour-item-title">Дананг 2 дня + Хой Ан</div>
-                                    <div class="tour-item-sub">Дананг + Хой Ан · 2 дня</div>
-                                </div>
-                                <div class="tour-item-arrow">›</div>
-                            </div>
-                            <div class="tour-item-card" onclick="openTourModal('Жемчужина Вьетнама «Фуен»', 'Дананг')">
-                                <div class="tour-item-icon">💎</div>
-                                <div class="tour-item-body">
-                                    <div class="tour-item-title">Жемчужина Вьетнама «Фуен»</div>
-                                    <div class="tour-item-sub">Дананг · особый маршрут</div>
-                                </div>
-                                <div class="tour-item-arrow">›</div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
 
                 <!-- Кнопка бронирования экскурсии -->
@@ -11918,6 +11915,68 @@
         // Также делаем глобальную функцию для ручного вызова после рендера карточек
         window.lazyLoadImages = observeAll;
     })();
+
+    // ===== Высота грида туров = ровно 4 строки (12 кнопок) =====
+    function calibrateTourGrid() {
+        var grid = document.querySelector('.tour-btns-grid-3');
+        if (!grid) return;
+        var btns = grid.querySelectorAll('.tour-btn-3');
+        if (btns.length <= 12) { grid.style.maxHeight = ''; grid.style.overflowY = 'hidden'; return; }
+        // Считаем высоту 4-й строки снизу последней кнопки первой строки
+        var gap = 7;
+        var rowH = btns[0].getBoundingClientRect().height;
+        var maxH = rowH * 4 + gap * 3 + 4; // 4 ряда + 3 зазора + небольшой запас
+        grid.style.maxHeight = maxH + 'px';
+        grid.style.overflowY = 'auto';
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(calibrateTourGrid, 300);
+    });
+
+    // ===== Прокрутка к объявлению тура =====
+    function scrollToTourListing(tourName, cityName) {
+        var grid = document.getElementById('tours-grid');
+        if (grid) {
+            var cards = Array.from(grid.querySelectorAll('.listing-card'));
+            // Нормализуем имя тура для сравнения
+            function normalize(s) {
+                return (s || '').replace(/[«»"''\u2018\u2019\u201c\u201d]/g, '')
+                    .toLowerCase().replace(/ё/g, 'е').replace(/\s+/g, ' ').trim();
+            }
+            var normTour = normalize(tourName);
+            // Разбиваем на слова длиннее 3 символов
+            var keywords = normTour.split(' ').filter(function(w) { return w.length > 3; });
+            var found = null;
+            // Сначала ищем точное вхождение
+            for (var i = 0; i < cards.length; i++) {
+                var cardTitle = normalize(cards[i].querySelector('h3, p, [class*="title"]') ?
+                    (cards[i].querySelector('h3') || cards[i]).textContent : cards[i].textContent);
+                if (cardTitle.indexOf(normTour) !== -1) { found = cards[i]; break; }
+            }
+            // Если не нашли точно — ищем по ключевым словам (хотя бы 1 совпадение)
+            if (!found && keywords.length > 0) {
+                for (var j = 0; j < cards.length; j++) {
+                    var ct = normalize(cards[j].textContent);
+                    if (keywords.some(function(kw) { return ct.indexOf(kw) !== -1; })) {
+                        found = cards[j]; break;
+                    }
+                }
+            }
+            if (found) {
+                found.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                found.style.transition = 'outline 0.1s, box-shadow 0.3s';
+                found.style.outline = '2.5px solid #d4af37';
+                found.style.boxShadow = '0 0 0 5px rgba(212,175,55,0.18)';
+                setTimeout(function() {
+                    found.style.outline = '';
+                    found.style.boxShadow = '';
+                }, 2200);
+                return;
+            }
+        }
+        // Объявление не найдено — открываем форму бронирования
+        openTourModal(tourName, cityName);
+    }
 
     // ===== Модал бронирования экскурсии =====
     function openTourModal(tourName, cityName) {
