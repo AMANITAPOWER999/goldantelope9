@@ -1405,6 +1405,39 @@
         .extra-filters-btn.open .efb-arrow { transform: rotate(180deg); }
         html.dark .extra-filters-btn { color: #f0c040; border-color: #c8a020; }
         html.dark .extra-filters-btn:hover { background: #252010; }
+
+        /* Все кнопки внутри блока дополнительных фильтров — единый стиль */
+        .extra-filters-wrap button {
+            padding: 8px 16px !important;
+            background: transparent !important;
+            border: 2px solid #d4af37 !important;
+            border-radius: 10px !important;
+            cursor: pointer;
+            font-size: 13px !important;
+            font-weight: 600 !important;
+            color: #b8860b !important;
+            transition: background .15s, color .15s;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .extra-filters-wrap button:hover,
+        .extra-filters-wrap button:active { background: #fffbf0 !important; }
+        .extra-filters-wrap button.active {
+            background: #d4af37 !important;
+            color: #fff !important;
+            border-color: #d4af37 !important;
+        }
+        html.dark .extra-filters-wrap button {
+            color: #f0c040 !important;
+            border-color: #c8a020 !important;
+            background: transparent !important;
+        }
+        html.dark .extra-filters-wrap button:hover { background: #252010 !important; }
+        html.dark .extra-filters-wrap button.active {
+            background: #c8a020 !important;
+            color: #111 !important;
+            border-color: #c8a020 !important;
+        }
+        html.dark .extra-filters-wrap .groups-label { color: #f0c040 !important; }
         .extra-filters-wrap { display: none; }
         .extra-filters-wrap.open { display: block; }
         /* Transport dropdowns wrapper — same bg as .tabs */
@@ -1907,7 +1940,7 @@
             </div>
             <div class="extra-filters-wrap" id="rest-filters-wrap">
                 <div class="filters" style="display: flex; gap: 10px; padding: 10px 15px 15px; flex-wrap: wrap;">
-                    <button onclick="searchNearby5km()" class="nearby-btn" style="padding: 10px 20px; background: #4285F4; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">📍 Искать в радиусе 5 км</button>
+                    <button onclick="searchNearby5km()" class="nearby-btn">📍 Искать в радиусе 5 км</button>
                     <span style="border-left: 2px solid #ddd; margin: 0 5px;"></span>
                     <button onclick="filterRestaurantType('all')" class="rest-type-btn active" data-type="all" style="padding: 10px 20px; background: #d4af37; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">🍽️ Все</button>
                     <button onclick="filterRestaurantType('ресторан')" class="rest-type-btn" data-type="ресторан" style="padding: 10px 20px; background: #fff; color: #333; border: 2px solid #FF5722; border-radius: 8px; cursor: pointer; font-weight: 600;">🍽️ Рестораны</button>
@@ -2346,8 +2379,8 @@
                 </div>
                 <!-- Фильтр по группам/контактам -->
                 <div id="vietnam-realestate-groups" class="filters" style="display: flex; gap: 8px; padding: 0 15px 15px 15px; flex-wrap: wrap; align-items: center;">
-                    <span style="font-size: 13px; color: #666; margin-right: 5px;">📌 Группы:</span>
-                    <button onclick="filterRealEstateGroup('')" class="group-filter-btn" data-group="" style="padding: 6px 12px; background: #d4af37; border: 2px solid #d4af37; border-radius: 6px; cursor: pointer; font-weight: 500; color: #fff; font-size: 12px; height: 32px; box-sizing: border-box;">Все</button>
+                    <span class="groups-label" style="font-size: 13px; color: #b8860b; font-weight: 600; margin-right: 5px;">📌 Группы:</span>
+                    <button onclick="filterRealEstateGroup('')" class="group-filter-btn active" data-group="">Все</button>
                     <select id="group-select" onchange="filterRealEstateGroup(this.value)" style="padding: 6px 12px; border: 2px solid #9C27B0; border-radius: 6px; font-size: 12px; font-weight: 500; color: #333; background: #fff; cursor: pointer; min-width: 150px; height: 32px; box-sizing: border-box;">
                         <option value="">-- Выбрать группу --</option>
                     </select>
@@ -2372,8 +2405,8 @@
                 </div>
                 <!-- Фильтр по группам для других стран -->
                 <div id="other-realestate-groups" style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 10px;">
-                    <span style="font-size: 13px; color: #666; margin-right: 5px;">📌 Группы:</span>
-                    <button onclick="filterRealEstateGroup('')" class="group-filter-btn other-group-all-btn" data-group="" style="padding: 6px 12px; background: #d4af37; border: 2px solid #d4af37; border-radius: 6px; cursor: pointer; font-weight: 500; color: #fff; font-size: 12px; height: 32px; box-sizing: border-box;">Все</button>
+                    <span class="groups-label" style="font-size: 13px; color: #b8860b; font-weight: 600; margin-right: 5px;">📌 Группы:</span>
+                    <button onclick="filterRealEstateGroup('')" class="group-filter-btn other-group-all-btn active" data-group="">Все</button>
                     <select id="other-group-select" onchange="filterRealEstateGroup(this.value)" style="padding: 6px 12px; border: 2px solid #9C27B0; border-radius: 6px; font-size: 12px; font-weight: 500; color: #333; background: #fff; cursor: pointer; min-width: 150px; height: 32px; box-sizing: border-box;">
                         <option value="">-- Выбрать группу --</option>
                     </select>
@@ -7565,15 +7598,7 @@
         function filterRestaurantType(type) {
             currentRestaurantType = type;
             document.querySelectorAll('.rest-type-btn').forEach(btn => {
-                if (btn.dataset.type === type) {
-                    btn.style.background = '#d4af37';
-                    btn.style.color = 'white';
-                    btn.style.border = 'none';
-                } else {
-                    btn.style.background = '#fff';
-                    btn.style.color = '#333';
-                    btn.style.border = '2px solid #ccc';
-                }
+                btn.classList.toggle('active', btn.dataset.type === type);
             });
             loadListings('restaurants', currentRestaurantCity);
         }
@@ -7850,40 +7875,20 @@
         }
         
         function filterRealEstateType(type) {
-            if (currentRealEstateType === type) {
-                currentRealEstateType = '';
-                document.querySelectorAll('.filter-type-btn').forEach(btn => btn.style.background = '#fff');
-            } else {
-                currentRealEstateType = type;
-                document.querySelectorAll('.filter-type-btn').forEach(btn => btn.style.background = '#fff');
-                document.getElementById('filter-' + type).style.background = type === 'rent' ? '#2196F3' : '#4CAF50';
-                document.getElementById('filter-' + type).style.color = '#fff';
-            }
+            currentRealEstateType = (currentRealEstateType === type) ? '' : type;
             document.querySelectorAll('.filter-type-btn').forEach(btn => {
-                if (btn.id !== 'filter-' + currentRealEstateType) {
-                    btn.style.color = '#333';
-                }
+                const btnType = (btn.getAttribute('onclick') || '').match(/filterRealEstateType\('([^']+)'\)/);
+                btn.classList.toggle('active', btnType && btnType[1] === currentRealEstateType);
             });
             loadListings('real_estate');
         }
         
         function sortRealEstate(sortType) {
-            if (currentRealEstateSort === sortType) {
-                currentRealEstateSort = '';
-            } else {
-                currentRealEstateSort = sortType;
-            }
+            currentRealEstateSort = (currentRealEstateSort === sortType) ? '' : sortType;
             document.querySelectorAll('.sort-btn').forEach(btn => {
                 const onclick = btn.getAttribute('onclick') || '';
                 const btnSort = onclick.match(/sortRealEstate\('([^']+)'\)/);
-                const isActive = btnSort && btnSort[1] === currentRealEstateSort;
-                if (isActive) {
-                    btn.style.background = currentRealEstateSort.startsWith('date') ? (currentRealEstateSort === 'date_desc' ? '#00BCD4' : '#607D8B') : '#d4af37';
-                    btn.style.color = '#fff';
-                } else {
-                    btn.style.background = '#fff';
-                    btn.style.color = '#333';
-                }
+                btn.classList.toggle('active', btnSort && btnSort[1] === currentRealEstateSort);
             });
             loadListings('real_estate');
         }
@@ -7916,8 +7921,7 @@
                 if (btn.textContent.includes('До 7') && currentRealEstatePriceMax === 7000000) isActive = true;
                 if (btn.textContent.includes('До 15') && currentRealEstatePriceMax === 15000000) isActive = true;
                 if (btn.textContent.includes('От 15') && currentRealEstatePriceMin === 15000000) isActive = true;
-                btn.style.background = isActive ? '#FF9800' : '#fff';
-                btn.style.color = isActive ? '#fff' : '#333';
+                btn.classList.toggle('active', isActive);
             });
         }
         
@@ -7928,8 +7932,7 @@
             currentRealEstateType = '';
             currentRealEstateGroup = '';
             document.querySelectorAll('.sort-btn, .filter-btn, .filter-type-btn, .group-filter-btn').forEach(btn => {
-                btn.style.background = '#fff';
-                btn.style.color = '#333';
+                btn.classList.remove('active');
             });
             loadListings('real_estate');
         }
@@ -7945,8 +7948,7 @@
             }
             // Sync all "Все" buttons
             document.querySelectorAll('.group-filter-btn[data-group=""]').forEach(btn => {
-                btn.style.background = group === '' ? '#d4af37' : '#fff';
-                btn.style.color = group === '' ? '#fff' : '#333';
+                btn.classList.toggle('active', group === '');
             });
             // Sync both group selects
             const selectEls = ['group-select', 'other-group-select'];
