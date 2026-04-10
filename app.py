@@ -967,6 +967,13 @@ def get_city_counts(category):
         ru_city = city_name_mapping.get(raw_city)
         if ru_city and ru_city in counts:
             counts[ru_city] += 1
+        else:
+            # Fallback: search city keywords in text/description
+            txt = (str(item.get('text', '') or '') + ' ' + str(item.get('description', '') or '')).lower()
+            for city, keywords in city_keywords.items():
+                if any(kw in txt for kw in keywords):
+                    counts[city] += 1
+                    break
     
     return jsonify(counts)
 
@@ -1815,14 +1822,15 @@ def _update_banner_config_from_data(data):
     sorted_ids = sorted(data.keys(), key=lambda x: int(x))
     new_banners = []
     for mid in sorted_ids:
-        new_banners.append(f'https://t.me/{_BANNER_TG_GROUP}/{mid}')
+        entry = data[mid]
+        cdn_url = entry.get('cdn_url', '')
+        if cdn_url:
+            new_banners.append(cdn_url)
     config = load_banner_config()
-    old_mobile = config.get('vietnam', {}).get('mobile', [])
-    if new_banners != old_mobile:
-        config['vietnam']['mobile'] = new_banners
-        config['vietnam']['web'] = new_banners
-        save_banner_config(config)
-        logger.info(f'[banner_sync] Обновлено: {len(new_banners)} баннеров (прямые ссылки t.me)')
+    config['vietnam']['mobile'] = new_banners
+    config['vietnam']['web'] = new_banners
+    save_banner_config(config)
+    logger.info(f'[banner_sync] Обновлено: {len(new_banners)} прямых CDN-ссылок для баннеров')
 
 def _load_banner_file_ids_to_cache():
     import time as _t
@@ -1847,15 +1855,17 @@ def _load_banner_file_ids_to_cache():
 def _prewarm_banner_cache(data):
     pass
 
-def _sync_media_vn_banners():
-    """При старте скрейпит t.me/s/media_vn и добавляет все посты с фото (включая прямые URL) в banner_data.json."""
+_BANNER_EXCLUDE_IDS = {4}
+
+def _do_sync_media_vn_banners():
+    """Скрейпит t.me/s/media_vn, получает свежие CDN URLs и сохраняет их в banner_data.json."""
     import time as _t
-    _t.sleep(5)
     try:
         from bs4 import BeautifulSoup as _BS
         channel = _BANNER_TG_GROUP
         base_url = f'https://t.me/s/{channel}'
-        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
+        page_headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
+        og_headers = {'User-Agent': 'TelegramBot (like TwitterBot)'}
         data = _load_banner_data()
         added = 0
         updated_urls = 0
@@ -1866,7 +1876,7 @@ def _sync_media_vn_banners():
             if before:
                 params['before'] = before
             try:
-                resp = requests.get(base_url, params=params, headers=headers, timeout=20)
+                resp = requests.get(base_url, params=params, headers=page_headers, timeout=20)
                 if resp.status_code != 200:
                     break
                 soup = _BS(resp.text, 'html.parser')
@@ -1879,6 +1889,9 @@ def _sync_media_vn_banners():
                         mid = int(data_post.split('/')[-1])
                     except ValueError:
                         continue
+                    ids_on_page.append(mid)
+                    if mid in _BANNER_EXCLUDE_IDS:
+                        continue
                     cdn_url = ''
                     photo_wraps = msg_div.select('.tgme_widget_message_photo_wrap')
                     if not photo_wraps:
@@ -1890,12 +1903,16 @@ def _sync_media_vn_banners():
                             cdn_url = m.group(1)
                             break
                     has_photo = bool(photo_wraps)
-                    ids_on_page.append(mid)
                     if has_photo:
                         mid_str = str(mid)
+                        now_ts = int(_t.time())
                         if mid_str not in data:
-                            data[mid_str] = {'file_id': '', 'ts': mid}
+                            data[mid_str] = {'file_id': '', 'cdn_url': cdn_url, 'cdn_ts': now_ts, 'ts': mid}
                             added += 1
+                        elif cdn_url:
+                            data[mid_str]['cdn_url'] = cdn_url
+                            data[mid_str]['cdn_ts'] = now_ts
+                            updated_urls += 1
                 if not ids_on_page:
                     break
                 before = min(ids_on_page)
@@ -1905,25 +1922,87 @@ def _sync_media_vn_banners():
             except Exception as e:
                 logger.warning(f'[banner_sync] Ошибка скрейпинга страницы: {e}')
                 break
+        # Для записей без CDN URL — пробуем og:image
+        for mid_str, info in data.items():
+            if not info.get('cdn_url'):
+                try:
+                    og_resp = requests.get(f'https://t.me/{channel}/{mid_str}', headers=og_headers, timeout=10)
+                    if og_resp.status_code == 200:
+                        img_m = re.search(r'<meta property="og:image" content="([^"]+)"', og_resp.text)
+                        if img_m:
+                            data[mid_str]['cdn_url'] = img_m.group(1)
+                            data[mid_str]['cdn_ts'] = int(_t.time())
+                            updated_urls += 1
+                except Exception:
+                    pass
         if added > 0 or updated_urls > 0:
             _save_banner_data(data)
         _update_banner_config_from_data(data)
-        _prewarm_banner_cache(data)
         logger.info(f'[banner_sync] Синк @{channel}: +{added} новых, {updated_urls} URL обновлено, всего {len(data)}')
     except Exception as e:
         logger.error(f'[banner_sync] Ошибка синка: {e}')
 
-threading.Thread(target=_load_banner_file_ids_to_cache, daemon=True, name='BannerCacheLoader').start()
+def _sync_media_vn_banners():
+    import time as _t
+    _t.sleep(3)
+    _do_sync_media_vn_banners()
+
+def _banner_refresh_scheduler():
+    """Обновляет CDN URLs баннеров каждые 6 часов."""
+    import time as _t
+    while True:
+        _t.sleep(6 * 3600)
+        logger.info('[banner_refresh] Периодическое обновление CDN URLs баннеров...')
+        _do_sync_media_vn_banners()
+
 threading.Thread(target=_sync_media_vn_banners, daemon=True, name='BannerMediaVnSync').start()
-logger.info('[banner_sync] Синхронизация баннеров из @media_vn (канал) запущена')
+threading.Thread(target=_banner_refresh_scheduler, daemon=True, name='BannerRefreshScheduler').start()
+logger.info('[banner_sync] Синхронизация баннеров из @media_vn запущена (обновление каждые 6ч)')
 
 _banner_og_cache = {}
+
+def _get_banner_file_id(msg_id):
+    """Возвращает file_id для баннера из banner_data.json если есть."""
+    try:
+        data = _load_banner_data()
+        entry = data.get(str(msg_id), {})
+        return entry.get('file_id', '')
+    except Exception:
+        return ''
 
 @app.route('/api/banner-img/<int:msg_id>')
 def banner_image_proxy(msg_id):
     cache_key = msg_id
     if cache_key in _banner_og_cache:
-        return redirect(_banner_og_cache[cache_key])
+        cached = _banner_og_cache[cache_key]
+        # Validate cache is not expired (telesco.pe URLs expire in ~24h, keep for 1h)
+        if isinstance(cached, tuple):
+            url, ts = cached
+            if time.time() - ts < 3600:
+                return redirect(url)
+        else:
+            return redirect(cached)
+
+    # 1) Попробуем Bot API (полное качество) если есть file_id
+    file_id = _get_banner_file_id(msg_id)
+    tg_token = os.environ.get('TELEGRAM_BOT_TOKEN', '')
+    if file_id and tg_token:
+        try:
+            gf = requests.get(
+                f'https://api.telegram.org/bot{tg_token}/getFile',
+                params={'file_id': file_id}, timeout=8
+            )
+            if gf.status_code == 200:
+                gf_json = gf.json()
+                if gf_json.get('ok'):
+                    fp = gf_json['result']['file_path']
+                    img_url = f'https://api.telegram.org/file/bot{tg_token}/{fp}'
+                    _banner_og_cache[cache_key] = (img_url, time.time())
+                    return redirect(img_url)
+        except Exception as e:
+            logger.warning(f'[banner-img] Bot API error for {msg_id}: {e}')
+
+    # 2) Fallback: og:image с t.me (работает без file_id, ниже качество)
     try:
         og_headers = {'User-Agent': 'TelegramBot (like TwitterBot)'}
         og_resp = requests.get(f'https://t.me/{_BANNER_TG_GROUP}/{msg_id}', headers=og_headers, timeout=10)
@@ -1931,35 +2010,16 @@ def banner_image_proxy(msg_id):
             img_m = re.search(r'<meta property="og:image" content="([^"]+)"', og_resp.text)
             if img_m:
                 img_url = img_m.group(1)
-                _banner_og_cache[cache_key] = img_url
+                _banner_og_cache[cache_key] = (img_url, time.time())
                 return redirect(img_url)
     except Exception as e:
-        logger.warning(f'[banner-img] Error resolving {msg_id}: {e}')
+        logger.warning(f'[banner-img] og:image error for {msg_id}: {e}')
     return '', 404
 
 @app.route('/api/banners')
 def get_banners():
     config = load_banner_config()
-    resolved = {}
-    for country, country_data in config.items():
-        resolved[country] = {}
-        for btype in ['web', 'mobile']:
-            urls = country_data.get(btype, []) if isinstance(country_data, dict) else []
-            resolved_urls = []
-            for url in urls:
-                if 'cdn' in url or 'telesco.pe' in url:
-                    continue
-                if url.startswith('https://t.me/'):
-                    parts = url.rstrip('/').split('/')
-                    try:
-                        mid = int(parts[-1])
-                        resolved_urls.append(f'/api/banner-img/{mid}')
-                    except ValueError:
-                        resolved_urls.append(url)
-                else:
-                    resolved_urls.append(url)
-            resolved[country][btype] = resolved_urls
-    return jsonify(resolved)
+    return jsonify(config)
 
 @app.route('/api/admin/sync-banners', methods=['POST'])
 def admin_sync_banners():
@@ -1970,7 +2030,7 @@ def admin_sync_banners():
     valid_pw = os.environ.get('ADMIN_PASSWORD', '')
     if password != valid_pw:
         return jsonify({'error': 'Unauthorized'}), 401
-    threading.Thread(target=_sync_media_vn_banners, daemon=True, name='BannerManualSync').start()
+    threading.Thread(target=_do_sync_media_vn_banners, daemon=True, name='BannerManualSync').start()
     return jsonify({'ok': True, 'message': f'Синк @{_BANNER_TG_GROUP} запущен в фоне'})
 
 @app.route('/api/admin/upload-banner', methods=['POST'])
@@ -2069,8 +2129,23 @@ def check_admin_password(password, country=None):
             return True, c
     return False, None
 
+DELIVERY_ORDERS_FILE = 'delivery_orders.json'
+
+def _save_delivery_order(order: dict):
+    try:
+        orders = []
+        if os.path.exists(DELIVERY_ORDERS_FILE):
+            with open(DELIVERY_ORDERS_FILE, 'r', encoding='utf-8') as f:
+                orders = json.load(f)
+        orders.append(order)
+        with open(DELIVERY_ORDERS_FILE, 'w', encoding='utf-8') as f:
+            json.dump(orders, f, ensure_ascii=False, indent=2)
+    except Exception as ex:
+        logger.warning(f'Failed to save delivery order: {ex}')
+
 @app.route('/api/delivery-order', methods=['POST'])
 def delivery_order():
+    import datetime as _dt
     data = request.json or {}
     tg = data.get('telegram', '').strip()
     amount = data.get('amount', '').strip()
@@ -2079,8 +2154,16 @@ def delivery_order():
     info = data.get('info', '').strip()
     if not tg or not amount or not city or not address:
         return jsonify(ok=False, error='Заполните все поля')
+
+    order = {
+        'ts': _dt.datetime.utcnow().isoformat(),
+        'telegram': tg, 'amount': amount,
+        'city': city, 'address': address, 'info': info
+    }
+    _save_delivery_order(order)
+
     bot_token = os.environ.get('TELEGRAM_BOT_TOKEN', '')
-    admin_chat = os.environ.get('DELIVERY_ADMIN_CHAT', '')
+    admin_chat = os.environ.get('DELIVERY_ADMIN_CHAT', '-1003927701676')
     msg_text = (
         f"💸 Заявка на доставку наличных\n\n"
         f"👤 Telegram: {tg}\n"
@@ -2090,17 +2173,195 @@ def delivery_order():
     )
     if info:
         msg_text += f"\n📝 Доп. информация: {info}"
-    if bot_token and admin_chat:
+    tg_ok = False
+    tg_error = ''
+    if bot_token:
         try:
-            requests.post(
+            resp = requests.post(
                 f'https://api.telegram.org/bot{bot_token}/sendMessage',
                 json={'chat_id': admin_chat, 'text': msg_text, 'parse_mode': 'HTML'},
                 timeout=10
             )
+            rj = resp.json()
+            if rj.get('ok'):
+                tg_ok = True
+            else:
+                tg_error = rj.get('description', str(resp.status_code))
+                logger.warning(f'Delivery TG failed: {tg_error}')
         except Exception as ex:
+            tg_error = str(ex)
             logger.warning(f'Delivery TG notify failed: {ex}')
-    logger.info(f'[delivery] {tg} | {amount} | {city} | {address}')
-    return jsonify(ok=True)
+    logger.info(f'[delivery] tg_sent={tg_ok} | {tg} | {amount} | {city} | {address}')
+    return jsonify(ok=True, tg_sent=tg_ok, tg_error=tg_error if not tg_ok else '')
+
+
+@app.route('/api/admin/delivery-orders', methods=['POST'])
+def admin_delivery_orders():
+    password = (request.json or {}).get('password', '')
+    valid_pw = os.environ.get('ADMIN_PASSWORD', '')
+    if not password or password != valid_pw:
+        return jsonify({'error': 'Unauthorized'}), 401
+    try:
+        if os.path.exists(DELIVERY_ORDERS_FILE):
+            with open(DELIVERY_ORDERS_FILE, 'r', encoding='utf-8') as f:
+                orders = json.load(f)
+        else:
+            orders = []
+    except Exception:
+        orders = []
+    return jsonify({'orders': orders})
+
+TOUR_ORDERS_FILE = 'tour_orders.json'
+
+def _save_tour_order(order: dict):
+    try:
+        orders = []
+        if os.path.exists(TOUR_ORDERS_FILE):
+            with open(TOUR_ORDERS_FILE, 'r', encoding='utf-8') as f:
+                orders = json.load(f)
+        orders.append(order)
+        with open(TOUR_ORDERS_FILE, 'w', encoding='utf-8') as f:
+            json.dump(orders, f, ensure_ascii=False, indent=2)
+    except Exception as ex:
+        logger.warning(f'Failed to save tour order: {ex}')
+
+@app.route('/api/book-tour', methods=['POST'])
+def book_tour():
+    import datetime as _dt
+    data = request.json or {}
+    tg = data.get('telegram', '').strip()
+    tour_name = data.get('tour_name', '').strip()
+    city = data.get('city', '').strip()
+    people = data.get('people', '').strip()
+    date = data.get('date', '').strip()
+    departure_point = data.get('departure_point', '').strip()
+    extra = data.get('extra', '').strip()
+
+    if not tg or not tour_name or not city or not people or not date or not departure_point:
+        return jsonify(ok=False, error='Заполните все обязательные поля')
+
+    order = {
+        'ts': _dt.datetime.utcnow().isoformat(),
+        'telegram': tg,
+        'tour_name': tour_name,
+        'city': city,
+        'people': people,
+        'date': date,
+        'departure_point': departure_point,
+        'extra': extra
+    }
+    _save_tour_order(order)
+
+    bot_token = os.environ.get('TELEGRAM_BOT_TOKEN', '')
+    admin_chat = os.environ.get('TOUR_ADMIN_CHAT', os.environ.get('DELIVERY_ADMIN_CHAT', '-1003927701676'))
+    msg_text = (
+        f"🧳 Заявка на Экскурсию\n\n"
+        f"👤 Telegram: {tg}\n"
+        f"🗺 Экскурсия: {tour_name}\n"
+        f"🏙 Город: {city}\n"
+        f"👥 Количество человек: {people}\n"
+        f"📅 Дата: {date}\n"
+        f"📍 Адрес / Google-локация: {departure_point}"
+    )
+    if extra:
+        msg_text += f"\n📝 Доп. информация: {extra}"
+
+    tg_ok = False
+    tg_error = ''
+    if bot_token:
+        try:
+            resp = requests.post(
+                f'https://api.telegram.org/bot{bot_token}/sendMessage',
+                json={'chat_id': admin_chat, 'text': msg_text, 'parse_mode': 'HTML'},
+                timeout=10
+            )
+            rj = resp.json()
+            if rj.get('ok'):
+                tg_ok = True
+            else:
+                tg_error = rj.get('description', str(resp.status_code))
+                logger.warning(f'Tour TG failed: {tg_error}')
+        except Exception as ex:
+            tg_error = str(ex)
+            logger.warning(f'Tour TG notify failed: {ex}')
+    logger.info(f'[tour] tg_sent={tg_ok} | {tg} | {tour_name} | {people}p | {date}')
+    return jsonify(ok=True, tg_sent=tg_ok, tg_error=tg_error if not tg_ok else '')
+
+VISARUN_ORDERS_FILE = 'visarun_orders.json'
+
+def _save_visarun_order(order: dict):
+    try:
+        orders = []
+        if os.path.exists(VISARUN_ORDERS_FILE):
+            with open(VISARUN_ORDERS_FILE, 'r', encoding='utf-8') as f:
+                orders = json.load(f)
+        orders.append(order)
+        with open(VISARUN_ORDERS_FILE, 'w', encoding='utf-8') as f:
+            json.dump(orders, f, ensure_ascii=False, indent=2)
+    except Exception as ex:
+        logger.warning(f'Failed to save visarun order: {ex}')
+
+@app.route('/api/book-visarun', methods=['POST'])
+def book_visarun():
+    import datetime as _dt
+    data = request.json or {}
+    tg = data.get('telegram', '').strip()
+    direction = data.get('direction', '').strip()
+    days = data.get('days', '').strip()
+    nationality = data.get('nationality', '').strip()
+    departure_date = data.get('departure_date', '').strip()
+    departure_point = data.get('departure_point', '').strip()
+    extra = data.get('extra', '').strip()
+
+    if not tg or not direction or not days or not nationality or not departure_date or not departure_point:
+        return jsonify(ok=False, error='Заполните все обязательные поля')
+
+    order = {
+        'ts': _dt.datetime.utcnow().isoformat(),
+        'telegram': tg,
+        'direction': direction,
+        'days': days,
+        'nationality': nationality,
+        'departure_date': departure_date,
+        'departure_point': departure_point,
+        'extra': extra
+    }
+    _save_visarun_order(order)
+
+    bot_token = os.environ.get('TELEGRAM_BOT_TOKEN', '')
+    admin_chat = os.environ.get('VISARUN_ADMIN_CHAT', os.environ.get('DELIVERY_ADMIN_CHAT', '-1003927701676'))
+    msg_text = (
+        f"🛂 Заявка на Визаран\n\n"
+        f"👤 Telegram: {tg}\n"
+        f"🌏 Направление: {direction}\n"
+        f"🗓️ Срок: {days} дней\n"
+        f"🌍 Гражданство: {nationality}\n"
+        f"📅 Дата выезда: {departure_date}\n"
+        f"🚌 Выезд из: {departure_point}"
+    )
+    if extra:
+        msg_text += f"\n📝 Доп. информация: {extra}"
+
+    tg_ok = False
+    tg_error = ''
+    if bot_token:
+        try:
+            resp = requests.post(
+                f'https://api.telegram.org/bot{bot_token}/sendMessage',
+                json={'chat_id': admin_chat, 'text': msg_text, 'parse_mode': 'HTML'},
+                timeout=10
+            )
+            rj = resp.json()
+            if rj.get('ok'):
+                tg_ok = True
+            else:
+                tg_error = rj.get('description', str(resp.status_code))
+                logger.warning(f'Visarun TG failed: {tg_error}')
+        except Exception as ex:
+            tg_error = str(ex)
+            logger.warning(f'Visarun TG notify failed: {ex}')
+    logger.info(f'[visarun] tg_sent={tg_ok} | {tg} | {direction} | {days}d | {departure_date}')
+    return jsonify(ok=True, tg_sent=tg_ok, tg_error=tg_error if not tg_ok else '')
 
 @app.route('/api/admin/auth', methods=['POST'])
 def admin_auth():
@@ -3533,6 +3794,35 @@ def _prewarm_restaurant_disk_photos():
 
 
 threading.Thread(target=_prewarm_restaurant_disk_photos, daemon=True, name='DiskPhotoPrewarm').start()
+
+@app.route('/api/tgphoto/<path:file_id>')
+def tg_photo_redirect(file_id):
+    """Редирект на прямую ссылку Telegram CDN через Bot API getFile.
+    Браузер скачивает фото напрямую с серверов Telegram — без серверного скачивания."""
+    bot_token = os.environ.get('TELEGRAM_BOT_TOKEN', '')
+    if not bot_token:
+        return Response(status=503)
+    try:
+        with _file_path_cache_lock:
+            file_path = _file_path_cache.get(file_id)
+        if not file_path:
+            r = requests.get(
+                f'https://api.telegram.org/bot{bot_token}/getFile',
+                params={'file_id': file_id}, timeout=10
+            )
+            if not (r.status_code == 200 and r.json().get('ok')):
+                return Response(status=404)
+            file_path = r.json()['result']['file_path']
+            with _file_path_cache_lock:
+                _file_path_cache[file_id] = file_path
+                if len(_file_path_cache) % 20 == 0:
+                    _save_file_path_cache(dict(_file_path_cache))
+        direct_url = f'https://api.telegram.org/file/bot{bot_token}/{file_path}'
+        return redirect(direct_url, code=302)
+    except Exception as e:
+        logger.warning(f'tg_photo_redirect error for {file_id}: {e}')
+    return Response(status=404)
+
 
 @app.route('/tg_file/<path:file_id>')
 def tg_file_proxy(file_id):
@@ -7912,30 +8202,37 @@ _tg_auth_state = {}  # phone_hash, client
 def tg_auth_page():
     return '''<!DOCTYPE html><html><head><meta charset="utf-8">
 <title>TG Auth</title>
-<style>body{font-family:sans-serif;max-width:500px;margin:60px auto;padding:20px}
-input{width:100%;padding:10px;margin:8px 0;box-sizing:border-box;font-size:16px}
-button{background:#d4af37;color:#000;border:none;padding:12px 24px;font-size:16px;cursor:pointer;border-radius:6px;width:100%}
-.result{background:#f0f0f0;padding:12px;border-radius:6px;word-break:break-all;margin-top:12px;font-size:12px}</style></head>
+<style>body{font-family:sans-serif;max-width:520px;margin:50px auto;padding:20px;background:#111;color:#eee}
+input{width:100%;padding:10px;margin:6px 0 12px;box-sizing:border-box;font-size:15px;background:#222;border:1px solid #444;color:#fff;border-radius:6px}
+label{font-size:13px;color:#8b949e}
+button{background:#2563eb;color:#fff;border:none;padding:12px 24px;font-size:16px;cursor:pointer;border-radius:6px;width:100%;margin-top:4px}
+.result{background:#1a1a1a;padding:12px;border-radius:6px;word-break:break-all;margin-top:12px;font-size:12px;font-family:monospace;color:#56d364}
+h2{color:#58a6ff;margin-bottom:16px}
+.note{font-size:12px;color:#666;margin-bottom:16px}</style></head>
 <body>
-<h2>🔐 Telegram Session Setup</h2>
+<h2>🔑 Новая Telegram сессия</h2>
 <div id="step1">
-  <p>Шаг 1: Отправить код на телефон</p>
-  <input id="phone" value="+84343893121" placeholder="Телефон">
-  <button onclick="sendCode()">Отправить код</button>
+  <p class="note">Шаг 1: Укажите данные приложения и номер телефона</p>
+  <label>API ID</label><input id="api_id" placeholder="36461704">
+  <label>API Hash</label><input id="api_hash" placeholder="57fd0ec8dc0e2786420c4e78a8d1c5d4">
+  <label>Номер телефона</label><input id="phone" placeholder="+84777373211">
+  <button onclick="sendCode()">📲 Получить код</button>
 </div>
 <div id="step2" style="display:none">
-  <p>Шаг 2: Введите код из Telegram</p>
-  <input id="code" placeholder="Код (5 цифр)" maxlength="5">
-  <button onclick="verifyCode()">Авторизоваться</button>
+  <p class="note">Шаг 2: Введите код из Telegram</p>
+  <label>Код подтверждения</label><input id="code" placeholder="12345" maxlength="5">
+  <button onclick="verifyCode()">✅ Авторизоваться</button>
 </div>
 <div id="result"></div>
 <script>
 async function sendCode(){
   const ph=document.getElementById('phone').value;
+  const aid=document.getElementById('api_id').value;
+  const ahash=document.getElementById('api_hash').value;
   document.getElementById('result').innerHTML='⏳ Отправка...';
-  const r=await fetch('/tg-auth/send-code',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({phone:ph})});
+  const r=await fetch('/tg-auth/send-code',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({phone:ph,api_id:aid,api_hash:ahash})});
   const d=await r.json();
-  if(d.ok){document.getElementById('step1').style.display='none';document.getElementById('step2').style.display='';document.getElementById('result').innerHTML='✅ Код отправлен!';}
+  if(d.ok){document.getElementById('step1').style.display='none';document.getElementById('step2').style.display='';document.getElementById('result').innerHTML='✅ Код отправлен на '+ph;}
   else document.getElementById('result').innerHTML='❌ '+d.error;
 }
 async function verifyCode(){
@@ -7943,7 +8240,7 @@ async function verifyCode(){
   document.getElementById('result').innerHTML='⏳ Авторизация...';
   const r=await fetch('/tg-auth/verify',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({code:code})});
   const d=await r.json();
-  if(d.ok){document.getElementById('result').innerHTML='<b>✅ '+d.user+' — авторизован!</b><br><p>Парсер запущен автоматически.</p><p><a href="/parser-status">📊 Смотреть статус парсера</a></p><details><summary>StringSession (для бэкапа)</summary><div class="result">'+d.session+'</div></details>';}
+  if(d.ok){document.getElementById('result').innerHTML='<b>✅ '+d.user+' — авторизован!</b><br><details open><summary style="cursor:pointer;color:#58a6ff;margin:8px 0">📋 Строка сессии (TELETHON_SESSION2)</summary><div class="result" id="sess">'+d.session+'</div></details><button onclick="navigator.clipboard.writeText(document.getElementById(\'sess\').innerText)" style="margin-top:8px">📋 Скопировать</button><p style="margin-top:12px;font-size:13px;color:#8b949e">Вставьте эту строку в HF Space Secrets как <b>TELETHON_SESSION2</b></p>';}
   else document.getElementById('result').innerHTML='❌ '+d.error;
 }
 </script></body></html>'''
@@ -7954,9 +8251,9 @@ def tg_auth_send_code():
     from telethon import TelegramClient
     from telethon.sessions import StringSession
     data = request.get_json()
-    phone = data.get('phone', '').strip()
-    API_ID = 32881984
-    API_HASH = 'd2588f09dfbc5103ef77ef21c07dbf8b'
+    phone    = data.get('phone', '').strip()
+    API_ID   = int(data.get('api_id', 32881984))
+    API_HASH = data.get('api_hash', 'd2588f09dfbc5103ef77ef21c07dbf8b').strip()
 
     result = {}
     def run():
@@ -7968,6 +8265,8 @@ def tg_auth_send_code():
             r = await client.send_code_request(phone)
             _tg_auth_state['hash'] = r.phone_code_hash
             _tg_auth_state['phone'] = phone
+            _tg_auth_state['api_id'] = API_ID
+            _tg_auth_state['api_hash'] = API_HASH
             result['ok'] = True
             await client.disconnect()
         try:
@@ -7990,12 +8289,12 @@ def tg_auth_verify():
     from telethon.sessions import StringSession
     data = request.get_json()
     code = data.get('code', '').strip()
-    phone = _tg_auth_state.get('phone')
+    phone      = _tg_auth_state.get('phone')
     phone_hash = _tg_auth_state.get('hash')
     if not phone_hash:
         return jsonify({'ok': False, 'error': 'Сначала запросите код'})
-    API_ID = 32881984
-    API_HASH = 'd2588f09dfbc5103ef77ef21c07dbf8b'
+    API_ID   = _tg_auth_state.get('api_id', 32881984)
+    API_HASH = _tg_auth_state.get('api_hash', 'd2588f09dfbc5103ef77ef21c07dbf8b')
     result = {}
     def run():
         loop = asyncio.new_event_loop()
