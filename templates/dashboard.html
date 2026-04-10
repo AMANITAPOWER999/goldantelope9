@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Goldantelope ASIA</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
@@ -135,6 +136,10 @@
             padding: 12px;
             background: #ffffff;
             border-radius: 8px;
+            position: sticky;
+            top: 0;
+            z-index: 200;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
         }
         .tab[data-tab="admin"] {
             grid-column: 4;
@@ -294,6 +299,9 @@
             max-height: 10em;
             scrollbar-width: thin;
             scrollbar-color: rgba(0,0,0,0.2) transparent;
+            -webkit-overflow-scrolling: touch;
+            touch-action: pan-y;
+            overscroll-behavior: contain;
         }
         .card p::-webkit-scrollbar {
             width: 4px;
@@ -482,6 +490,8 @@
             height: 100%;
             display: block;
             object-fit: contain;
+            object-position: center;
+            background: #000;
         }
 
         /* Responsive banner sizes */
@@ -632,7 +642,27 @@
         html.dark #delivery-modal input,
         html.dark #delivery-modal select { background: #2a2a3e !important; color: #eee !important; border-color: #444 !important; }
         html.dark #delivery-modal h3 { color: #eee !important; }
-        
+
+        html.dark #visarun-modal > div {
+            background: #1e1e2e !important;
+        }
+        html.dark #visarun-modal h3 { color: #eee !important; }
+        html.dark #visarun-modal label { color: #bbb !important; }
+        html.dark #visarun-modal input,
+        html.dark #visarun-modal select { background: #2a2a3e !important; color: #eee !important; border-color: #444 !important; }
+        html.dark #visarun-modal textarea { background: #2a2a3e !important; color: #eee !important; border-color: #444 !important; }
+        html.dark #visarun-modal button[onclick="closeVisarunModal()"] { color: #aaa !important; }
+
+        html.dark #tour-modal > div {
+            background: #1e1e2e !important;
+        }
+        html.dark #tour-modal h3 { color: #eee !important; }
+        html.dark #tour-modal label { color: #bbb !important; }
+        html.dark #tour-modal input,
+        html.dark #tour-modal select { background: #2a2a3e !important; color: #eee !important; border-color: #444 !important; }
+        html.dark #tour-modal textarea { background: #2a2a3e !important; color: #eee !important; border-color: #444 !important; }
+        html.dark #tour-modal button[onclick="closeTourModal()"] { color: #aaa !important; }
+
         .tab img {
             width: 89px;
             height: 89px;
@@ -1105,6 +1135,7 @@
         }
         html.dark .tabs {
             background: #1a1a2e;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.4);
         }
         html.dark .tab {
             color: #aaa;
@@ -1544,13 +1575,6 @@
                             <div class="tour-count" style="font-size: 13px; margin-top: 4px; color: #666;">106 ресторанов</div>
                         </div>
                     </div>
-                    <div class="tour-city-btn restaurant-city-btn" data-city="Хошимин" onclick="filterRestaurantsByCity('Хошимин')" style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 3px solid transparent;">
-                        <img src="/static/images/restaurants/hochiminh.jpg" style="width: 100%; height: 100%; object-fit: cover;">
-                        <div class="city-info" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); color: #333; padding: 12px; text-align: center;">
-                            <div class="city-name" style="font-weight: bold; font-size: 16px;">Хошимин</div>
-                            <div class="tour-count" style="font-size: 13px; margin-top: 4px; color: #666;">74 ресторана</div>
-                        </div>
-                    </div>
                     <div class="tour-city-btn restaurant-city-btn" data-city="Дананг" onclick="filterRestaurantsByCity('Дананг')" style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 3px solid transparent;">
                         <img src="/static/images/restaurants/danang.jpg" style="width: 100%; height: 100%; object-fit: cover;">
                         <div class="city-info" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); color: #333; padding: 12px; text-align: center;">
@@ -1558,11 +1582,11 @@
                             <div class="tour-count" style="font-size: 13px; margin-top: 4px; color: #666;">95 ресторанов</div>
                         </div>
                     </div>
-                    <div class="tour-city-btn restaurant-city-btn" data-city="Ханой" onclick="filterRestaurantsByCity('Ханой')" style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 3px solid transparent;">
-                        <img src="/static/images/restaurants/hanoi.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div class="tour-city-btn restaurant-city-btn" data-city="Хошимин" onclick="filterRestaurantsByCity('Хошимин')" style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 3px solid transparent;">
+                        <img src="/static/images/restaurants/hochiminh.jpg" style="width: 100%; height: 100%; object-fit: cover;">
                         <div class="city-info" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); color: #333; padding: 12px; text-align: center;">
-                            <div class="city-name" style="font-weight: bold; font-size: 16px;">Ханой</div>
-                            <div class="tour-count" style="font-size: 13px; margin-top: 4px; color: #666;">3 ресторана</div>
+                            <div class="city-name" style="font-weight: bold; font-size: 16px;">Хошимин</div>
+                            <div class="tour-count" style="font-size: 13px; margin-top: 4px; color: #666;">74 ресторана</div>
                         </div>
                     </div>
                     <div class="tour-city-btn restaurant-city-btn" data-city="Фукуок" onclick="filterRestaurantsByCity('Фукуок')" style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 3px solid transparent;">
@@ -1570,41 +1594,6 @@
                         <div class="city-info" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); color: #333; padding: 12px; text-align: center;">
                             <div class="city-name" style="font-weight: bold; font-size: 16px;">Фукуок</div>
                             <div class="tour-count" style="font-size: 13px; margin-top: 4px; color: #666;">3 ресторана</div>
-                        </div>
-                    </div>
-                    <div class="tour-city-btn restaurant-city-btn" data-city="Фантьет" onclick="filterRestaurantsByCity('Фантьет')" style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 3px solid transparent;">
-                        <img src="/static/images/restaurants/phanthiet.jpg" style="width: 100%; height: 100%; object-fit: cover;">
-                        <div class="city-info" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); color: #333; padding: 12px; text-align: center;">
-                            <div class="city-name" style="font-weight: bold; font-size: 16px;">Фантьет</div>
-                            <div class="tour-count" style="font-size: 13px; margin-top: 4px; color: #666;">3 ресторана</div>
-                        </div>
-                    </div>
-                    <div class="tour-city-btn restaurant-city-btn" data-city="Камрань" onclick="filterRestaurantsByCity('Камрань')" style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 3px solid transparent;">
-                        <img src="/static/images/restaurants/kamran.jpg" style="width: 100%; height: 100%; object-fit: cover;">
-                        <div class="city-info" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); color: #333; padding: 12px; text-align: center;">
-                            <div class="city-name" style="font-weight: bold; font-size: 16px;">Камрань</div>
-                            <div class="tour-count" style="font-size: 13px; margin-top: 4px; color: #666;">3 ресторана</div>
-                        </div>
-                    </div>
-                    <div class="tour-city-btn restaurant-city-btn" data-city="Далат" onclick="filterRestaurantsByCity('Далат')" style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 3px solid transparent;">
-                        <img src="/static/images/restaurants/dalat.jpg" style="width: 100%; height: 100%; object-fit: cover;">
-                        <div class="city-info" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); color: #333; padding: 12px; text-align: center;">
-                            <div class="city-name" style="font-weight: bold; font-size: 16px;">Далат</div>
-                            <div class="tour-count" style="font-size: 13px; margin-top: 4px; color: #666;">3 ресторана</div>
-                        </div>
-                    </div>
-                    <div class="tour-city-btn restaurant-city-btn" data-city="Хойан" onclick="filterRestaurantsByCity('Хойан')" style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 3px solid transparent;">
-                        <img src="/static/images/restaurants/hoian.jpg" style="width: 100%; height: 100%; object-fit: cover;">
-                        <div class="city-info" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); color: #333; padding: 12px; text-align: center;">
-                            <div class="city-name" style="font-weight: bold; font-size: 16px;">Хойан</div>
-                            <div class="tour-count" style="font-size: 13px; margin-top: 4px; color: #666;">3 ресторана</div>
-                        </div>
-                    </div>
-                    <div class="tour-city-btn" onclick="switchTab('submit-restaurant'); loadRestaurantCaptcha();" style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 3px solid #4CAF50;">
-                        <img src="/static/images/submit_listing.jpg" style="width: 100%; height: 100%; object-fit: cover;">
-                        <div class="city-info" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); color: #333; padding: 12px; text-align: center;">
-                            <div class="city-name" style="font-weight: bold; font-size: 18px;">📝 Подать</div>
-                            <div class="tour-count" style="font-size: 13px; margin-top: 4px; color: #4CAF50;">Добавить ресторан</div>
                         </div>
                     </div>
                 </div>
@@ -1643,18 +1632,18 @@
                             <div class="tour-count" style="font-size: 13px; margin-top: 4px; color: #666;">58 экскурсий</div>
                         </div>
                     </div>
+                    <div class="tour-city-btn tours-city-btn" data-city="Дананг" onclick="filterToursByCity('Дананг')" style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 3px solid transparent;">
+                        <img src="/static/images/tours/danang.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="city-info" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); color: #333; padding: 12px; text-align: center;">
+                            <div class="city-name" style="font-weight: bold; font-size: 16px;">Дананг</div>
+                            <div class="tour-count" style="font-size: 13px; margin-top: 4px; color: #666;">16 экскурсий</div>
+                        </div>
+                    </div>
                     <div class="tour-city-btn tours-city-btn" data-city="Хошимин" onclick="filterToursByCity('Хошимин')" style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 3px solid transparent;">
                         <img src="/static/images/tours/hochiminh.jpg" style="width: 100%; height: 100%; object-fit: cover;">
                         <div class="city-info" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); color: #333; padding: 12px; text-align: center;">
                             <div class="city-name" style="font-weight: bold; font-size: 16px;">Хошимин</div>
                             <div class="tour-count" style="font-size: 13px; margin-top: 4px; color: #666;">33 экскурсии</div>
-                        </div>
-                    </div>
-                    <div class="tour-city-btn tours-city-btn" data-city="Ханой" onclick="filterToursByCity('Ханой')" style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 3px solid transparent;">
-                        <img src="/static/images/tours/hanoi.jpg" style="width: 100%; height: 100%; object-fit: cover;">
-                        <div class="city-info" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); color: #333; padding: 12px; text-align: center;">
-                            <div class="city-name" style="font-weight: bold; font-size: 16px;">Ханой</div>
-                            <div class="tour-count" style="font-size: 13px; margin-top: 4px; color: #666;">15 экскурсий</div>
                         </div>
                     </div>
                     <div class="tour-city-btn tours-city-btn" data-city="Фукуок" onclick="filterToursByCity('Фукуок')" style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 3px solid transparent;">
@@ -1664,48 +1653,12 @@
                             <div class="tour-count" style="font-size: 13px; margin-top: 4px; color: #666;">27 экскурсий</div>
                         </div>
                     </div>
-                    <div class="tour-city-btn tours-city-btn" data-city="Фантьет" onclick="filterToursByCity('Фантьет')" style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 3px solid transparent;">
-                        <img src="/static/images/tours/phanthiet.jpg" style="width: 100%; height: 100%; object-fit: cover;">
-                        <div class="city-info" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); color: #333; padding: 12px; text-align: center;">
-                            <div class="city-name" style="font-weight: bold; font-size: 16px;">Фантьет</div>
-                            <div class="tour-count" style="font-size: 13px; margin-top: 4px; color: #666;">15 экскурсий</div>
-                        </div>
-                    </div>
-                    <div class="tour-city-btn tours-city-btn" data-city="Муйне" onclick="filterToursByCity('Муйне')" style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 3px solid transparent;">
-                        <img src="/static/images/tours/muine.jpg" style="width: 100%; height: 100%; object-fit: cover;">
-                        <div class="city-info" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); color: #333; padding: 12px; text-align: center;">
-                            <div class="city-name" style="font-weight: bold; font-size: 16px;">Муйне</div>
-                            <div class="tour-count" style="font-size: 13px; margin-top: 4px; color: #666;">6 экскурсий</div>
-                        </div>
-                    </div>
-                    <div class="tour-city-btn tours-city-btn" data-city="Дананг" onclick="filterToursByCity('Дананг')" style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 3px solid transparent;">
-                        <img src="/static/images/tours/danang.jpg" style="width: 100%; height: 100%; object-fit: cover;">
-                        <div class="city-info" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); color: #333; padding: 12px; text-align: center;">
-                            <div class="city-name" style="font-weight: bold; font-size: 16px;">Дананг</div>
-                            <div class="tour-count" style="font-size: 13px; margin-top: 4px; color: #666;">16 экскурсий</div>
-                        </div>
-                    </div>
-                    <div class="tour-city-btn tours-city-btn" data-city="Камрань" onclick="filterToursByCity('Камрань')" style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 3px solid transparent;">
-                        <img src="/static/images/tours/kamran.jpg" style="width: 100%; height: 100%; object-fit: cover;">
-                        <div class="city-info" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); color: #333; padding: 12px; text-align: center;">
-                            <div class="city-name" style="font-weight: bold; font-size: 16px;">Камрань</div>
-                            <div class="tour-count" style="font-size: 13px; margin-top: 4px; color: #666;">2 экскурсии</div>
-                        </div>
-                    </div>
-                    <div class="tour-city-btn tours-city-btn" data-city="Далат" onclick="filterToursByCity('Далат')" style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 3px solid transparent;">
-                        <img src="/static/images/tours/dalat.jpg" style="width: 100%; height: 100%; object-fit: cover;">
-                        <div class="city-info" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); color: #333; padding: 12px; text-align: center;">
-                            <div class="city-name" style="font-weight: bold; font-size: 16px;">Далат</div>
-                            <div class="tour-count" style="font-size: 13px; margin-top: 4px; color: #666;">2 экскурсии</div>
-                        </div>
-                    </div>
-                    <div class="tour-city-btn" onclick="switchTab('submit-tour'); loadTourCaptcha();" style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 3px solid #4CAF50;">
-                        <img src="/static/images/submit_listing.jpg" style="width: 100%; height: 100%; object-fit: cover;">
-                        <div class="city-info" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); color: #333; padding: 12px; text-align: center;">
-                            <div class="city-name" style="font-weight: bold; font-size: 18px;">📝 Подать</div>
-                            <div class="tour-count" style="font-size: 13px; margin-top: 4px; color: #4CAF50;">Добавить экскурсию</div>
-                        </div>
-                    </div>
+                </div>
+                <!-- Кнопка бронирования экскурсии -->
+                <div style="text-align: center; padding: 4px 0 8px;">
+                    <button class="delivery-btn" onclick="openTourModal()">
+                        🧳 Забронировать экскурсию
+                    </button>
                 </div>
             </div>
             <!-- Другие страны - динамические кнопки городов -->
@@ -1884,8 +1837,8 @@
                         <button class="transport-city-btn" data-city="" onclick="filterTransportCity('')" data-i18n="city-all" style="padding: 8px 16px; border: 2px solid #d4af37; background: #d4af37; color: white; border-radius: 20px; cursor: pointer; font-size: 13px; font-weight: 600;">Все</button>
                         <button class="transport-city-btn" data-city="Nha Trang" onclick="filterTransportCity('Nha Trang')" data-i18n="city-nhatrang" style="padding: 8px 16px; border: 2px solid #ccc; background: #fff; color: #333; border-radius: 20px; cursor: pointer; font-size: 13px;">Нячанг</button>
                         <button class="transport-city-btn" data-city="Da Nang" onclick="filterTransportCity('Da Nang')" data-i18n="city-danang" style="padding: 8px 16px; border: 2px solid #ccc; background: #fff; color: #333; border-radius: 20px; cursor: pointer; font-size: 13px;">Дананг</button>
-                        <button class="transport-city-btn" data-city="Phu Quoc" onclick="filterTransportCity('Phu Quoc')" data-i18n="city-phuquoc" style="padding: 8px 16px; border: 2px solid #ccc; background: #fff; color: #333; border-radius: 20px; cursor: pointer; font-size: 13px;">Фукуок</button>
                         <button class="transport-city-btn" data-city="Ho Chi Minh" onclick="filterTransportCity('Ho Chi Minh')" data-i18n="city-hochiminh" style="padding: 8px 16px; border: 2px solid #ccc; background: #fff; color: #333; border-radius: 20px; cursor: pointer; font-size: 13px;">Хошимин</button>
+                        <button class="transport-city-btn" data-city="Phu Quoc" onclick="filterTransportCity('Phu Quoc')" data-i18n="city-phuquoc" style="padding: 8px 16px; border: 2px solid #ccc; background: #fff; color: #333; border-radius: 20px; cursor: pointer; font-size: 13px;">Фукуок</button>
                     </div>
                 </div>
             </div>
@@ -2077,32 +2030,11 @@
                             <div class="tour-count" id="realestate-hochiminh-count" style="font-size: 14px; margin-top: 4px; color: #666;">0 объявлений</div>
                         </div>
                     </div>
-                    <div class="tour-city-btn realestate-city-btn" data-city="hanoi" onclick="filterRealEstateByCity('hanoi')" style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 3px solid transparent;">
-                        <img src="/static/images/realestate_hanoi.jpg?v=20260119" alt="Ханой" style="width: 100%; height: 100%; object-fit: cover; min-height: 120px; background: #f0f0f0;">
-                        <div class="city-info" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); color: #333; padding: 12px; text-align: center;">
-                            <div class="city-name" style="font-weight: bold; font-size: 18px;">Ханой</div>
-                            <div class="tour-count" id="realestate-hanoi-count" style="font-size: 14px; margin-top: 4px; color: #666;">0 объявлений</div>
-                        </div>
-                    </div>
                     <div class="tour-city-btn realestate-city-btn" data-city="phuquoc" onclick="filterRealEstateByCity('phuquoc')" style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 3px solid transparent;">
                         <img src="/static/images/realestate_phuquoc.jpg?v=20260119" alt="Фукуок" style="width: 100%; height: 100%; object-fit: cover; min-height: 120px; background: #f0f0f0;">
                         <div class="city-info" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); color: #333; padding: 12px; text-align: center;">
                             <div class="city-name" style="font-weight: bold; font-size: 18px;">Фукуок</div>
                             <div class="tour-count" id="realestate-phuquoc-count" style="font-size: 14px; margin-top: 4px; color: #666;">0 объявлений</div>
-                        </div>
-                    </div>
-                    <div class="tour-city-btn realestate-city-btn" data-city="dalat" onclick="filterRealEstateByCity('dalat')" style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 3px solid transparent;">
-                        <img src="/static/images/realestate_dalat.jpg?v=20260119" alt="Далат" style="width: 100%; height: 100%; object-fit: cover; min-height: 120px; background: #f0f0f0;">
-                        <div class="city-info" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); color: #333; padding: 12px; text-align: center;">
-                            <div class="city-name" style="font-weight: bold; font-size: 18px;">Далат</div>
-                            <div class="tour-count" id="realestate-dalat-count" style="font-size: 14px; margin-top: 4px; color: #666;">0 объявлений</div>
-                        </div>
-                    </div>
-                    <div class="tour-city-btn" onclick="switchTab('submit-listing'); loadCaptcha();" style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 3px solid #4CAF50;">
-                        <img src="/static/images/submit_listing.jpg" style="width: 100%; height: 100%; object-fit: cover;">
-                        <div class="city-info" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); color: #333; padding: 12px; text-align: center;">
-                            <div class="city-name" style="font-weight: bold; font-size: 18px;">📝 Подать</div>
-                            <div class="tour-count" style="font-size: 14px; margin-top: 4px; color: #666;">объявление</div>
                         </div>
                     </div>
                 </div>
@@ -2604,8 +2536,8 @@
                         <input id="del-tg" type="text" required placeholder="@username" style="width:100%; padding:11px 13px; border:1.5px solid #ddd; border-radius:10px; font-size:14px; box-sizing:border-box; outline:none;" onfocus="this.style.borderColor='#d4af37'" onblur="this.style.borderColor='#ddd'">
                     </div>
                     <div style="margin-bottom:13px;">
-                        <label style="font-size:13px; color:#555; font-weight:600; display:block; margin-bottom:5px;">Сумма (USD / VND / THB) *</label>
-                        <input id="del-amount" type="text" required placeholder="Например: 500 USD или 10 000 000 VND" style="width:100%; padding:11px 13px; border:1.5px solid #ddd; border-radius:10px; font-size:14px; box-sizing:border-box; outline:none;" onfocus="this.style.borderColor='#d4af37'" onblur="this.style.borderColor='#ddd'">
+                        <label style="font-size:13px; color:#555; font-weight:600; display:block; margin-bottom:5px;">Сумма (USD / RUB / KZ) *</label>
+                        <input id="del-amount" type="text" required placeholder="Например: 10 000 рублей или 200 USD" style="width:100%; padding:11px 13px; border:1.5px solid #ddd; border-radius:10px; font-size:14px; box-sizing:border-box; outline:none;" onfocus="this.style.borderColor='#d4af37'" onblur="this.style.borderColor='#ddd'">
                     </div>
                     <div style="margin-bottom:13px;">
                         <label style="font-size:13px; color:#555; font-weight:600; display:block; margin-bottom:5px;">Город *</label>
@@ -2631,6 +2563,152 @@
             </div>
         </div>
 
+        <!-- Модал: Забронировать визаран -->
+        <div id="visarun-modal" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.55); align-items:flex-end; justify-content:center;" onclick="if(event.target===this)closeVisarunModal()">
+            <div style="background:#fff; border-radius:20px 20px 0 0; padding:24px 20px 32px; width:100%; max-width:520px; box-shadow:0 -4px 30px rgba(0,0,0,0.2); animation: slideUp .25s ease; max-height:90vh; overflow-y:auto;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px;">
+                    <h3 style="margin:0; font-size:18px; font-weight:700; color:#1a1a1a;">🛂 Забронировать визаран</h3>
+                    <button onclick="closeVisarunModal()" style="background:none; border:none; font-size:22px; color:#888; cursor:pointer; line-height:1;">&times;</button>
+                </div>
+                <div id="visarun-form-status" style="display:none; padding:10px 14px; border-radius:8px; font-size:14px; margin-bottom:14px;"></div>
+
+                <!-- 1. TG username -->
+                <div style="margin-bottom:13px;">
+                    <label style="font-size:13px; color:#555; font-weight:600; display:block; margin-bottom:5px;">Ник в Telegram *</label>
+                    <input id="vr-tg" type="text" placeholder="@username" style="width:100%; padding:11px 13px; border:1.5px solid #ddd; border-radius:10px; font-size:14px; box-sizing:border-box; outline:none;" onfocus="this.style.borderColor='#d4af37'" onblur="this.style.borderColor='#ddd'">
+                </div>
+
+                <!-- 2. Направление -->
+                <div style="margin-bottom:13px;">
+                    <label style="font-size:13px; color:#555; font-weight:600; display:block; margin-bottom:5px;">Направление *</label>
+                    <select id="vr-direction" style="width:100%; padding:11px 13px; border:1.5px solid #ddd; border-radius:10px; font-size:14px; box-sizing:border-box; background:#fff; outline:none;" onfocus="this.style.borderColor='#d4af37'" onblur="this.style.borderColor='#ddd'">
+                        <option value="">— Выберите страну —</option>
+                        <option value="Лаос">🇱🇦 Лаос</option>
+                        <option value="Камбоджа">🇰🇭 Камбоджа</option>
+                    </select>
+                </div>
+
+                <!-- 3. Количество дней -->
+                <div style="margin-bottom:13px;">
+                    <label style="font-size:13px; color:#555; font-weight:600; display:block; margin-bottom:5px;">Количество дней *</label>
+                    <select id="vr-days" style="width:100%; padding:11px 13px; border:1.5px solid #ddd; border-radius:10px; font-size:14px; box-sizing:border-box; background:#fff; outline:none;" onfocus="this.style.borderColor='#d4af37'" onblur="this.style.borderColor='#ddd'">
+                        <option value="">— Выберите срок —</option>
+                        <option value="45">🗓️ 45 дней</option>
+                        <option value="90">🗓️ 90 дней</option>
+                    </select>
+                </div>
+
+                <!-- 4. Гражданство -->
+                <div style="margin-bottom:13px;">
+                    <label style="font-size:13px; color:#555; font-weight:600; display:block; margin-bottom:5px;">Гражданство *</label>
+                    <select id="vr-nationality" style="width:100%; padding:11px 13px; border:1.5px solid #ddd; border-radius:10px; font-size:14px; box-sizing:border-box; background:#fff; outline:none;" onfocus="this.style.borderColor='#d4af37'" onblur="this.style.borderColor='#ddd'">
+                        <option value="">— Выберите гражданство —</option>
+                        <option value="Россия">🇷🇺 Россия</option>
+                        <option value="Казахстан">🇰🇿 Казахстан</option>
+                        <option value="Беларусь">🇧🇾 Беларусь</option>
+                        <option value="Украина">🇺🇦 Украина</option>
+                    </select>
+                </div>
+
+                <!-- 4b. Дата выезда -->
+                <div style="margin-bottom:13px;">
+                    <label style="font-size:13px; color:#555; font-weight:600; display:block; margin-bottom:5px;">Дата выезда *</label>
+                    <input id="vr-date" type="date" style="width:100%; padding:11px 13px; border:1.5px solid #ddd; border-radius:10px; font-size:14px; box-sizing:border-box; outline:none;" onfocus="this.style.borderColor='#d4af37'" onblur="this.style.borderColor='#ddd'">
+                </div>
+
+                <!-- 5. Место выезда -->
+                <div style="margin-bottom:13px;">
+                    <label style="font-size:13px; color:#555; font-weight:600; display:block; margin-bottom:5px;">Выезд из *</label>
+                    <select id="vr-point" style="width:100%; padding:11px 13px; border:1.5px solid #ddd; border-radius:10px; font-size:14px; box-sizing:border-box; background:#fff; outline:none;" onfocus="this.style.borderColor='#d4af37'" onblur="this.style.borderColor='#ddd'">
+                        <option value="">— Выберите пункт выезда —</option>
+                        <option value="Речной / Мунтань">🚌 Речной / Мунтань</option>
+                        <option value="Океанус">🌊 Океанус</option>
+                    </select>
+                </div>
+
+                <!-- 6. Доп. информация -->
+                <div style="margin-bottom:18px;">
+                    <label style="font-size:13px; color:#555; font-weight:600; display:block; margin-bottom:5px;">Дополнительная информация</label>
+                    <textarea id="vr-extra" rows="3" placeholder="Любые пожелания или вопросы..." style="width:100%; padding:11px 13px; border:1.5px solid #ddd; border-radius:10px; font-size:14px; box-sizing:border-box; outline:none; resize:vertical; font-family:inherit;" onfocus="this.style.borderColor='#d4af37'" onblur="this.style.borderColor='#ddd'"></textarea>
+                </div>
+
+                <button onclick="submitVisarunForm()" id="visarun-submit-btn" style="width:100%; background:linear-gradient(135deg,#d4af37,#f0c040); border:none; color:#1a1a1a; font-size:16px; font-weight:700; padding:14px; border-radius:12px; cursor:pointer;">
+                    Отправить заявку
+                </button>
+            </div>
+        </div>
+
+        <!-- Модал: Забронировать экскурсию -->
+        <div id="tour-modal" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.55); align-items:flex-end; justify-content:center;" onclick="if(event.target===this)closeTourModal()">
+            <div style="background:#fff; border-radius:20px 20px 0 0; padding:24px 20px 32px; width:100%; max-width:520px; box-shadow:0 -4px 30px rgba(0,0,0,0.2); animation: slideUp .25s ease; max-height:90vh; overflow-y:auto;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px;">
+                    <h3 style="margin:0; font-size:18px; font-weight:700; color:#1a1a1a;">🧳 Забронировать экскурсию</h3>
+                    <button onclick="closeTourModal()" style="background:none; border:none; font-size:22px; color:#888; cursor:pointer; line-height:1;">&times;</button>
+                </div>
+                <div id="tour-form-status" style="display:none; padding:10px 14px; border-radius:8px; font-size:14px; margin-bottom:14px;"></div>
+
+                <!-- 1. TG username -->
+                <div style="margin-bottom:13px;">
+                    <label style="font-size:13px; color:#555; font-weight:600; display:block; margin-bottom:5px;">Ник в Telegram *</label>
+                    <input id="tr-tg" type="text" placeholder="@username" style="width:100%; padding:11px 13px; border:1.5px solid #ddd; border-radius:10px; font-size:14px; box-sizing:border-box; outline:none;" onfocus="this.style.borderColor='#d4af37'" onblur="this.style.borderColor='#ddd'">
+                </div>
+
+                <!-- 2. Название экскурсии -->
+                <div style="margin-bottom:13px;">
+                    <label style="font-size:13px; color:#555; font-weight:600; display:block; margin-bottom:5px;">Название экскурсии *</label>
+                    <input id="tr-name" type="text" placeholder="Например: Острова Нячанга" style="width:100%; padding:11px 13px; border:1.5px solid #ddd; border-radius:10px; font-size:14px; box-sizing:border-box; outline:none;" onfocus="this.style.borderColor='#d4af37'" onblur="this.style.borderColor='#ddd'">
+                </div>
+
+                <!-- 2b. Город -->
+                <div style="margin-bottom:13px;">
+                    <label style="font-size:13px; color:#555; font-weight:600; display:block; margin-bottom:5px;">Город *</label>
+                    <select id="tr-city" style="width:100%; padding:11px 13px; border:1.5px solid #ddd; border-radius:10px; font-size:14px; box-sizing:border-box; background:#fff; outline:none;" onfocus="this.style.borderColor='#d4af37'" onblur="this.style.borderColor='#ddd'">
+                        <option value="">— Выберите город —</option>
+                        <option value="Нячанг">Нячанг</option>
+                        <option value="Дананг">Дананг</option>
+                        <option value="Хошимин">Хошимин</option>
+                        <option value="Фукуок">Фукуок</option>
+                    </select>
+                </div>
+
+                <!-- 3. Количество человек -->
+                <div style="margin-bottom:13px;">
+                    <label style="font-size:13px; color:#555; font-weight:600; display:block; margin-bottom:5px;">Количество человек *</label>
+                    <select id="tr-people" style="width:100%; padding:11px 13px; border:1.5px solid #ddd; border-radius:10px; font-size:14px; box-sizing:border-box; background:#fff; outline:none;" onfocus="this.style.borderColor='#d4af37'" onblur="this.style.borderColor='#ddd'">
+                        <option value="">— Выберите —</option>
+                        <option value="1">👤 1 человек</option>
+                        <option value="2">👥 2 человека</option>
+                        <option value="3">👥 3 человека</option>
+                        <option value="4">👥 4 человека</option>
+                        <option value="5">👥 5 человек</option>
+                        <option value="6+">👥 6 и более</option>
+                    </select>
+                </div>
+
+                <!-- 4. Дата -->
+                <div style="margin-bottom:13px;">
+                    <label style="font-size:13px; color:#555; font-weight:600; display:block; margin-bottom:5px;">Дата *</label>
+                    <input id="tr-date" type="date" style="width:100%; padding:11px 13px; border:1.5px solid #ddd; border-radius:10px; font-size:14px; box-sizing:border-box; outline:none;" onfocus="this.style.borderColor='#d4af37'" onblur="this.style.borderColor='#ddd'">
+                </div>
+
+                <!-- 5. Адрес или Google-локация -->
+                <div style="margin-bottom:13px;">
+                    <label style="font-size:13px; color:#555; font-weight:600; display:block; margin-bottom:5px;">Адрес или Google-локация *</label>
+                    <input id="tr-point" type="text" placeholder="Адрес или ссылка maps.google.com" style="width:100%; padding:11px 13px; border:1.5px solid #ddd; border-radius:10px; font-size:14px; box-sizing:border-box; outline:none;" onfocus="this.style.borderColor='#d4af37'" onblur="this.style.borderColor='#ddd'">
+                </div>
+
+                <!-- 6. Доп. информация -->
+                <div style="margin-bottom:18px;">
+                    <label style="font-size:13px; color:#555; font-weight:600; display:block; margin-bottom:5px;">Дополнительная информация <span style="font-size:11px; color:#999; font-weight:400;">(необязательно)</span></label>
+                    <textarea id="tr-extra" rows="3" placeholder="Любые пожелания или вопросы..." style="width:100%; padding:11px 13px; border:1.5px solid #ddd; border-radius:10px; font-size:14px; box-sizing:border-box; outline:none; resize:vertical; font-family:inherit;" onfocus="this.style.borderColor='#d4af37'" onblur="this.style.borderColor='#ddd'"></textarea>
+                </div>
+
+                <button onclick="submitTourForm()" id="tour-submit-btn" style="width:100%; background:linear-gradient(135deg,#d4af37,#f0c040); border:none; color:#1a1a1a; font-size:16px; font-weight:700; padding:14px; border-radius:12px; cursor:pointer;">
+                    Отправить заявку
+                </button>
+            </div>
+        </div>
+
         <!-- Развлечения -->
         <div id="entertainment" class="content">
             <div id="vietnam-entertainment-buttons" style="padding: 20px;">
@@ -2640,6 +2718,13 @@
                         <div class="city-info" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); color: #333; padding: 12px; text-align: center;">
                             <div class="city-name" style="font-weight: bold; font-size: 16px;">Нячанг</div>
                             <div class="tour-count" style="font-size: 13px; margin-top: 4px; color: #666;">51 развлечение</div>
+                        </div>
+                    </div>
+                    <div class="tour-city-btn entertainment-city-btn" data-city="Дананг" onclick="filterEntertainmentByCity('Дананг')" style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 3px solid transparent;">
+                        <img src="/static/images/entertainment/danang.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="city-info" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); color: #333; padding: 12px; text-align: center;">
+                            <div class="city-name" style="font-weight: bold; font-size: 16px;">Дананг</div>
+                            <div class="tour-count" style="font-size: 13px; margin-top: 4px; color: #666;">16 развлечений</div>
                         </div>
                     </div>
                     <div class="tour-city-btn entertainment-city-btn" data-city="Хошимин" onclick="filterEntertainmentByCity('Хошимин')" style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 3px solid transparent;">
@@ -2654,20 +2739,6 @@
                         <div class="city-info" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); color: #333; padding: 12px; text-align: center;">
                             <div class="city-name" style="font-weight: bold; font-size: 16px;">Фукуок</div>
                             <div class="tour-count" style="font-size: 13px; margin-top: 4px; color: #666;">27 развлечений</div>
-                        </div>
-                    </div>
-                    <div class="tour-city-btn entertainment-city-btn" data-city="Дананг" onclick="filterEntertainmentByCity('Дананг')" style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 3px solid transparent;">
-                        <img src="/static/images/entertainment/danang.jpg" style="width: 100%; height: 100%; object-fit: cover;">
-                        <div class="city-info" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); color: #333; padding: 12px; text-align: center;">
-                            <div class="city-name" style="font-weight: bold; font-size: 16px;">Дананг</div>
-                            <div class="tour-count" style="font-size: 13px; margin-top: 4px; color: #666;">16 развлечений</div>
-                        </div>
-                    </div>
-                    <div class="tour-city-btn" onclick="switchTab('submit-entertainment'); loadEntertainmentCaptcha();" style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 3px solid #4CAF50;">
-                        <img src="/static/images/submit_listing.jpg" style="width: 100%; height: 100%; object-fit: cover;">
-                        <div class="city-info" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); color: #333; padding: 12px; text-align: center;">
-                            <div class="city-name" style="font-weight: bold; font-size: 18px;">📝 Подать</div>
-                            <div class="tour-count" style="font-size: 13px; margin-top: 4px; color: #4CAF50;">Добавить развлечение</div>
                         </div>
                     </div>
                 </div>
@@ -2788,46 +2859,51 @@
         <!-- Визаран -->
         <div id="visas" class="content">
             <div id="vietnam-visas-buttons" style="display: none; padding: 20px;">
-                <div class="tour-grid-container" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 25px;">
-                    <div class="tour-city-btn visas-city-btn" data-city="Камбоджа" onclick="filterVisasByCity('Камбоджа')" style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 3px solid #d4af37;">
-                        <img src="/static/images/visas/cambodia.jpg" style="width: 100%; height: 100%; object-fit: cover;">
-                        <div class="city-info" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); color: #333; padding: 12px; text-align: center;">
-                            <div class="city-name" style="font-weight: bold; font-size: 16px;">Камбоджа</div>
-                            <div class="tour-count" id="visa-cambodia-count" style="font-size: 13px; margin-top: 4px; color: #666;">0 объявлений</div>
+                <!-- Мини-дашборд цен Визаран -->
+                <div style="margin-bottom: 20px; display: flex; flex-direction: column; gap: 12px;">
+                    <!-- Блок Лаос -->
+                    <div style="background: #f0faf0; border: 1.5px solid #a5d6a7; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.07); width: 100%;">
+                        <div style="display: flex; align-items: center; gap: 10px; padding: 12px 14px; background: linear-gradient(135deg, #2e7d32, #388e3c);">
+                            <img src="/static/images/visas/laos.jpg" style="width: 40px; height: 40px; border-radius: 8px; object-fit: cover; flex-shrink: 0; border: 2px solid rgba(255,255,255,0.4);">
+                            <span style="font-size: 15px; font-weight: 800; color: #fff; letter-spacing: 0.3px;">🇱🇦 Лаос</span>
+                        </div>
+                        <div style="padding: 10px 14px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #c8e6c9;">
+                                <span style="font-size: 13px; font-weight: 600; color: #388e3c;">🗓️ 45 дней</span>
+                                <span style="font-size: 14px; font-weight: 800; color: #1b5e20;">1 200 000 VND</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 0;">
+                                <span style="font-size: 13px; font-weight: 600; color: #388e3c;">🗓️ 90 дней</span>
+                                <span style="font-size: 14px; font-weight: 800; color: #1b5e20;">3 200 000 VND</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="tour-city-btn visas-city-btn" data-city="Лаос" onclick="filterVisasByCity('Лаос')" style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 3px solid transparent;">
-                        <img src="/static/images/visas/laos.jpg" style="width: 100%; height: 100%; object-fit: cover;">
-                        <div class="city-info" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); color: #333; padding: 12px; text-align: center;">
-                            <div class="city-name" style="font-weight: bold; font-size: 16px;">Лаос</div>
-                            <div class="tour-count" id="visa-laos-count" style="font-size: 13px; margin-top: 4px; color: #666;">0 объявлений</div>
+                    <!-- Блок Камбоджа -->
+                    <div style="background: #fff8f0; border: 1.5px solid #ffcc80; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.07); width: 100%;">
+                        <div style="display: flex; align-items: center; gap: 10px; padding: 12px 14px; background: linear-gradient(135deg, #e65100, #f57c00);">
+                            <img src="/static/images/visas/cambodia.jpg" style="width: 40px; height: 40px; border-radius: 8px; object-fit: cover; flex-shrink: 0; border: 2px solid rgba(255,255,255,0.4);">
+                            <span style="font-size: 15px; font-weight: 800; color: #fff; letter-spacing: 0.3px;">🇰🇭 Камбоджа</span>
                         </div>
-                    </div>
-                    <div class="tour-city-btn submit-btn" onclick="switchTab('submit-visas'); loadVisasCaptcha();" style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 3px solid #4CAF50;">
-                        <img src="/static/images/submit_listing.jpg" style="width: 100%; height: 100%; object-fit: cover;">
-                        <div class="city-info" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); color: #333; padding: 12px; text-align: center;">
-                            <div class="city-name" style="font-weight: bold; font-size: 18px;">📝 Подать</div>
-                            <div class="tour-count" style="font-size: 13px; margin-top: 4px; color: #4CAF50;">Добавить визаран</div>
+                        <div style="padding: 10px 14px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #ffcc80;">
+                                <span style="font-size: 13px; font-weight: 600; color: #f57c00;">🗓️ 45 дней</span>
+                                <span style="font-size: 14px; font-weight: 800; color: #e65100;">1 250 000 VND</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 0;">
+                                <span style="font-size: 13px; font-weight: 600; color: #f57c00;">🗓️ 90 дней</span>
+                                <span style="font-size: 14px; font-weight: 800; color: #e65100;">3 300 000 VND</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- Фильтры визарана -->
-                <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px;">
-                    <div style="display: flex; gap: 6px; align-items: center; flex-wrap: wrap;">
-                        <span style="font-weight: 600; color: #333; white-space: nowrap;">🌍 Гражданство:</span>
-                        <button class="visa-filter-btn visa-nationality-btn active" data-nationality="all" onclick="filterVisasByNationality('all')" style="padding: 6px 12px; border: 2px solid #d4af37; background: #d4af37; color: white; border-radius: 20px; cursor: pointer; font-size: 12px; font-weight: 600;">Все</button>
-                        <button class="visa-filter-btn visa-nationality-btn" data-nationality="russia" onclick="filterVisasByNationality('russia')" style="padding: 6px 12px; border: 2px solid #d4af37; background: white; color: #333; border-radius: 20px; cursor: pointer; font-size: 12px;">Россия</button>
-                        <button class="visa-filter-btn visa-nationality-btn" data-nationality="kazakhstan" onclick="filterVisasByNationality('kazakhstan')" style="padding: 6px 12px; border: 2px solid #d4af37; background: white; color: #333; border-radius: 20px; cursor: pointer; font-size: 12px;">Казахстан</button>
-                        <button class="visa-filter-btn visa-nationality-btn" data-nationality="belarus" onclick="filterVisasByNationality('belarus')" style="padding: 6px 12px; border: 2px solid #d4af37; background: white; color: #333; border-radius: 20px; cursor: pointer; font-size: 12px;">Беларусь</button>
-                        <button class="visa-filter-btn visa-nationality-btn" data-nationality="ukraine" onclick="filterVisasByNationality('ukraine')" style="padding: 6px 12px; border: 2px solid #d4af37; background: white; color: #333; border-radius: 20px; cursor: pointer; font-size: 12px;">Украина</button>
-                    </div>
-                    <div style="display: flex; gap: 6px; align-items: center; flex-wrap: wrap;">
-                        <span style="font-weight: 600; color: #333; white-space: nowrap;">📅 Срок:</span>
-                        <button class="visa-filter-btn visa-days-btn active" data-days="all" onclick="filterVisasByDays('all')" style="padding: 6px 12px; border: 2px solid #00BCD4; background: #00BCD4; color: white; border-radius: 20px; cursor: pointer; font-size: 12px; font-weight: 600;">Все</button>
-                        <button class="visa-filter-btn visa-days-btn" data-days="45" onclick="filterVisasByDays('45')" style="padding: 6px 12px; border: 2px solid #00BCD4; background: white; color: #333; border-radius: 20px; cursor: pointer; font-size: 12px;">45 дней</button>
-                        <button class="visa-filter-btn visa-days-btn" data-days="90" onclick="filterVisasByDays('90')" style="padding: 6px 12px; border: 2px solid #00BCD4; background: white; color: #333; border-radius: 20px; cursor: pointer; font-size: 12px;">90 дней</button>
-                    </div>
+
+                <!-- Кнопка бронирования -->
+                <div style="text-align: center; padding: 8px 0 4px;">
+                    <button class="delivery-btn" onclick="openVisarunModal()">
+                        🛂 Забронировать визаран
+                    </button>
                 </div>
+
             </div>
             <div id="thailand-visas-buttons" style="display: none; padding: 20px;">
                 <div class="tour-grid-container" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 25px;">
@@ -5323,6 +5399,19 @@
         }
         
         document.addEventListener('DOMContentLoaded', function() {
+            // ─── Telegram Mini App init ───────────────────────────
+            if (window.Telegram && window.Telegram.WebApp) {
+                const twa = window.Telegram.WebApp;
+                twa.ready();
+                twa.expand();
+                if (typeof twa.disableVerticalSwipes === 'function') {
+                    twa.disableVerticalSwipes();
+                }
+                if (typeof twa.setHeaderColor === 'function') {
+                    twa.setHeaderColor('#1a1a2e');
+                }
+            }
+
             const urlParams = new URLSearchParams(window.location.search);
             const urlLang = urlParams.get('lang');
             const urlCountry = urlParams.get('country');
@@ -5367,6 +5456,14 @@
             window.currentSubcategory = null;
             document.querySelectorAll('.content').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+
+            // Автопрокрутка к панели категорий (после баннера)
+            const tabsEl = document.querySelector('.tabs');
+            if (tabsEl) {
+                const top = tabsEl.getBoundingClientRect().top + window.pageYOffset - 4;
+                window.scrollTo({ top: top, behavior: 'smooth' });
+            }
+
             let contentEl = document.getElementById(tabName);
             if (contentEl) contentEl.classList.add('active');
             let tabBtn = document.querySelector(`[data-tab="${tabName}"]`);
@@ -5409,12 +5506,14 @@
 
         function renderListingCard(item, category) {
             try {
-            let channelName = (item.source_channel || item.contact || '').replace('@', '');
-            let tgLink = item.telegram_link || (item.message_id && channelName ? `https://t.me/${channelName}/${item.message_id}` : null);
+            let channelName = (item.source_channel || item.channel || item.contact || '').replace('@', '');
+            let tgLink = item.telegram_link || item.tg_link || item.telegram_url || (item.message_id && channelName ? `https://t.me/${channelName}/${item.message_id}` : null);
             
             let _p = Array.isArray(item.photos) ? item.photos : [];
             let _a = Array.isArray(item.all_images) ? item.all_images : [];
-            let images = [...new Set([..._p, ..._a])];
+            let _img = Array.isArray(item.images) ? item.images : [];
+            let _single = item.photo ? [item.photo] : (item.photo_url ? [item.photo_url] : []);
+            let images = [...new Set([..._p, ..._a, ..._img, ..._single])];
             if (category === 'real_estate') {
                 images = images.filter(url => url && typeof url === 'string' &&
                     (/^https:\/\/t\.me\/(vietnamparsing|thailandparsing)\/\d+$/.test(url) || url.includes('telesco.pe') || url.startsWith('/tg_img/')));
@@ -5452,15 +5551,8 @@
             }
             
             let badgesHtml = '';
-            if (category === 'visas') {
-                badgesHtml = `<div style="position:absolute;top:8px;left:8px;display:flex;gap:8px;z-index:10;flex-wrap:wrap;">
-                    ${item.destination ? `<span style="color:#fff;font-size:16px;font-weight:400;text-shadow:0 1px 3px rgba(0,0,0,0.8);background:rgba(0,0,0,0.5);padding:2px 8px;border-radius:4px;">🗺 ${item.destination}</span>` : ''}
-                    ${item.price ? `<span style="color:#fff;font-size:16px;font-weight:400;text-shadow:0 1px 3px rgba(0,0,0,0.8);background:rgba(0,0,0,0.5);padding:2px 8px;border-radius:4px;">💰 ${item.price}</span>` : ''}
-                    ${item.citizenship ? `<span style="color:#fff;font-size:16px;font-weight:400;text-shadow:0 1px 3px rgba(0,0,0,0.8);background:rgba(0,0,0,0.5);padding:2px 8px;border-radius:4px;">🪪 ${item.citizenship}</span>` : ''}
-                    ${item.city ? `<span style="color:#fff;font-size:16px;font-weight:400;text-shadow:0 1px 3px rgba(0,0,0,0.8);background:rgba(0,0,0,0.5);padding:2px 8px;border-radius:4px;">📍 ${item.city}</span>` : ''}
-                </div>`;
-            } else if (category === 'medicine') {
-                badgesHtml = `<div style="position:absolute;top:8px;left:8px;display:flex;gap:8px;z-index:10;flex-wrap:wrap;">
+            if (category === 'medicine') {
+                badgesHtml = `<div style="position:absolute;top:8px;left:8px;display:none;gap:8px;z-index:10;flex-wrap:wrap;">
                     ${item.city ? `<span style="color:#fff;font-size:16px;font-weight:400;text-shadow:0 1px 3px rgba(0,0,0,0.8);background:rgba(0,0,0,0.5);padding:2px 8px;border-radius:4px;">📍 ${item.city}</span>` : ''}
                 </div>`;
             }
@@ -5475,24 +5567,27 @@
             }
             
             let sliderHtml = '';
+            let imgFit = 'cover';
+            let imgH = (category === 'visas' || category === 'tours') ? '220px' : '180px';
+            let imgBg = '#1a1a2e';
             if (images.length > 1) {
-                sliderHtml = `<div class="card-slider" style="position:relative;height:180px;overflow:hidden;border-radius:12px 12px 0 0;">
+                sliderHtml = `<div class="card-slider" style="position:relative;height:${imgH};overflow:hidden;border-radius:12px 12px 0 0;background:${imgBg};">
                     ${badgesHtml}
                     ${adminBtnsHtml}
                     <div class="slides" style="display:flex;transition:transform 0.3s;height:100%;">
-                        ${images.map((img, i) => `<img ${i === 0 ? `src="${img}"` : `src="" data-lazy="${img}"`} data-src="${img}" style="min-width:100%;height:180px;object-fit:cover;background:#1a1a2e;" loading="${i === 0 ? 'eager' : 'lazy'}" onerror="this.onerror=null;this.style.display='none'">`).join('')}
+                        ${images.map((img, i) => `<img ${i === 0 ? `src="${img}"` : `src="" data-lazy="${img}"`} data-src="${img}" style="min-width:100%;height:${imgH};object-fit:${imgFit};background:${imgBg};" loading="${i === 0 ? 'eager' : 'lazy'}" onerror="this.onerror=null;this.style.display='none'">`).join('')}
                     </div>
                     <button class="slide-btn prev" onclick="event.stopPropagation();slideCard(this,-1)" style="position:absolute;left:5px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.5);color:white;border:none;width:28px;height:28px;border-radius:50%;cursor:pointer;">‹</button>
                     <button class="slide-btn next" onclick="event.stopPropagation();slideCard(this,1)" style="position:absolute;right:5px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.5);color:white;border:none;width:28px;height:28px;border-radius:50%;cursor:pointer;">›</button>
                 </div>`;
             } else if (images.length === 1) {
-                sliderHtml = `<div style="position:relative;height:180px;overflow:hidden;border-radius:12px 12px 0 0;">
+                sliderHtml = `<div style="position:relative;height:${imgH};overflow:hidden;border-radius:12px 12px 0 0;background:${imgBg};">
                     ${badgesHtml}
                     ${adminBtnsHtml}
-                    <img src="" data-lazy="${images[0]}" style="width:100%;height:180px;object-fit:cover;background:#1a1a2e;" loading="lazy" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=\\'height:180px;background:linear-gradient(135deg,#00BCD4 0%,#0097A7 100%);display:flex;align-items:center;justify-content:center;\\'><span style=\\'font-size:48px;opacity:0.3;\\'>🏖️</span></div>'">
+                    <img src="${images[0]}" data-src="${images[0]}" style="width:100%;height:${imgH};object-fit:${imgFit};background:${imgBg};" loading="eager" onerror="this.onerror=null;this.parentElement.innerHTML='<div style=\\'height:${imgH};background:linear-gradient(135deg,#2196F3 0%,#1976D2 100%);display:flex;align-items:center;justify-content:center;\\'><span style=\\'font-size:48px;opacity:0.3;\\'>🏖️</span></div>'">
                 </div>`;
             } else {
-                sliderHtml = `<div style="position:relative;height:120px;background:linear-gradient(135deg,#00BCD4 0%,#0097A7 100%);border-radius:12px 12px 0 0;display:flex;align-items:center;justify-content:center;">
+                sliderHtml = `<div style="position:relative;height:120px;background:linear-gradient(135deg,#2196F3 0%,#1976D2 100%);border-radius:12px 12px 0 0;display:flex;align-items:center;justify-content:center;">
                     ${badgesHtml}
                     ${adminBtnsHtml}
                     <span style="font-size:48px;opacity:0.3;">🏖️</span>
@@ -5500,28 +5595,29 @@
             }
             
             let title = item.title || item.name || 'Объявление';
-            let desc = item.description || item.text || '';
+            let desc = (item.description || item.text || '').substring(0, 1000);
             let dateStr = item.date ? new Date(item.date).toLocaleDateString('ru-RU') : (item.created_at ? new Date(item.created_at).toLocaleDateString('ru-RU') : '');
             
             let contactsHtml = '';
-            if (category === 'visas') {
+            if (category === 'visas' || category === 'tours') {
                 let tgUsername = item.telegram || channelName || '';
-                let tgContactLink = tgUsername ? `https://t.me/${tgUsername.replace('@','').replace('https://t.me/','')}` : tgLink;
+                let tgContactLink = tgUsername ? `https://t.me/${tgUsername.replace('@','').replace('https://t.me/','')}` : '';
+                let tgGroupLink = tgLink || '';
                 contactsHtml = `
                     <div style="margin-top:auto;padding-top:12px;border-top:1px solid #eee;">
                         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
-                            <div style="background:#f5f5f5;padding:8px;border-radius:6px;text-align:center;">
+                            <div style="padding:8px;text-align:center;">
                                 <div style="font-size:11px;color:#888;">📅 ${(translations[currentLang]||translations['ru']).common.date}</div>
                                 <div style="font-size:13px;font-weight:600;color:#333;">${dateStr || '-'}</div>
                             </div>
-                            <div style="background:#fff3e0;padding:8px;border-radius:6px;text-align:center;">
+                            <div style="padding:8px;text-align:center;">
                                 <div style="font-size:11px;color:#888;">👤 ${(translations[currentLang]||translations['ru']).common.contact}</div>
-                                <div style="font-size:12px;font-weight:600;color:#e65100;">${item.contact_name || item.contact || channelName || '-'}</div>
+                                <div style="font-size:12px;font-weight:600;color:#333;">${item.contact_name || item.contact || channelName || '-'}</div>
                             </div>
                         </div>
                         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-                            <a href="${item.whatsapp ? 'https://wa.me/' + item.whatsapp.replace(/[^0-9]/g,'') : '#'}" target="_blank" onclick="event.stopPropagation()" style="background:#ccc;color:white;padding:10px;border-radius:6px;text-align:center;text-decoration:none;font-weight:600;font-size:13px;">💬 WhatsApp</a>
-                            <a href="${tgContactLink || '#'}" target="_blank" onclick="event.stopPropagation()" style="background:#ccc;color:white;padding:10px;border-radius:6px;text-align:center;text-decoration:none;font-weight:600;font-size:13px;">✈️ Telegram</a>
+                            <a href="${tgGroupLink || '#'}" target="_blank" onclick="event.stopPropagation()" style="background:transparent;color:${tgGroupLink ? '#0088cc' : '#aaa'};padding:10px;border-radius:6px;text-align:center;text-decoration:none;font-weight:700;font-size:14px;border:1px solid ${tgGroupLink ? '#0088cc' : '#ddd'};">✈️ Group TG</a>
+                            <a href="${tgContactLink || tgGroupLink || '#'}" target="_blank" onclick="event.stopPropagation()" style="background:transparent;color:${(tgContactLink || tgGroupLink) ? '#0088cc' : '#aaa'};padding:10px;border-radius:6px;text-align:center;text-decoration:none;font-weight:700;font-size:14px;border:1px solid ${(tgContactLink || tgGroupLink) ? '#0088cc' : '#ddd'};">✈️ Telegram</a>
                         </div>
                     </div>`;
             } else if (category === 'medicine') {
@@ -5574,7 +5670,7 @@
                 ${sliderHtml}
                 <div style="padding:14px;flex:1;display:flex;flex-direction:column;">
                     <h3 style="margin:0 0 10px 0;font-size:16px;font-weight:700;color:#333;line-height:1.3;">${titleHtml}</h3>
-                    <p style="margin:0;font-size:13px;color:#555;line-height:1.5;white-space:pre-wrap;overflow-y:auto;max-height:10em;scrollbar-width:thin;">${desc}</p>
+                    <p style="margin:0;font-size:13px;color:#555;line-height:1.5;white-space:pre-wrap;overflow-y:auto;max-height:10em;scrollbar-width:thin;-webkit-overflow-scrolling:touch;touch-action:pan-y;overscroll-behavior:contain;">${desc}</p>
                     ${contactsHtml}
                 </div>
             </div>`;
@@ -8009,7 +8105,7 @@
                         if (images.length > 0) {
                             sliderHtml = `
                             <div class="card-slider" id="slider-${item.id}" style="position:relative; height: 250px;">
-                                <div style="position:absolute;top:8px;left:8px;display:flex;flex-direction:column;gap:4px;z-index:10;">
+                                <div style="position:absolute;top:8px;left:8px;display:none;flex-direction:column;gap:4px;z-index:10;">
                                     ${category === 'restaurants' 
                                             ? `<div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;">
                                                 <span style="font-size:16px;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,0.7);">${restTypeBadge}</span>
@@ -8152,7 +8248,7 @@
                                 : `<span style="color:#999;font-style:italic;">Описание недоступно.</span>`;
                         } else {
                             const _reordered = [..._mainLines, ..._metaLines].join('\n').trim();
-                            descText = escapeHtml(_reordered.substring(0, 600));
+                            descText = escapeHtml(_reordered.substring(0, 1000));
                         }
                         descText = descText
                             .replace(/(ОБЪЕКТ:|Объект:)/g, tgLink ? `<a href="${tgLink}" target="_blank" style="color:inherit; font-weight:bold; text-decoration:underline;">$1</a>` : '<b>$1</b>')
@@ -10202,10 +10298,10 @@
                 const d = await r.json();
                 if (d.ok) {
                     st.style.background = '#e8f5e9'; st.style.color = '#2e7d32';
-                    st.textContent = '✅ Заявка отправлена! Мы свяжемся с вами в Telegram.';
+                    st.textContent = '✅ Ваша заявка принята. Менеджер свяжется с вами в течении 15 минут.';
                     st.style.display = 'block';
                     document.getElementById('delivery-form').reset();
-                    setTimeout(closeDeliveryModal, 2500);
+                    setTimeout(closeDeliveryModal, 3500);
                 } else {
                     st.style.background = '#fce4ec'; st.style.color = '#c62828';
                     st.textContent = '❌ ' + (d.error || 'Ошибка отправки');
@@ -11613,6 +11709,130 @@
         // Также делаем глобальную функцию для ручного вызова после рендера карточек
         window.lazyLoadImages = observeAll;
     })();
+
+    // ===== Модал бронирования экскурсии =====
+    function openTourModal() {
+        var m = document.getElementById('tour-modal');
+        if (!m) return;
+        m.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        var st = document.getElementById('tour-form-status');
+        if (st) st.style.display = 'none';
+    }
+    function closeTourModal() {
+        var m = document.getElementById('tour-modal');
+        if (m) m.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+    function submitTourForm() {
+        var tg = (document.getElementById('tr-tg') || {}).value || '';
+        var name = (document.getElementById('tr-name') || {}).value || '';
+        var people = (document.getElementById('tr-people') || {}).value || '';
+        var date = (document.getElementById('tr-date') || {}).value || '';
+        var point = (document.getElementById('tr-point') || {}).value || '';
+        var extra = (document.getElementById('tr-extra') || {}).value || '';
+        var status = document.getElementById('tour-form-status');
+
+        function showTourStatus(msg, color, bg) {
+            status.textContent = msg;
+            status.style.color = color;
+            status.style.background = bg;
+            status.style.display = 'block';
+        }
+
+        var city = (document.getElementById('tr-city') || {}).value || '';
+        if (!tg || !name || !city || !people || !date || !point) {
+            showTourStatus('❗ Заполните все обязательные поля', '#b71c1c', '#ffebee');
+            return;
+        }
+        var btn = document.getElementById('tour-submit-btn');
+        if (btn) btn.disabled = true;
+
+        fetch('/api/book-tour', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ telegram: tg, tour_name: name, city: city, people: people, date: date, departure_point: point, extra: extra })
+        }).then(function(r) { return r.json(); }).then(function(d) {
+            if (d.ok) {
+                showTourStatus('✅ Ваша заявка принята. Менеджер свяжется с вами в течении 15 минут.', '#1b5e20', '#e8f5e9');
+                ['tr-tg','tr-name','tr-date','tr-point','tr-extra'].forEach(function(id) {
+                    var el = document.getElementById(id); if (el) el.value = '';
+                });
+                ['tr-people','tr-city'].forEach(function(id) {
+                    var el = document.getElementById(id); if (el) el.selectedIndex = 0;
+                });
+                setTimeout(closeTourModal, 2200);
+            } else {
+                showTourStatus('❗ ' + (d.error || 'Ошибка отправки'), '#b71c1c', '#ffebee');
+            }
+            if (btn) btn.disabled = false;
+        }).catch(function() {
+            showTourStatus('⚠️ Ошибка сети. Попробуйте ещё раз.', '#e65100', '#fff3e0');
+            if (btn) btn.disabled = false;
+        });
+    }
+
+    // ===== Модал бронирования визарана =====
+    function openVisarunModal() {
+        var m = document.getElementById('visarun-modal');
+        if (!m) return;
+        m.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        var st = document.getElementById('visarun-form-status');
+        if (st) st.style.display = 'none';
+    }
+    function closeVisarunModal() {
+        var m = document.getElementById('visarun-modal');
+        if (m) m.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+    function submitVisarunForm() {
+        var tg = (document.getElementById('vr-tg') || {}).value || '';
+        var direction = (document.getElementById('vr-direction') || {}).value || '';
+        var days = (document.getElementById('vr-days') || {}).value || '';
+        var nationality = (document.getElementById('vr-nationality') || {}).value || '';
+        var date = (document.getElementById('vr-date') || {}).value || '';
+        var point = (document.getElementById('vr-point') || {}).value || '';
+        var extra = (document.getElementById('vr-extra') || {}).value || '';
+        var status = document.getElementById('visarun-form-status');
+
+        function showStatus(msg, color, bg) {
+            status.textContent = msg;
+            status.style.color = color;
+            status.style.background = bg;
+            status.style.display = 'block';
+        }
+
+        if (!tg || !direction || !days || !nationality || !date || !point) {
+            showStatus('❗ Заполните все обязательные поля', '#b71c1c', '#ffebee');
+            return;
+        }
+        var btn = document.getElementById('visarun-submit-btn');
+        if (btn) btn.disabled = true;
+
+        fetch('/api/book-visarun', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ telegram: tg, direction: direction, days: days, nationality: nationality, departure_date: date, departure_point: point, extra: extra })
+        }).then(function(r) { return r.json(); }).then(function(d) {
+            if (d.ok) {
+                showStatus('✅ Ваша заявка принята. Менеджер свяжется с вами в течении 15 минут.', '#1b5e20', '#e8f5e9');
+                ['vr-tg','vr-date','vr-extra'].forEach(function(id) {
+                    var el = document.getElementById(id); if (el) el.value = '';
+                });
+                ['vr-direction','vr-days','vr-point','vr-nationality'].forEach(function(id) {
+                    var el = document.getElementById(id); if (el) el.selectedIndex = 0;
+                });
+                setTimeout(closeVisarunModal, 2200);
+            } else {
+                showStatus('❗ ' + (d.error || 'Ошибка отправки'), '#b71c1c', '#ffebee');
+            }
+            if (btn) btn.disabled = false;
+        }).catch(function() {
+            showStatus('⚠️ Ошибка сети. Попробуйте ещё раз.', '#e65100', '#fff3e0');
+            if (btn) btn.disabled = false;
+        });
+    }
     </script>
 </body>
 </html>
