@@ -77,10 +77,14 @@ def scrape_channel_page(channel: str, before: int = None) -> dict:
         date_m = re.search(r'datetime="([^"]+)"', block)
         date_str = date_m.group(1) if date_m else ''
 
-        # CDN-ссылки на фото
-        cdn_urls = re.findall(r'https://cdn\d*\.telesco\.pe/file/[^"\'>\s]+', block)
-        # Также ищем background-image стиль
-        bg_urls = re.findall(r"background-image:url\('(https://cdn\d*\.telesco\.pe/file/[^']+)'\)", block)
+        # CDN-ссылки на фото (только из реальных постов, не из сервисных сообщений)
+        # Удаляем секции сервисных сообщений (фото группы/аватар канала) перед поиском URL
+        block_no_service = re.sub(r'<div class="tgme_widget_message_service[^"]*".*?</div>', '', block, flags=re.DOTALL)
+        # background-image только из блоков фото поста (не из шапки канала/service)
+        block_no_header = re.sub(r'<div class="tgme_channel_info[^"]*".*?</div>', '', block_no_service, flags=re.DOTALL)
+        cdn_urls = re.findall(r'https://cdn\d*\.telesco\.pe/file/[^"\'>\s]+', block_no_header)
+        # background-image — только из tgme_widget_message_photo (обычные фото поста)
+        bg_urls = re.findall(r'tgme_widget_message_photo[^>]*>.*?background-image:url\(\'(https://cdn\d*\.telesco\.pe/file/[^\']+)\'\)', block_no_header, re.DOTALL)
         all_photos = list(dict.fromkeys(cdn_urls + bg_urls))  # уникальные, порядок сохранён
 
         posts[msg_id] = {
@@ -194,8 +198,12 @@ def make_listing(channel: str, msg_id: int, post: dict, category: str, country: 
     photos = post.get('photos', [])
     date = post.get('date', '')
 
-    # Первые 120 символов как заголовок
-    title = text[:120].replace('\n', ' ').strip() if text else f'Пост {msg_id}'
+    # Заголовок: для туров — первая строка; для остальных — первые 120 символов
+    if category == 'tours':
+        lines = [l.strip() for l in text.split('\n') if l.strip()]
+        title = lines[0][:120] if lines else f'Пост {msg_id}'
+    else:
+        title = text[:120].replace('\n', ' ').strip() if text else f'Пост {msg_id}'
 
     # Индекс фото канала (логотипы) — исключаем из листингов
     # Первый пост (msg_id==1) — всегда "Channel created", его фото = логотип
