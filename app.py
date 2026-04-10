@@ -8213,9 +8213,9 @@ h2{color:#58a6ff;margin-bottom:16px}
 <h2>🔑 Новая Telegram сессия</h2>
 <div id="step1">
   <p class="note">Шаг 1: Укажите данные приложения и номер телефона</p>
-  <label>API ID</label><input id="api_id" placeholder="36461704">
-  <label>API Hash</label><input id="api_hash" placeholder="57fd0ec8dc0e2786420c4e78a8d1c5d4">
-  <label>Номер телефона</label><input id="phone" placeholder="+84777373211">
+  <label>API ID</label><input id="api_id" value="38294687">
+  <label>API Hash</label><input id="api_hash" value="4cc4e56b6e0fabe46b643bb14696793f">
+  <label>Номер телефона</label><input id="phone" value="+84777373211">
   <button onclick="sendCode()">📲 Получить код</button>
 </div>
 <div id="step2" style="display:none">
