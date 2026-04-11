@@ -8824,7 +8824,7 @@
                                 : `<span style="color:#999;font-style:italic;">Описание недоступно.</span>`;
                         } else {
                             const _reordered = [..._mainLines, ..._metaLines].join('\n').trim();
-                            const _maxLen = (category === 'tours') ? 2000 : 1000;
+                            const _maxLen = 2000;
                             descText = escapeHtml(_reordered.substring(0, _maxLen));
                         }
                         descText = descText
