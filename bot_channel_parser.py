@@ -70,8 +70,17 @@ def scrape_channel_page(channel: str, before: int = None) -> dict:
         text_m = re.search(r'<div class="tgme_widget_message_text[^"]*"[^>]*>(.*?)</div>', block, re.DOTALL)
         text = ''
         if text_m:
-            text = re.sub(r'<[^>]+>', ' ', text_m.group(1)).strip()
-            text = re.sub(r'\s+', ' ', text).strip()
+            raw_html = text_m.group(1)
+            # Сначала превращаем <br> в перенос строки, чтобы не потерять форматирование
+            raw_html = re.sub(r'<br\s*/?>', '\n', raw_html, flags=re.IGNORECASE)
+            # Убираем остальные HTML-теги
+            text = re.sub(r'<[^>]+>', '', raw_html)
+            # Схлопываем пробелы/табы, но НЕ переносы строк
+            text = re.sub(r'[ \t]+', ' ', text)
+            # Убираем пробелы в начале/конце каждой строки
+            text = '\n'.join(l.strip() for l in text.split('\n'))
+            # Убираем тройные+ переносы → двойные
+            text = re.sub(r'\n{3,}', '\n\n', text).strip()
 
         # Дата
         date_m = re.search(r'datetime="([^"]+)"', block)
