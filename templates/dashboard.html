@@ -1388,12 +1388,10 @@
             color: #b8860b;
             background: #fdf3d0;
             border-radius: 10px;
-            padding: 1px 7px;
-            margin-left: 6px;
+            padding: 2px 9px;
+            margin-left: auto;
             font-weight: 600;
             white-space: nowrap;
-            min-width: 24px;
-            text-align: center;
         }
         html.dark .drop-city-count { background: #2a2510; color: #f0c040; }
         /* Кнопки дат в Развлечениях */
@@ -7881,7 +7879,7 @@
                     var apiKey = _cityValueToApiKey[cityVal] || cityVal;
                     var num = counts[apiKey];
                     if (num !== undefined && num !== null && num > 0) {
-                        badge.textContent = num;
+                        badge.textContent = 'Предложений ' + num;
                     } else {
                         badge.textContent = '';
                     }
