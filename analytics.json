@@ -22,17 +22,17 @@
         "user_0q6j0vh74_1775835733422",
         "user_9c5uob0rl_1775844062212"
       ],
-      "page_views": 1425,
+      "page_views": 2140,
       "countries": {
-        "vietnam": 1425
+        "vietnam": 2140
       },
       "categories": {
-        "real_estate": 759,
+        "real_estate": 1467,
         "entertainment": 14,
         "chat": 7,
         "transport": 39,
-        "restaurants": 18,
-        "realestate": 186,
+        "restaurants": 23,
+        "realestate": 188,
         "exchange": 50,
         "tours": 342,
         "visas": 10
@@ -48,12 +48,48 @@
         "15": 170,
         "16": 137,
         "17": 87,
-        "18": 26
+        "18": 141,
+        "19": 120,
+        "20": 120,
+        "21": 120,
+        "22": 120,
+        "23": 120
       },
       "referrers": {},
       "devices": {
-        "mobile": 257,
-        "desktop": 1168
+        "mobile": 265,
+        "desktop": 1875
+      }
+    },
+    "2026-04-11": {
+      "unique_visitors": [
+        "user_x63gvmc53_1775710144737",
+        "user_o4tqx61tg_1775819328525",
+        "user_icjsu1ao5_1775887772629"
+      ],
+      "page_views": 720,
+      "countries": {
+        "vietnam": 720
+      },
+      "categories": {
+        "real_estate": 704,
+        "realestate": 6,
+        "tours": 9,
+        "entertainment": 1
+      },
+      "hours": {
+        "00": 120,
+        "01": 120,
+        "02": 121,
+        "03": 120,
+        "04": 120,
+        "05": 83,
+        "06": 36
+      },
+      "referrers": {},
+      "devices": {
+        "mobile": 1,
+        "desktop": 719
       }
     }
   },
@@ -65,8 +101,8 @@
     },
     "user_x63gvmc53_1775710144737": {
       "first_seen": "2026-04-10",
-      "visits": 1052,
-      "last_seen": "2026-04-10"
+      "visits": 2477,
+      "last_seen": "2026-04-11"
     },
     "user_osclo1zc7_1775805686572": {
       "first_seen": "2026-04-10",
@@ -95,8 +131,8 @@
     },
     "user_o4tqx61tg_1775819328525": {
       "first_seen": "2026-04-10",
-      "visits": 246,
-      "last_seen": "2026-04-10"
+      "visits": 255,
+      "last_seen": "2026-04-11"
     },
     "user_1vncvxszb_1775819818329": {
       "first_seen": "2026-04-10",
@@ -152,6 +188,11 @@
       "first_seen": "2026-04-10",
       "visits": 3,
       "last_seen": "2026-04-10"
+    },
+    "user_icjsu1ao5_1775887772629": {
+      "first_seen": "2026-04-11",
+      "visits": 1,
+      "last_seen": "2026-04-11"
     }
   }
 }
