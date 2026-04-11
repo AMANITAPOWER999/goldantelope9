@@ -8693,7 +8693,6 @@
                                             : (category === 'tours' 
                                                 ? `<div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;">
                                                     ${item.days ? `<span style="font-size:16px;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,0.7);">📅 ${item.days} ${item.days == 1 ? 'день' : (item.days < 5 ? 'дня' : 'дней')}</span>` : ''}
-                                                    ${item.price ? `<span style="font-size:16px;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,0.7);">💰 $${item.price}</span>` : ''}
                                                     ${item.city ? `<span style="font-size:16px;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,0.7);">🏙️ ${getCityRu(item.city)}</span>` : ''}
                                                 </div>`
                                                 : (category === 'transport' || category === 'bike_rentals'
@@ -8893,9 +8892,7 @@
                                             <span style="font-size: 18px; font-weight: bold;">💰 ${Math.round(Number(item.price)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} VND</span>
                                         </div>` : '')
                                         : (category === 'tours' 
-                                            ? (item.price ? `<div style="background: transparent; border: 2px solid #d4af37; color: #d4af37; padding: 10px 12px; border-radius: 8px; margin-bottom: 10px; text-align: center;">
-                                                <span style="font-size: 18px; font-weight: bold;">💰 $${item.price}</span>
-                                            </div>` : '')
+                                            ? ''
                                             : (category === 'real_estate' || category === 'realestate'
                                                 ? (() => {
                                                     let realEstatePrice = item.price || extractPriceFromText(item.description || item.text);
