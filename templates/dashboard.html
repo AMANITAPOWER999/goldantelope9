@@ -1382,6 +1382,20 @@
         html.dark .tcs-drop-item { color: #eee; }
         html.dark .tcs-drop-item:hover { background: #2a2510; }
         html.dark .tcs-drop-item.selected { background: #2a2510; color: #f0c040; }
+        .drop-item-label { flex: 1; }
+        .drop-city-count {
+            font-size: 11px;
+            color: #b8860b;
+            background: #fdf3d0;
+            border-radius: 10px;
+            padding: 1px 7px;
+            margin-left: 6px;
+            font-weight: 600;
+            white-space: nowrap;
+            min-width: 24px;
+            text-align: center;
+        }
+        html.dark .drop-city-count { background: #2a2510; color: #f0c040; }
         /* Extra-filters toggle button */
         .extra-filters-btn {
             display: inline-flex;
@@ -2353,10 +2367,10 @@
                         <div class="tcs-sw-arrow" id="revn-sw-arrow">▾</div>
                     </div>
                     <div class="tcs-drop" id="revn-drop">
-                        <div class="tcs-drop-item" onclick="selectCityFromDrop('revn',0)"><img src="/static/images/realestate_nhatrang.jpg" alt="">Нячанг</div>
-                        <div class="tcs-drop-item" onclick="selectCityFromDrop('revn',1)"><img src="/static/images/realestate_danang.jpg" alt="">Дананг</div>
-                        <div class="tcs-drop-item" onclick="selectCityFromDrop('revn',2)"><img src="/static/images/realestate_hochiminh.jpg" alt="">Хошимин</div>
-                        <div class="tcs-drop-item" onclick="selectCityFromDrop('revn',3)"><img src="/static/images/realestate_phuquoc.jpg" alt="">Фукуок</div>
+                        <div class="tcs-drop-item" data-city-value="nhatrang" onclick="selectCityFromDrop('revn',0)"><img src="/static/images/realestate_nhatrang.jpg" alt=""><span class="drop-item-label">Нячанг</span><span class="drop-city-count"></span></div>
+                        <div class="tcs-drop-item" data-city-value="danang" onclick="selectCityFromDrop('revn',1)"><img src="/static/images/realestate_danang.jpg" alt=""><span class="drop-item-label">Дананг</span><span class="drop-city-count"></span></div>
+                        <div class="tcs-drop-item" data-city-value="hochiminh" onclick="selectCityFromDrop('revn',2)"><img src="/static/images/realestate_hochiminh.jpg" alt=""><span class="drop-item-label">Хошимин</span><span class="drop-city-count"></span></div>
+                        <div class="tcs-drop-item" data-city-value="phuquoc" onclick="selectCityFromDrop('revn',3)"><img src="/static/images/realestate_phuquoc.jpg" alt=""><span class="drop-item-label">Фукуок</span><span class="drop-city-count"></span></div>
                     </div>
                 </div>
             </div>
@@ -7773,6 +7787,8 @@
                 drop.classList.add('open');
                 if (arrow) arrow.classList.add('open');
                 if (sw)    sw.classList.add('open');
+                // Загружаем счётчики для недвижимости
+                if (key === 'revn') loadDropCityCounts('revn', 'real_estate');
                 setTimeout(function() {
                     document.addEventListener('click', function() {
                         drop.classList.remove('open');
@@ -7781,6 +7797,33 @@
                     }, { once: true });
                 }, 10);
             }
+        }
+
+        var _cityValueToApiKey = {
+            'nhatrang': 'Нячанг', 'danang': 'Дананг', 'hochiminh': 'Хошимин',
+            'phuquoc': 'Фукуок', 'dalat': 'Далат', 'hanoi': 'Ханой',
+            'muine': 'Муйне', 'hoi an': 'Хойан', 'hoi_an': 'Хойан'
+        };
+
+        async function loadDropCityCounts(dropKey, category) {
+            try {
+                var drop = document.getElementById(dropKey + '-drop');
+                if (!drop) return;
+                var r = await fetch('/api/city-counts/' + category + '?country=' + currentCountry);
+                var counts = await r.json();
+                drop.querySelectorAll('.tcs-drop-item[data-city-value]').forEach(function(el) {
+                    var cityVal = el.dataset.cityValue;
+                    var badge = el.querySelector('.drop-city-count');
+                    if (!badge) return;
+                    var apiKey = _cityValueToApiKey[cityVal] || cityVal;
+                    var num = counts[apiKey];
+                    if (num !== undefined && num !== null && num > 0) {
+                        badge.textContent = num;
+                    } else {
+                        badge.textContent = '';
+                    }
+                });
+            } catch(e) {}
         }
 
         function selectCityFromDrop(key, idx) {
@@ -8716,7 +8759,8 @@
                                 : `<span style="color:#999;font-style:italic;">Описание недоступно.</span>`;
                         } else {
                             const _reordered = [..._mainLines, ..._metaLines].join('\n').trim();
-                            descText = escapeHtml(_reordered.substring(0, 1000));
+                            const _maxLen = (category === 'tours') ? 2000 : 1000;
+                            descText = escapeHtml(_reordered.substring(0, _maxLen));
                         }
                         descText = descText
                             .replace(/(ОБЪЕКТ:|Объект:)/g, tgLink ? `<a href="${tgLink}" target="_blank" style="color:inherit; font-weight:bold; text-decoration:underline;">$1</a>` : '<b>$1</b>')
