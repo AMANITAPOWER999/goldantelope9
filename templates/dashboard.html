@@ -1396,6 +1396,30 @@
             text-align: center;
         }
         html.dark .drop-city-count { background: #2a2510; color: #f0c040; }
+        /* Кнопки дат в Развлечениях */
+        #ent-date-bar::-webkit-scrollbar { display: none; }
+        .ent-date-btn {
+            flex: 0 0 auto;
+            padding: 6px 13px;
+            background: transparent;
+            border: 2px solid #d4af37;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 700;
+            color: #b8860b;
+            white-space: nowrap;
+            line-height: 1.3;
+            text-align: center;
+            transition: background .15s, color .15s;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .ent-date-btn:hover { background: #fffbf0; }
+        .ent-date-btn.active { background: #d4af37; color: #fff; border-color: #d4af37; }
+        .ent-date-btn .edb-day { display: block; font-size: 10px; font-weight: 500; opacity: .8; }
+        html.dark .ent-date-btn { border-color: #c8a020; color: #f0c040; }
+        html.dark .ent-date-btn:hover { background: #252010; }
+        html.dark .ent-date-btn.active { background: #c8a020; color: #111; border-color: #c8a020; }
         /* Extra-filters toggle button */
         .extra-filters-btn {
             display: inline-flex;
@@ -3054,6 +3078,8 @@
                         <div class="tcs-drop-item" onclick="selectCityFromDrop('envn',3)"><img src="/static/images/entertainment/phuquoc.jpg" alt="">Фукуок</div>
                     </div>
                 </div>
+                <!-- 7 кнопок дат — события на ближайшие дни -->
+                <div id="ent-date-bar" style="display:flex;gap:7px;overflow-x:auto;padding:10px 0 4px;scrollbar-width:none;-ms-overflow-style:none;"></div>
             </div>
             <!-- Другие страны - динамические кнопки городов -->
             <div id="other-entertainment-buttons" style="display: none; padding: 20px;">
@@ -5828,6 +5854,7 @@
             else if (tabName === 'transport') { if(typeof updateTransportCounts==='function') updateTransportCounts(); if(typeof loadListings==='function') loadListings('transport', currentTransportType); }
             else if (tabName === 'entertainment') { 
                 if(document.getElementById('vietnam-entertainment-buttons')) document.getElementById('vietnam-entertainment-buttons').style.display = 'block';
+                if(typeof buildEntDateBar==='function') buildEntDateBar();
                 if(typeof loadListings==='function') loadListings('entertainment'); 
             }
             else { let category = tabName === 'realestate' ? 'real_estate' : tabName; if(typeof loadListings==='function') loadListings(category); }
@@ -7348,7 +7375,43 @@
             });
             loadListings('entertainment', city);
         }
-        
+
+        let currentEntertainmentDate = '';
+
+        const _DAY_NAMES_RU = ['Воскресенье','Понедельник','Вторник','Среда','Четверг','Пятница','Суббота'];
+        const _DAY_SHORT_RU = ['Вс','Пн','Вт','Ср','Чт','Пт','Сб'];
+
+        function buildEntDateBar() {
+            var bar = document.getElementById('ent-date-bar');
+            if (!bar) return;
+            var html = '';
+            // Кнопка "Все"
+            html += '<button class="ent-date-btn' + (currentEntertainmentDate === '' ? ' active' : '') + '" onclick="filterEntertainmentByDate(\'\')">Все</button>';
+            var now = new Date();
+            for (var i = 0; i < 7; i++) {
+                var d = new Date(now);
+                d.setDate(now.getDate() + i);
+                var dd = String(d.getDate()).padStart(2,'0');
+                var mm = String(d.getMonth()+1).padStart(2,'0');
+                var dateStr = dd + '.' + mm;
+                var dayName = _DAY_SHORT_RU[d.getDay()];
+                var isActive = currentEntertainmentDate === dateStr;
+                html += '<button class="ent-date-btn' + (isActive ? ' active' : '') + '" onclick="filterEntertainmentByDate(\'' + dateStr + '\')">'
+                      + dateStr
+                      + '<span class="edb-day">' + dayName + '</span>'
+                      + '</button>';
+            }
+            bar.innerHTML = html;
+        }
+
+        function filterEntertainmentByDate(dateStr) {
+            currentEntertainmentDate = dateStr;
+            // Перерисовываем кнопки с новым активным состоянием
+            buildEntDateBar();
+            // Перезагружаем листинги с фильтром даты
+            loadListings('entertainment', currentEntertainmentCity);
+        }
+
         let currentVisasCity = '';
         
         function filterVisasByCity(city) {
@@ -8440,6 +8503,11 @@
                                         return false;
                                     }
                                 }
+                            }
+                            // Фильтр по дате для развлечений
+                            if (category === 'entertainment' && currentEntertainmentDate) {
+                                const haystack = ((item.title || '') + ' ' + (item.description || item.text || '') + ' ' + (item.date || '') + ' ' + (item.event_date || '')).toLowerCase();
+                                if (!haystack.includes(currentEntertainmentDate)) return false;
                             }
                             return true;
                         }
