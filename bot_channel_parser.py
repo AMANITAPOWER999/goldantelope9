@@ -192,7 +192,29 @@ def get_file_path(file_id: str) -> str:
 
 # ─── Построение листинга из поста ─────────────────────────────────
 
-def make_listing(channel: str, msg_id: int, post: dict, category: str, country: str) -> dict:
+def detect_logo_fingerprints(scraped: dict) -> set:
+    """Определяет fingerprints логотипа канала.
+    Логотип — фото, которое появляется в 2+ разных постах (или в msg_id==1)."""
+    from collections import Counter
+    fp_counter = Counter()
+    for mid, post in scraped.items():
+        for p in post.get('photos', []):
+            fp = p.split('/file/')[-1][:40] if '/file/' in p else p[:40]
+            fp_counter[fp] += 1
+        # Пост 1 = Channel created, все его фото — логотип
+        if mid == 1:
+            for p in post.get('photos', []):
+                fp = p.split('/file/')[-1][:40] if '/file/' in p else p[:40]
+                fp_counter[fp] += 999  # принудительно помечаем
+    # Fingerprints встречающиеся в 2+ постах = логотип
+    logos = {fp for fp, cnt in fp_counter.items() if cnt >= 2}
+    if logos:
+        logger.info(f'[logo] Обнаружены fingerprints логотипа: {logos}')
+    return logos
+
+
+def make_listing(channel: str, msg_id: int, post: dict, category: str, country: str,
+                 logo_fps: set = None) -> dict:
     """Создаёт новый объект листинга из поста канала."""
     text = post.get('text', '')
     photos = post.get('photos', [])
@@ -205,21 +227,12 @@ def make_listing(channel: str, msg_id: int, post: dict, category: str, country: 
     else:
         title = text[:120].replace('\n', ' ').strip() if text else f'Пост {msg_id}'
 
-    # Индекс фото канала (логотипы) — исключаем из листингов
-    # Первый пост (msg_id==1) — всегда "Channel created", его фото = логотип
-    # Сохраняем fingerprint логотипа чтобы отфильтровать из других постов
-    _LOGO_FINGERPRINTS = getattr(make_listing, '_logo_fps', set())
-    if msg_id == 1:
-        for p in photos:
-            # берём первые 30 символов filename как fingerprint
-            fp = p.split('/file/')[-1][:30] if '/file/' in p else p[:30]
-            _LOGO_FINGERPRINTS.add(fp)
-        make_listing._logo_fps = _LOGO_FINGERPRINTS
     # Фильтруем логотипы из фото
-    clean_photos = [p for p in photos if not any(
-        p.split('/file/')[-1][:30] == fp for fp in _LOGO_FINGERPRINTS
-    )]
-    photos = clean_photos
+    if logo_fps:
+        photos = [p for p in photos if not any(
+            (p.split('/file/')[-1][:40] if '/file/' in p else p[:40]) == fp
+            for fp in logo_fps
+        )]
 
     listing = {
         'id': f'{channel}_{msg_id}',
@@ -346,13 +359,33 @@ def run():
             data = th_data
             country = 'thailand'
 
+        # Определяем fingerprints логотипа канала (фото встречающееся в 2+ постах)
+        logo_fps = detect_logo_fingerprints(scraped)
+
         # Обновляем фото у существующих листингов этого канала
         existing = data.get(category, [])
         updated_listings, n_updated = update_listings_photos(existing, scraped, channel)
         logger.info(f'[{channel}] Обновлено фото у {n_updated} существующих записей')
 
+        # Убираем логотип из существующих записей
+        if logo_fps:
+            for item in updated_listings:
+                if item.get('source_group') != channel:
+                    continue
+                orig = item.get('photos', [])
+                clean = [p for p in orig if not any(
+                    (p.split('/file/')[-1][:40] if '/file/' in p else p[:40]) == fp
+                    for fp in logo_fps
+                )]
+                if len(clean) != len(orig):
+                    item['photos'] = clean
+                    item['all_images'] = clean
+                    item['image_url'] = clean[0] if clean else ''
+                    item['has_media'] = bool(clean)
+
         # Определяем ID существующих листингов этого канала
-        existing_ids = {item['id'] for item in existing if item.get('source_group') == channel}
+        # Используем ВСЕ id из существующих (чтобы не дублировать записи с source_group=None)
+        existing_ids = {item['id'] for item in existing}
 
         # Добавляем новые посты (которых нет в существующих)
         n_added = 0
@@ -367,7 +400,7 @@ def run():
             if not raw_title or raw_title in SKIP_TITLES:
                 logger.info(f'[{channel}] Пропуск системного поста {msg_id}: «{raw_title}»')
                 continue
-            new_item = make_listing(channel, msg_id, post, category, country)
+            new_item = make_listing(channel, msg_id, post, category, country, logo_fps=logo_fps)
             updated_listings.insert(0, new_item)
             existing_ids.add(item_id)
             n_added += 1
