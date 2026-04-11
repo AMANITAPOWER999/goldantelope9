@@ -1385,15 +1385,15 @@
         .drop-item-label { flex: 1; }
         .drop-city-count {
             font-size: 11px;
-            color: #b8860b;
-            background: #fdf3d0;
+            color: #fff;
+            background: rgba(180,140,10,0.72);
             border-radius: 10px;
             padding: 2px 9px;
             margin-left: auto;
             font-weight: 600;
             white-space: nowrap;
         }
-        html.dark .drop-city-count { background: #2a2510; color: #f0c040; }
+        html.dark .drop-city-count { background: rgba(200,160,32,0.55); color: #fff; }
         /* Кнопки дат в Развлечениях */
         #ent-date-bar::-webkit-scrollbar { display: none; }
         .ent-date-btn {
@@ -7879,7 +7879,7 @@
                     var apiKey = _cityValueToApiKey[cityVal] || cityVal;
                     var num = counts[apiKey];
                     if (num !== undefined && num !== null && num > 0) {
-                        badge.textContent = 'Предложений ' + num;
+                        badge.textContent = 'Предложений: ' + num;
                     } else {
                         badge.textContent = '';
                     }
