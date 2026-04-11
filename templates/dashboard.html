@@ -8871,8 +8871,8 @@
                                 </h3>
                                 <div style="font-size:13px; color:#444; line-height:1.6; overflow-y:auto; max-height:${(category === 'tours' || category === 'entertainment') ? '26em' : '14em'}; margin-bottom:15px; white-space:pre-wrap; scrollbar-width:thin;">${descText}</div>
                                 <div style="margin-top:auto; padding-top:12px; border-top:1px solid #eee;">
-                                    <!-- Контактное лицо и дата (скрыто для туров и развлечений) -->
-                                    ${(category === 'tours' || category === 'entertainment') ? '' : `<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px;">
+                                    <!-- Контактное лицо и дата (скрыто для туров, развлечений и ресторанов) -->
+                                    ${(category === 'tours' || category === 'entertainment' || category === 'restaurants') ? '' : `<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px;">
                                         <div style="background: #f5f5f5; padding: 8px; border-radius: 6px; text-align: center;">
                                             <div style="font-size: 11px; color: #888;">📅 ${(translations[currentLang]||translations['ru']).common.date}</div>
                                             <div style="font-size: 13px; font-weight: 600; color: #333;">${(item.date ? item.date.substring(0, 10) : '-')}</div>
@@ -8929,7 +8929,7 @@
                                     <!-- Group TG и Telegram кнопки / Кнопка бронирования для туров -->
                                     ${category === 'tours'
                                         ? `<button onclick="openTourModal(this.dataset.tour, this.dataset.city)" data-tour="${escapeHtml(item.title || item.name || '')}" data-city="${escapeHtml(item.city || '')}" style="display:block; width:100%; background:transparent; color:#d4af37; border:2px solid #d4af37; padding:13px; border-radius:10px; text-align:center; font-weight:700; font-size:16px; cursor:pointer; margin-bottom:10px; letter-spacing:0.3px;">🧳 Забронировать</button>`
-                                        : category === 'entertainment' ? (function() {
+                                        : (category === 'entertainment' || category === 'restaurants') ? (function() {
                                             // Автопоиск: location из объявления или автопоиск по названию + город + страна
                                             const _loc = (item.location || item.geolocation || '').trim();
                                             let mapsHref = '';
@@ -8951,7 +8951,8 @@
                                                 const _query = encodeURIComponent(_searchText + (_cityEn ? ' ' + _cityEn : '') + ' ' + _countryEn);
                                                 mapsHref = 'https://www.google.com/maps/search/?api=1&query=' + _query;
                                             }
-                                            return '<a href="' + mapsHref + '" target="_blank" onclick="event.stopPropagation()" style="display:block;width:100%;background:transparent;border:2px solid #d4af37;color:#d4af37;padding:11px;border-radius:8px;text-align:center;text-decoration:none;font-weight:700;font-size:14px;box-sizing:border-box;">📍Место проведения google maps</a>';
+                                            const _btnLabel = category === 'restaurants' ? '📍Локация google maps' : '📍Место проведения google maps';
+                                            return '<a href="' + mapsHref + '" target="_blank" onclick="event.stopPropagation()" style="display:block;width:100%;background:transparent;border:2px solid #d4af37;color:#d4af37;padding:11px;border-radius:8px;text-align:center;text-decoration:none;font-weight:700;font-size:14px;box-sizing:border-box;">' + _btnLabel + '</a>';
                                         })()
                                         : `<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px;">
                                         ${(function() {
@@ -8973,12 +8974,6 @@
                                         })()}
                                     </div>`
                                     }
-                                    ${category === 'restaurants' ? `
-                                    <!-- Google Maps кнопка для ресторанов -->
-                                    <a href="https://www.google.com/maps/search/${encodeURIComponent((item.title || item.name || '') + ' ' + (item.location || item.city || 'Vietnam'))}" target="_blank" style="display: block; background: transparent; border: 2px solid #4285F4; color: #4285F4; padding: 10px; border-radius: 6px; text-align: center; text-decoration: none; font-weight: 600; margin-bottom: 10px;">
-                                        📍 Открыть в Google Maps
-                                    </a>
-                                    ` : ''}
                                     <div style="display: flex; gap: 8px; flex-wrap: wrap;">
                                         ${item.external_link ? `<a href="${item.external_link}" target="_blank" style="flex: 1; min-width: 100px; display: inline-block; background: #d4af37; text-decoration: none; text-align: center; padding: 8px; border-radius: 6px; color: white; font-size: 12px; font-weight: 600;">🔗 Оригинал</a>` : ''}
                                     </div>
